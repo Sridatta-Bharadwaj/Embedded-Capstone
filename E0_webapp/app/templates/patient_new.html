@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}New patient{% endblock %}
+{% block body %}
+<div class="head"><div><h1>New patient twin</h1><p class="sub">Only the ID is required. Use a pseudonymous ID, not a real name, unless this device is secured.</p></div></div>
+<form class="card form narrow" method="post">
+  <label>Patient ID <input name="id" required maxlength="40" pattern="[A-Za-z0-9][A-Za-z0-9_.\-]{0,39}" placeholder="e.g. PT-0042" autofocus></label>
+  <label><span>Display name <span class="opt">optional</span></span><input name="name" maxlength="80"></label>
+  <label><span>Birth year <span class="opt">optional</span></span><input name="birth_year" type="number" min="1900" max="{{ year }}"></label>
+  <label><span>Notes <span class="opt">optional</span></span><textarea name="notes" rows="3" maxlength="500"></textarea></label>
+  <div class="row"><button class="btn primary">Create twin</button><a class="btn ghost" href="{{ url_for('dashboard') }}">Cancel</a></div>
+</form>
+{% endblock %}

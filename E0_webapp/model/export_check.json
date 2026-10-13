@@ -1,0 +1,24 @@
+{
+  "n_val": 275,
+  "malignant": 10,
+  "threshold": 0.10997089743614197,
+  "keras_auc": 0.9324528301886793,
+  "fp32": {
+    "size_MB": 11.34,
+    "auc": 0.9324528301886793,
+    "max_abs_prob_diff_vs_keras": 6.258487701416016e-06,
+    "decisions_changed_vs_keras": 0,
+    "tp": 9,
+    "fp": 44,
+    "gradcam_max_abs_err_normalised": 3.2842159271240234e-05
+  },
+  "dynamic": {
+    "size_MB": 3.13,
+    "auc": 0.9328301886792453,
+    "max_abs_prob_diff_vs_keras": 0.40761858224868774,
+    "decisions_changed_vs_keras": 10,
+    "tp": 10,
+    "fp": 47,
+    "gradcam_max_abs_err_normalised": 0.9999998807907104
+  }
+}

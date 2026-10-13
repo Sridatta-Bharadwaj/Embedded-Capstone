@@ -1,0 +1,28 @@
+{
+  "pooled_auc": 0.8186852281515854,
+  "fold_auc_mean": 0.8413999999999999,
+  "fold_auc_sd": 0.05573419058351885,
+  "pooled_pr_auc": 0.2785006605595672,
+  "tp": 34,
+  "malignant": 50,
+  "sensitivity": 0.68,
+  "sensitivity_ci": [
+    0.5418944286372394,
+    0.792419559060006
+  ],
+  "fp": 156,
+  "benign": 1293,
+  "specificity": 0.8793503480278422,
+  "specificity_ci": [
+    0.8604631559714838,
+    0.8959900608284707
+  ],
+  "ppv": 0.17894736842105263,
+  "original_run3": {
+    "pooled_auc": 0.823,
+    "tp": 35,
+    "malignant": 50,
+    "specificity": 0.779,
+    "fp": 286
+  }
+}

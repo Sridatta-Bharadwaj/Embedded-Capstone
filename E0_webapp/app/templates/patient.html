@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% from "_macros.html" import pill, pred_tag, trend, meter %}
+{% block title %}{{ p.id }}{% endblock %}
+{% block body %}
+<div class="crumbs"><a href="{{ url_for('dashboard') }}">Twins</a> / {{ p.id }}</div>
+<div class="head">
+  <div>
+    <h1>{{ p.id }} {% if p.name %}<span class="muted thin">· {{ p.name }}</span>{% endif %}</h1>
+    <p class="sub">{% if p.birth_year %}Born {{ p.birth_year }} (≈{{ year - p.birth_year }} y) · {% endif %}twin created {{ p.created_at[:10] }}{% if p.notes %} · {{ p.notes }}{% endif %}</p>
+  </div>
+  <a class="btn primary" href="{{ url_for('scan', patient=p.id) }}">+ Add scan</a>
+</div>
+
+<section class="twin-state card {{ st.status }}">
+  <div class="tsk"><span class="eyebrow">Current risk</span><b class="huge">{{ st.risk|pct }}</b>{% if st.risk is not none %}{{ meter(st.risk) }}{% endif %}</div>
+  <div class="tsk"><span class="eyebrow">Status</span>{{ pill(st.status) }}{% if st.reason %}<span class="small">{{ st.reason }}</span>{% endif %}</div>
+  <div class="tsk"><span class="eyebrow">Trend</span>{{ trend(st.trend) }}{% if st.previous_risk is not none %}<span class="small muted">from {{ st.previous_risk|pct }}</span>{% endif %}</div>
+  <div class="tsk"><span class="eyebrow">Scans</span><b class="huge">{{ visits|length }}</b>{% if visits %}<span class="small muted">{{ visits[0].scan_date }} → {{ visits[-1].scan_date }}</span>{% endif %}</div>
+</section>
+
+{% if chart %}
+<section class="card">
+  <h2>Risk over time</h2>
+  <svg class="chart" viewBox="0 0 {{ chart.w }} {{ chart.h }}" role="img" aria-label="Malignancy score per scan and smoothed twin risk">
+    {% for t in chart.ticks %}
+      <line class="grid" x1="{{ chart.pad_l }}" x2="{{ chart.w - chart.pad_r }}" y1="{{ t.y }}" y2="{{ t.y }}"/>
+      <text class="axis" x="{{ chart.pad_l - 8 }}" y="{{ t.y + 4 }}" text-anchor="end">{{ (t.v * 100)|int }}%</text>
+    {% endfor %}
+    <line class="boundary" x1="{{ chart.pad_l }}" x2="{{ chart.w - chart.pad_r }}" y1="{{ chart.y_boundary }}" y2="{{ chart.y_boundary }}"/>
+    <text class="axis bnd" x="{{ chart.pad_l + 6 }}" y="{{ chart.y_boundary - 6 }}">decision boundary</text>
+    <path class="risk" d="{{ chart.risk_path }}"/>
+    {% for pt in chart.points %}
+      <a href="{{ url_for('visit', vid=pt.v.id) }}">
+        <circle class="score {{ pt.v.prediction }}" cx="{{ pt.x }}" cy="{{ pt.ys }}" r="6"><title>{{ pt.v.scan_date }}: {{ pt.v.prediction }}, score {{ pt.v.score|pct }}, twin risk {{ pt.v.risk_after|pct }}</title></circle>
+      </a>
+      <circle class="riskdot" cx="{{ pt.x }}" cy="{{ pt.yr }}" r="3"/>
+      {% if pt.label %}
+      <text class="axis" x="{{ pt.x }}" y="{{ chart.h - 10 }}" text-anchor="middle">{{ pt.v.scan_date[5:] }}</text>
+      {% endif %}
+    {% endfor %}
+  </svg>
+  <div class="chart-legend small">
+    <span><i class="dot benign"></i>scan scored benign</span><span><i class="dot malignant"></i>scan scored malignant</span>
+    <span><i class="line"></i>twin risk (smoothed over scans)</span><span><i class="dash"></i>decision boundary</span>
+  </div>
+</section>
+
+<section class="card flush">
+  <table class="visits">
+    <thead><tr><th></th><th>Date</th><th>Result</th><th class="num">Confidence</th><th class="num">Score</th><th class="num">Twin risk</th><th class="hide-sm">Notes</th></tr></thead>
+    <tbody>
+    {% for v in visits|reverse %}
+      <tr onclick="location.href='{{ url_for('visit', vid=v.id) }}'">
+        <td><img class="mini" src="{{ media(v.file_stem, 'outline') }}" alt="" loading="lazy"></td>
+        <td><a href="{{ url_for('visit', vid=v.id) }}">{{ v.scan_date }}</a></td>
+        <td>{{ pred_tag(v.prediction) }}</td>
+        <td class="num">{{ v.confidence|pct }}</td>
+        <td class="num">{{ v.score|pct }}</td>
+        <td class="num">{{ v.risk_after|pct }}</td>
+        <td class="hide-sm muted">{{ v.notes or '' }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% else %}
+<section class="empty card"><h2>No scans yet</h2><p>Add the first scan to start this patient's twin.</p><a class="btn primary" href="{{ url_for('scan', patient=p.id) }}">Add scan</a></section>
+{% endif %}
+
+<details class="card small">
+  <summary>How the twin works</summary>
+  <p>Each scan gives a malignancy score, where 50% is the model's decision boundary. The twin keeps a running risk: <code>risk = 0.5 × new score + 0.5 × previous risk</code>.
+  One odd scan moves it only halfway, while a run of suspicious scans pushes it up. The twin raises an <b>alert</b> when risk jumps by more than 15 points between scans, crosses the boundary upwards, or the latest scan itself scores malignant.
+  Scans are ordered by scan date.</p>
+</details>
+
+<form class="danger-zone" method="post" action="{{ url_for('delete_patient', pid=p.id) }}" onsubmit="return confirm('Delete {{ p.id }} and all their scans? This cannot be undone.')">
+  <button class="linkbtn danger">Delete this patient and all scans</button>
+</form>
+{% endblock %}

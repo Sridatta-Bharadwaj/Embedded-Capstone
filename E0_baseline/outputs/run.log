@@ -1,0 +1,894 @@
+===== E0 run started Sat Oct 10 17:57:25 UTC 2026 =====
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1791655053.445175     393 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2246 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5
+[GPU GUARD] GPU: NVIDIA GeForce GTX 1650 | test matmul ran on: /job:localhost/replica:0/task:0/device:GPU:0
+[DATA] fold0 | train 812 (31 malignant) | val 265 (9) | test 266 (10) | class weights {0: 0.520, 1: 13.097}
+
+===== Stage A: head only, 30 epochs, lr 0.001 =====
+I0000 00:00:1791655078.607558     461 device_compiler.h:196] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[stage A] epoch   1/30 (overall   1/120)  38.2s | TRAIN loss 1.011 acc 0.425 auc 0.391 recall 0.48 | VAL loss 0.736 acc 0.491 auc 0.416 recall 0.33 | TEST loss 0.748 acc 0.485 auc 0.551 recall 0.70 | best val_auc 0.416  <- saved
+[stage A] epoch   2/30 (overall   2/120)   2.6s | TRAIN loss 0.752 acc 0.517 auc 0.591 recall 0.68 | VAL loss 0.648 acc 0.615 auc 0.459 recall 0.44 | TEST loss 0.667 acc 0.575 auc 0.616 recall 0.70 | best val_auc 0.459  <- saved
+[stage A] epoch   3/30 (overall   3/120)   2.2s | TRAIN loss 0.703 acc 0.663 auc 0.666 recall 0.60 | VAL loss 0.656 acc 0.592 auc 0.508 recall 0.56 | TEST loss 0.681 acc 0.568 auc 0.641 recall 0.70 | best val_auc 0.508  <- saved
+[stage A] epoch   4/30 (overall   4/120)   6.2s | TRAIN loss 0.660 acc 0.566 auc 0.665 recall 0.73 | VAL loss 0.685 acc 0.555 auc 0.529 recall 0.56 | TEST loss 0.715 acc 0.545 auc 0.683 recall 0.80 | best val_auc 0.529  <- saved
+[stage A] epoch   5/30 (overall   5/120)   2.5s | TRAIN loss 0.633 acc 0.590 auc 0.704 recall 0.77 | VAL loss 0.528 acc 0.717 auc 0.540 recall 0.44 | TEST loss 0.553 acc 0.688 auc 0.703 recall 0.80 | best val_auc 0.540  <- saved
+[stage A] epoch   6/30 (overall   6/120)   2.2s | TRAIN loss 0.648 acc 0.680 auc 0.672 recall 0.53 | VAL loss 0.739 acc 0.532 auc 0.542 recall 0.56 | TEST loss 0.782 acc 0.500 auc 0.732 recall 0.90 | best val_auc 0.542  <- saved
+[stage A] epoch   7/30 (overall   7/120)   2.2s | TRAIN loss 0.602 acc 0.614 auc 0.758 recall 0.75 | VAL loss 0.570 acc 0.687 auc 0.551 recall 0.44 | TEST loss 0.601 acc 0.635 auc 0.737 recall 0.80 | best val_auc 0.551  <- saved
+[stage A] epoch   8/30 (overall   8/120)   2.5s | TRAIN loss 0.547 acc 0.672 auc 0.779 recall 0.80 | VAL loss 0.493 acc 0.728 auc 0.557 recall 0.44 | TEST loss 0.518 acc 0.714 auc 0.733 recall 0.60 | best val_auc 0.557  <- saved
+[stage A] epoch   9/30 (overall   9/120)   2.4s | TRAIN loss 0.482 acc 0.703 auc 0.871 recall 0.85 | VAL loss 0.485 acc 0.751 auc 0.560 recall 0.44 | TEST loss 0.506 acc 0.733 auc 0.737 recall 0.60 | best val_auc 0.560  <- saved
+[stage A] epoch  10/30 (overall  10/120)   1.4s | TRAIN loss 0.511 acc 0.685 auc 0.801 recall 0.72 | VAL loss 0.504 acc 0.732 auc 0.550 recall 0.44 | TEST loss 0.527 acc 0.692 auc 0.749 recall 0.60 | best val_auc 0.560
+[stage A] epoch  11/30 (overall  11/120)   2.6s | TRAIN loss 0.494 acc 0.725 auc 0.817 recall 0.76 | VAL loss 0.538 acc 0.694 auc 0.550 recall 0.44 | TEST loss 0.564 acc 0.673 auc 0.752 recall 0.70 | best val_auc 0.560
+[stage A] epoch  12/30 (overall  12/120)   2.2s | TRAIN loss 0.571 acc 0.651 auc 0.796 recall 0.83 | VAL loss 0.547 acc 0.683 auc 0.563 recall 0.56 | TEST loss 0.573 acc 0.665 auc 0.748 recall 0.70 | best val_auc 0.563  <- saved
+[stage A] epoch  13/30 (overall  13/120)   2.2s | TRAIN loss 0.470 acc 0.761 auc 0.850 recall 0.80 | VAL loss 0.487 acc 0.751 auc 0.564 recall 0.44 | TEST loss 0.509 acc 0.714 auc 0.747 recall 0.60 | best val_auc 0.564  <- saved
+[stage A] epoch  14/30 (overall  14/120)   1.7s | TRAIN loss 0.541 acc 0.685 auc 0.781 recall 0.73 | VAL loss 0.607 acc 0.619 auc 0.559 recall 0.56 | TEST loss 0.643 acc 0.628 auc 0.756 recall 0.90 | best val_auc 0.564
+[stage A] epoch  15/30 (overall  15/120)   1.6s | TRAIN loss 0.528 acc 0.692 auc 0.813 recall 0.74 | VAL loss 0.609 acc 0.619 auc 0.558 recall 0.56 | TEST loss 0.645 acc 0.635 auc 0.758 recall 0.90 | best val_auc 0.564
+[stage A] epoch  16/30 (overall  16/120)   1.5s | TRAIN loss 0.464 acc 0.712 auc 0.855 recall 0.84 | VAL loss 0.503 acc 0.721 auc 0.556 recall 0.44 | TEST loss 0.534 acc 0.695 auc 0.763 recall 0.70 | best val_auc 0.564
+[stage A] epoch  17/30 (overall  17/120)   1.6s | TRAIN loss 0.502 acc 0.748 auc 0.860 recall 0.79 | VAL loss 0.612 acc 0.630 auc 0.553 recall 0.56 | TEST loss 0.653 acc 0.632 auc 0.774 recall 0.90 | best val_auc 0.564
+[stage A] epoch  18/30 (overall  18/120)   1.8s | TRAIN loss 0.446 acc 0.734 auc 0.839 recall 0.73 | VAL loss 0.414 acc 0.815 auc 0.564 recall 0.33 | TEST loss 0.433 acc 0.778 auc 0.770 recall 0.60 | best val_auc 0.564
+[stage A] epoch  19/30 (overall  19/120)   1.6s | TRAIN loss 0.488 acc 0.720 auc 0.868 recall 0.84 | VAL loss 0.556 acc 0.687 auc 0.559 recall 0.44 | TEST loss 0.594 acc 0.662 auc 0.778 recall 0.80 | best val_auc 0.564
+[stage A] epoch  20/30 (overall  20/120)   2.1s | TRAIN loss 0.442 acc 0.794 auc 0.890 recall 0.88 | VAL loss 0.464 acc 0.766 auc 0.567 recall 0.44 | TEST loss 0.494 acc 0.714 auc 0.773 recall 0.70 | best val_auc 0.567  <- saved
+[stage A] epoch  21/30 (overall  21/120)   1.4s | TRAIN loss 0.391 acc 0.769 auc 0.885 recall 0.74 | VAL loss 0.445 acc 0.789 auc 0.564 recall 0.44 | TEST loss 0.473 acc 0.744 auc 0.781 recall 0.70 | best val_auc 0.567
+[stage A] epoch  22/30 (overall  22/120)   1.4s | TRAIN loss 0.436 acc 0.757 auc 0.897 recall 0.88 | VAL loss 0.562 acc 0.691 auc 0.565 recall 0.44 | TEST loss 0.600 acc 0.658 auc 0.783 recall 0.80 | best val_auc 0.567
+[stage A] epoch  23/30 (overall  23/120)   1.9s | TRAIN loss 0.386 acc 0.752 auc 0.907 recall 0.93 | VAL loss 0.397 acc 0.830 auc 0.558 recall 0.33 | TEST loss 0.416 acc 0.789 auc 0.791 recall 0.70 | best val_auc 0.567
+[stage A] epoch  24/30 (overall  24/120)   2.1s | TRAIN loss 0.414 acc 0.793 auc 0.885 recall 0.86 | VAL loss 0.437 acc 0.781 auc 0.569 recall 0.44 | TEST loss 0.461 acc 0.756 auc 0.788 recall 0.80 | best val_auc 0.569  <- saved
+[stage A] epoch  25/30 (overall  25/120)   1.4s | TRAIN loss 0.440 acc 0.756 auc 0.893 recall 0.89 | VAL loss 0.516 acc 0.717 auc 0.564 recall 0.44 | TEST loss 0.548 acc 0.692 auc 0.793 recall 0.80 | best val_auc 0.569
+[stage A] epoch  26/30 (overall  26/120)   1.4s | TRAIN loss 0.411 acc 0.785 auc 0.875 recall 0.85 | VAL loss 0.416 acc 0.804 auc 0.566 recall 0.33 | TEST loss 0.435 acc 0.778 auc 0.791 recall 0.70 | best val_auc 0.569
+[stage A] epoch  27/30 (overall  27/120)   1.4s | TRAIN loss 0.355 acc 0.814 auc 0.937 recall 0.88 | VAL loss 0.424 acc 0.792 auc 0.567 recall 0.44 | TEST loss 0.441 acc 0.771 auc 0.796 recall 0.70 | best val_auc 0.569
+[stage A] epoch  28/30 (overall  28/120)   1.3s | TRAIN loss 0.460 acc 0.758 auc 0.895 recall 0.98 | VAL loss 0.532 acc 0.702 auc 0.566 recall 0.44 | TEST loss 0.562 acc 0.680 auc 0.799 recall 0.80 | best val_auc 0.569
+[stage A] epoch  29/30 (overall  29/120)   1.5s | TRAIN loss 0.329 acc 0.832 auc 0.911 recall 0.82 | VAL loss 0.377 acc 0.830 auc 0.559 recall 0.33 | TEST loss 0.388 acc 0.808 auc 0.800 recall 0.70 | best val_auc 0.569
+[stage A] epoch  30/30 (overall  30/120)   1.4s | TRAIN loss 0.379 acc 0.815 auc 0.923 recall 0.91 | VAL loss 0.443 acc 0.774 auc 0.560 recall 0.44 | TEST loss 0.463 acc 0.759 auc 0.803 recall 0.80 | best val_auc 0.569
+
+===== Stage B: fine-tuning, 72 backbone layers unfrozen, 90 epochs, lr 0.0001 =====
+[stage B] epoch   1/90 (overall  31/120)  34.8s | TRAIN loss 0.771 acc 0.695 auc 0.712 recall 0.68 | VAL loss 0.484 acc 0.811 auc 0.509 recall 0.33 | TEST loss 0.472 acc 0.812 auc 0.739 recall 0.60 | best val_auc 0.569
+[stage B] epoch   2/90 (overall  32/120)   2.5s | TRAIN loss 0.491 acc 0.772 auc 0.839 recall 0.71 | VAL loss 0.557 acc 0.698 auc 0.567 recall 0.56 | TEST loss 0.608 acc 0.650 auc 0.785 recall 0.80 | best val_auc 0.569
+[stage B] epoch   3/90 (overall  33/120)   3.2s | TRAIN loss 0.391 acc 0.814 auc 0.909 recall 0.91 | VAL loss 0.840 acc 0.513 auc 0.626 recall 0.56 | TEST loss 0.921 acc 0.455 auc 0.769 recall 0.80 | best val_auc 0.626  <- saved
+[stage B] epoch   4/90 (overall  34/120)   3.2s | TRAIN loss 0.369 acc 0.775 auc 0.921 recall 0.91 | VAL loss 0.313 acc 0.868 auc 0.642 recall 0.44 | TEST loss 0.311 acc 0.895 auc 0.831 recall 0.70 | best val_auc 0.642  <- saved
+[stage B] epoch   5/90 (overall  35/120)   2.1s | TRAIN loss 0.225 acc 0.906 auc 0.974 recall 0.97 | VAL loss 0.242 acc 0.913 auc 0.631 recall 0.22 | TEST loss 0.220 acc 0.936 auc 0.859 recall 0.50 | best val_auc 0.642
+[stage B] epoch   6/90 (overall  36/120)   3.1s | TRAIN loss 0.183 acc 0.907 auc 0.979 recall 0.93 | VAL loss 0.339 acc 0.849 auc 0.687 recall 0.56 | TEST loss 0.327 acc 0.853 auc 0.820 recall 0.60 | best val_auc 0.687  <- saved
+[stage B] epoch   7/90 (overall  37/120)   2.2s | TRAIN loss 0.129 acc 0.941 auc 0.993 recall 1.00 | VAL loss 0.222 acc 0.943 auc 0.669 recall 0.22 | TEST loss 0.167 acc 0.951 auc 0.878 recall 0.60 | best val_auc 0.687
+[stage B] epoch   8/90 (overall  38/120)   3.1s | TRAIN loss 0.155 acc 0.922 auc 0.984 recall 0.97 | VAL loss 0.257 acc 0.894 auc 0.691 recall 0.33 | TEST loss 0.272 acc 0.895 auc 0.734 recall 0.30 | best val_auc 0.691  <- saved
+[stage B] epoch   9/90 (overall  39/120)   2.1s | TRAIN loss 0.106 acc 0.946 auc 0.993 recall 1.00 | VAL loss 0.193 acc 0.962 auc 0.679 recall 0.33 | TEST loss 0.178 acc 0.959 auc 0.852 recall 0.60 | best val_auc 0.691
+[stage B] epoch  10/90 (overall  40/120)   2.3s | TRAIN loss 0.138 acc 0.946 auc 0.988 recall 0.94 | VAL loss 0.398 acc 0.830 auc 0.614 recall 0.33 | TEST loss 0.426 acc 0.831 auc 0.830 recall 0.70 | best val_auc 0.691
+[stage B] epoch  11/90 (overall  41/120)   2.1s | TRAIN loss 0.167 acc 0.909 auc 0.980 recall 0.97 | VAL loss 0.171 acc 0.966 auc 0.661 recall 0.11 | TEST loss 0.161 acc 0.959 auc 0.816 recall 0.20 | best val_auc 0.691
+[stage B] epoch  12/90 (overall  42/120)   3.0s | TRAIN loss 0.131 acc 0.964 auc 0.992 recall 0.94 | VAL loss 0.259 acc 0.909 auc 0.718 recall 0.33 | TEST loss 0.243 acc 0.944 auc 0.861 recall 0.70 | best val_auc 0.718  <- saved
+[stage B] epoch  13/90 (overall  43/120)   3.1s | TRAIN loss 0.063 acc 0.960 auc 0.998 recall 1.00 | VAL loss 0.195 acc 0.955 auc 0.725 recall 0.33 | TEST loss 0.176 acc 0.959 auc 0.846 recall 0.50 | best val_auc 0.725  <- saved
+[stage B] epoch  14/90 (overall  44/120)   2.1s | TRAIN loss 0.106 acc 0.954 auc 0.993 recall 0.97 | VAL loss 0.217 acc 0.958 auc 0.661 recall 0.11 | TEST loss 0.148 acc 0.962 auc 0.902 recall 0.40 | best val_auc 0.725
+[stage B] epoch  15/90 (overall  45/120)   2.1s | TRAIN loss 0.184 acc 0.931 auc 0.981 recall 0.95 | VAL loss 0.278 acc 0.925 auc 0.684 recall 0.22 | TEST loss 0.220 acc 0.944 auc 0.875 recall 0.70 | best val_auc 0.725
+[stage B] epoch  16/90 (overall  46/120)   2.4s | TRAIN loss 0.153 acc 0.950 auc 0.982 recall 0.88 | VAL loss 0.625 acc 0.789 auc 0.645 recall 0.33 | TEST loss 0.636 acc 0.774 auc 0.900 recall 0.90 | best val_auc 0.725
+[stage B] epoch  17/90 (overall  47/120)   4.1s | TRAIN loss 0.150 acc 0.919 auc 0.983 recall 0.96 | VAL loss 0.228 acc 0.943 auc 0.722 recall 0.22 | TEST loss 0.165 acc 0.955 auc 0.897 recall 0.60 | best val_auc 0.725
+[stage B] epoch  18/90 (overall  48/120)   7.7s | TRAIN loss 0.071 acc 0.978 auc 0.998 recall 1.00 | VAL loss 0.293 acc 0.947 auc 0.741 recall 0.33 | TEST loss 0.188 acc 0.962 auc 0.919 recall 0.70 | best val_auc 0.741  <- saved
+[stage B] epoch  19/90 (overall  49/120)   5.4s | TRAIN loss 0.029 acc 0.988 auc 0.999 recall 1.00 | VAL loss 0.285 acc 0.936 auc 0.749 recall 0.22 | TEST loss 0.206 acc 0.947 auc 0.904 recall 0.60 | best val_auc 0.749  <- saved
+[stage B] epoch  20/90 (overall  50/120)   2.2s | TRAIN loss 0.032 acc 0.982 auc 0.999 recall 1.00 | VAL loss 0.272 acc 0.966 auc 0.632 recall 0.33 | TEST loss 0.177 acc 0.959 auc 0.921 recall 0.30 | best val_auc 0.749
+[stage B] epoch  21/90 (overall  51/120)   2.2s | TRAIN loss 0.020 acc 0.989 auc 1.000 recall 1.00 | VAL loss 0.274 acc 0.951 auc 0.724 recall 0.33 | TEST loss 0.197 acc 0.951 auc 0.904 recall 0.40 | best val_auc 0.749
+[stage B] epoch  22/90 (overall  52/120)   2.2s | TRAIN loss 0.012 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.327 acc 0.951 auc 0.726 recall 0.33 | TEST loss 0.199 acc 0.962 auc 0.916 recall 0.60 | best val_auc 0.749
+[stage B] epoch  23/90 (overall  53/120)   3.0s | TRAIN loss 0.032 acc 0.982 auc 1.000 recall 1.00 | VAL loss 0.253 acc 0.962 auc 0.780 recall 0.22 | TEST loss 0.231 acc 0.951 auc 0.854 recall 0.40 | best val_auc 0.780  <- saved
+[stage B] epoch  24/90 (overall  54/120)   2.2s | TRAIN loss 0.041 acc 0.987 auc 0.997 recall 1.00 | VAL loss 0.322 acc 0.966 auc 0.634 recall 0.33 | TEST loss 0.213 acc 0.955 auc 0.873 recall 0.30 | best val_auc 0.780
+[stage B] epoch  25/90 (overall  55/120)   2.2s | TRAIN loss 0.049 acc 0.981 auc 0.998 recall 0.97 | VAL loss 0.357 acc 0.917 auc 0.699 recall 0.44 | TEST loss 0.294 acc 0.925 auc 0.895 recall 0.80 | best val_auc 0.780
+[stage B] epoch  26/90 (overall  56/120)   2.2s | TRAIN loss 0.014 acc 0.990 auc 1.000 recall 1.00 | VAL loss 0.338 acc 0.958 auc 0.640 recall 0.33 | TEST loss 0.201 acc 0.966 auc 0.873 recall 0.20 | best val_auc 0.780
+[stage B] epoch  27/90 (overall  57/120)   2.2s | TRAIN loss 0.005 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.363 acc 0.955 auc 0.635 recall 0.33 | TEST loss 0.195 acc 0.962 auc 0.921 recall 0.60 | best val_auc 0.780
+[stage B] epoch  28/90 (overall  58/120)   2.3s | TRAIN loss 0.007 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.388 acc 0.921 auc 0.714 recall 0.33 | TEST loss 0.270 acc 0.947 auc 0.916 recall 0.80 | best val_auc 0.780
+[stage B] epoch  29/90 (overall  59/120)   2.4s | TRAIN loss 0.007 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.355 acc 0.962 auc 0.645 recall 0.11 | TEST loss 0.218 acc 0.955 auc 0.878 recall 0.10 | best val_auc 0.780
+[stage B] epoch  30/90 (overall  60/120)   2.2s | TRAIN loss 0.006 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.368 acc 0.955 auc 0.640 recall 0.33 | TEST loss 0.214 acc 0.959 auc 0.924 recall 0.50 | best val_auc 0.780
+[stage B] epoch  31/90 (overall  61/120)   2.2s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.368 acc 0.958 auc 0.641 recall 0.33 | TEST loss 0.223 acc 0.959 auc 0.878 recall 0.40 | best val_auc 0.780
+[stage B] epoch  32/90 (overall  62/120)   2.1s | TRAIN loss 0.003 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.411 acc 0.951 auc 0.634 recall 0.33 | TEST loss 0.246 acc 0.966 auc 0.926 recall 0.70 | best val_auc 0.780
+[stage B] epoch  33/90 (overall  63/120)   2.2s | TRAIN loss 0.045 acc 0.978 auc 0.999 recall 0.97 | VAL loss 0.699 acc 0.808 auc 0.729 recall 0.56 | TEST loss 0.679 acc 0.820 auc 0.885 recall 0.80 | best val_auc 0.780
+[stage B] epoch  34/90 (overall  64/120)   2.3s | TRAIN loss 0.038 acc 0.982 auc 0.998 recall 1.00 | VAL loss 0.309 acc 0.940 auc 0.656 recall 0.22 | TEST loss 0.196 acc 0.962 auc 0.922 recall 0.60 | best val_auc 0.780
+[stage B] epoch  35/90 (overall  65/120)   2.2s | TRAIN loss 0.021 acc 0.994 auc 1.000 recall 1.00 | VAL loss 0.278 acc 0.947 auc 0.713 recall 0.22 | TEST loss 0.204 acc 0.962 auc 0.864 recall 0.50 | best val_auc 0.780
+[stage B] epoch  36/90 (overall  66/120)   2.1s | TRAIN loss 0.010 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.323 acc 0.940 auc 0.713 recall 0.22 | TEST loss 0.222 acc 0.962 auc 0.874 recall 0.70 | best val_auc 0.780
+[stage B] epoch  37/90 (overall  67/120)   2.2s | TRAIN loss 0.007 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.436 acc 0.932 auc 0.612 recall 0.33 | TEST loss 0.258 acc 0.962 auc 0.919 recall 0.80 | best val_auc 0.780
+[stage B] epoch  38/90 (overall  68/120)   2.2s | TRAIN loss 0.010 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.366 acc 0.958 auc 0.687 recall 0.11 | TEST loss 0.239 acc 0.970 auc 0.826 recall 0.40 | best val_auc 0.780
+[stage B] epoch  39/90 (overall  69/120)   2.2s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.352 acc 0.955 auc 0.735 recall 0.22 | TEST loss 0.235 acc 0.955 auc 0.877 recall 0.40 | best val_auc 0.780
+[stage B] epoch  40/90 (overall  70/120)   2.2s | TRAIN loss 0.004 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.453 acc 0.932 auc 0.723 recall 0.33 | TEST loss 0.292 acc 0.962 auc 0.912 recall 0.80 | best val_auc 0.780
+[stage B] epoch  41/90 (overall  71/120)   2.3s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.439 acc 0.947 auc 0.692 recall 0.22 | TEST loss 0.232 acc 0.962 auc 0.882 recall 0.50 | best val_auc 0.780
+[stage B] epoch  42/90 (overall  72/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.425 acc 0.947 auc 0.687 recall 0.22 | TEST loss 0.234 acc 0.962 auc 0.879 recall 0.50 | best val_auc 0.780
+[stage B] epoch  43/90 (overall  73/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.428 acc 0.943 auc 0.686 recall 0.22 | TEST loss 0.236 acc 0.962 auc 0.879 recall 0.50 | best val_auc 0.780
+[stage B] epoch  44/90 (overall  74/120)   2.2s | TRAIN loss 0.002 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.508 acc 0.940 auc 0.634 recall 0.22 | TEST loss 0.262 acc 0.962 auc 0.880 recall 0.60 | best val_auc 0.780
+[stage B] epoch  45/90 (overall  75/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.501 acc 0.940 auc 0.636 recall 0.22 | TEST loss 0.255 acc 0.966 auc 0.881 recall 0.60 | best val_auc 0.780
+[stage B] epoch  46/90 (overall  76/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.492 acc 0.943 auc 0.638 recall 0.22 | TEST loss 0.247 acc 0.962 auc 0.882 recall 0.50 | best val_auc 0.780
+[stage B] epoch  47/90 (overall  77/120)   2.2s | TRAIN loss 0.001 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.505 acc 0.970 auc 0.595 recall 0.22 | TEST loss 0.289 acc 0.962 auc 0.788 recall 0.10 | best val_auc 0.780
+[stage B] epoch  48/90 (overall  78/120)   2.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.493 acc 0.958 auc 0.647 recall 0.22 | TEST loss 0.266 acc 0.962 auc 0.786 recall 0.20 | best val_auc 0.780
+[stage B] epoch  49/90 (overall  79/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.489 acc 0.955 auc 0.648 recall 0.22 | TEST loss 0.258 acc 0.970 auc 0.882 recall 0.50 | best val_auc 0.780
+[stage B] epoch  50/90 (overall  80/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.460 acc 0.943 auc 0.693 recall 0.22 | TEST loss 0.253 acc 0.959 auc 0.879 recall 0.50 | best val_auc 0.780
+[stage B] epoch  51/90 (overall  81/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.477 acc 0.947 auc 0.695 recall 0.22 | TEST loss 0.254 acc 0.966 auc 0.880 recall 0.50 | best val_auc 0.780
+[stage B] epoch  52/90 (overall  82/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.481 acc 0.947 auc 0.644 recall 0.22 | TEST loss 0.256 acc 0.966 auc 0.880 recall 0.50 | best val_auc 0.780
+[stage B] epoch  53/90 (overall  83/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.484 acc 0.951 auc 0.644 recall 0.22 | TEST loss 0.257 acc 0.966 auc 0.880 recall 0.50 | best val_auc 0.780
+[stage B] epoch  54/90 (overall  84/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.479 acc 0.951 auc 0.697 recall 0.22 | TEST loss 0.259 acc 0.966 auc 0.880 recall 0.50 | best val_auc 0.780
+[stage B] epoch  55/90 (overall  85/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.480 acc 0.951 auc 0.697 recall 0.22 | TEST loss 0.259 acc 0.966 auc 0.879 recall 0.50 | best val_auc 0.780
+[stage B] epoch  56/90 (overall  86/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.485 acc 0.951 auc 0.646 recall 0.22 | TEST loss 0.264 acc 0.966 auc 0.785 recall 0.40 | best val_auc 0.780
+[stage B] epoch  57/90 (overall  87/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.492 acc 0.955 auc 0.644 recall 0.22 | TEST loss 0.262 acc 0.966 auc 0.881 recall 0.50 | best val_auc 0.780
+[stage B] epoch  58/90 (overall  88/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.502 acc 0.951 auc 0.644 recall 0.22 | TEST loss 0.261 acc 0.966 auc 0.881 recall 0.50 | best val_auc 0.780
+[stage B] epoch  59/90 (overall  89/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.535 acc 0.955 auc 0.645 recall 0.22 | TEST loss 0.261 acc 0.966 auc 0.885 recall 0.50 | best val_auc 0.780
+[stage B] epoch  60/90 (overall  90/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.536 acc 0.955 auc 0.645 recall 0.22 | TEST loss 0.262 acc 0.966 auc 0.885 recall 0.50 | best val_auc 0.780
+[stage B] epoch  61/90 (overall  91/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.538 acc 0.955 auc 0.645 recall 0.22 | TEST loss 0.263 acc 0.966 auc 0.885 recall 0.50 | best val_auc 0.780
+[stage B] epoch  62/90 (overall  92/120)   3.9s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.529 acc 0.951 auc 0.645 recall 0.22 | TEST loss 0.263 acc 0.966 auc 0.884 recall 0.50 | best val_auc 0.780
+[stage B] epoch  63/90 (overall  93/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.518 acc 0.951 auc 0.643 recall 0.22 | TEST loss 0.263 acc 0.966 auc 0.884 recall 0.50 | best val_auc 0.780
+[stage B] epoch  64/90 (overall  94/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.517 acc 0.951 auc 0.643 recall 0.22 | TEST loss 0.264 acc 0.966 auc 0.883 recall 0.50 | best val_auc 0.780
+[stage B] epoch  65/90 (overall  95/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.519 acc 0.951 auc 0.643 recall 0.22 | TEST loss 0.265 acc 0.966 auc 0.883 recall 0.50 | best val_auc 0.780
+[stage B] epoch  66/90 (overall  96/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.521 acc 0.951 auc 0.645 recall 0.22 | TEST loss 0.266 acc 0.966 auc 0.883 recall 0.50 | best val_auc 0.780
+[stage B] epoch  67/90 (overall  97/120)   2.2s | TRAIN loss 0.008 acc 0.994 auc 1.000 recall 1.00 | VAL loss 0.582 acc 0.951 auc 0.638 recall 0.22 | TEST loss 0.253 acc 0.966 auc 0.886 recall 0.60 | best val_auc 0.780
+[stage B] epoch  68/90 (overall  98/120)   2.2s | TRAIN loss 0.026 acc 0.990 auc 0.998 recall 1.00 | VAL loss 0.527 acc 0.943 auc 0.625 recall 0.33 | TEST loss 0.281 acc 0.955 auc 0.874 recall 0.70 | best val_auc 0.780
+[stage B] epoch  69/90 (overall  99/120)   2.1s | TRAIN loss 0.006 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.453 acc 0.940 auc 0.678 recall 0.22 | TEST loss 0.256 acc 0.959 auc 0.873 recall 0.60 | best val_auc 0.780
+[stage B] epoch  70/90 (overall 100/120)   2.1s | TRAIN loss 0.092 acc 0.983 auc 0.997 recall 0.93 | VAL loss 1.885 acc 0.596 auc 0.657 recall 0.56 | TEST loss 2.183 acc 0.523 auc 0.793 recall 0.80 | best val_auc 0.780
+[stage B] epoch  71/90 (overall 101/120)   2.2s | TRAIN loss 0.333 acc 0.876 auc 0.951 recall 0.89 | VAL loss 0.376 acc 0.823 auc 0.651 recall 0.33 | TEST loss 0.367 acc 0.838 auc 0.853 recall 0.70 | best val_auc 0.780
+[stage B] epoch  72/90 (overall 102/120)   2.1s | TRAIN loss 0.231 acc 0.873 auc 0.970 recall 0.88 | VAL loss 0.259 acc 0.966 auc 0.646 recall 0.11 | TEST loss 0.203 acc 0.962 auc 0.821 recall 0.30 | best val_auc 0.780
+[stage B] epoch  73/90 (overall 103/120)   2.1s | TRAIN loss 0.180 acc 0.933 auc 0.984 recall 0.94 | VAL loss 0.369 acc 0.898 auc 0.681 recall 0.22 | TEST loss 0.319 acc 0.921 auc 0.872 recall 0.70 | best val_auc 0.780
+[stage B] epoch  74/90 (overall 104/120)   2.0s | TRAIN loss 0.136 acc 0.928 auc 0.989 recall 0.97 | VAL loss 0.255 acc 0.947 auc 0.702 recall 0.22 | TEST loss 0.232 acc 0.944 auc 0.852 recall 0.20 | best val_auc 0.780
+[stage B] epoch  75/90 (overall 105/120)   2.0s | TRAIN loss 0.059 acc 0.978 auc 0.998 recall 1.00 | VAL loss 0.300 acc 0.947 auc 0.690 recall 0.22 | TEST loss 0.252 acc 0.959 auc 0.877 recall 0.40 | best val_auc 0.780
+[stage B] epoch  76/90 (overall 106/120)   2.1s | TRAIN loss 0.024 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.423 acc 0.936 auc 0.614 recall 0.22 | TEST loss 0.275 acc 0.955 auc 0.859 recall 0.60 | best val_auc 0.780
+[stage B] epoch  77/90 (overall 107/120)   2.1s | TRAIN loss 0.003 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.501 acc 0.970 auc 0.647 recall 0.22 | TEST loss 0.287 acc 0.962 auc 0.781 recall 0.10 | best val_auc 0.780
+[stage B] epoch  78/90 (overall 108/120)   2.1s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.487 acc 0.962 auc 0.643 recall 0.22 | TEST loss 0.271 acc 0.955 auc 0.779 recall 0.30 | best val_auc 0.780
+[stage B] epoch  79/90 (overall 109/120)   2.0s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.485 acc 0.958 auc 0.644 recall 0.22 | TEST loss 0.276 acc 0.959 auc 0.779 recall 0.40 | best val_auc 0.780
+[stage B] epoch  80/90 (overall 110/120)   2.0s | TRAIN loss 0.002 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.501 acc 0.958 auc 0.645 recall 0.22 | TEST loss 0.292 acc 0.959 auc 0.780 recall 0.40 | best val_auc 0.780
+[stage B] epoch  81/90 (overall 111/120)   2.0s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.508 acc 0.955 auc 0.645 recall 0.22 | TEST loss 0.298 acc 0.959 auc 0.779 recall 0.40 | best val_auc 0.780
+[stage B] epoch  82/90 (overall 112/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.548 acc 0.962 auc 0.647 recall 0.22 | TEST loss 0.313 acc 0.955 auc 0.783 recall 0.30 | best val_auc 0.780
+[stage B] epoch  83/90 (overall 113/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.555 acc 0.958 auc 0.647 recall 0.22 | TEST loss 0.319 acc 0.955 auc 0.783 recall 0.30 | best val_auc 0.780
+[stage B] epoch  84/90 (overall 114/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.569 acc 0.962 auc 0.649 recall 0.22 | TEST loss 0.334 acc 0.959 auc 0.784 recall 0.30 | best val_auc 0.780
+[stage B] epoch  85/90 (overall 115/120)   1.9s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.587 acc 0.966 auc 0.596 recall 0.22 | TEST loss 0.348 acc 0.959 auc 0.689 recall 0.20 | best val_auc 0.780
+[stage B] epoch  86/90 (overall 116/120)   1.9s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.603 acc 0.966 auc 0.596 recall 0.22 | TEST loss 0.354 acc 0.959 auc 0.689 recall 0.20 | best val_auc 0.780
+[stage B] epoch  87/90 (overall 117/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.609 acc 0.962 auc 0.596 recall 0.22 | TEST loss 0.355 acc 0.959 auc 0.689 recall 0.20 | best val_auc 0.780
+[stage B] epoch  88/90 (overall 118/120)   2.9s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.612 acc 0.962 auc 0.649 recall 0.22 | TEST loss 0.353 acc 0.962 auc 0.738 recall 0.30 | best val_auc 0.780
+[stage B] epoch  89/90 (overall 119/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.605 acc 0.962 auc 0.648 recall 0.22 | TEST loss 0.343 acc 0.955 auc 0.785 recall 0.30 | best val_auc 0.780
+[stage B] epoch  90/90 (overall 120/120)   2.9s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.610 acc 0.962 auc 0.648 recall 0.22 | TEST loss 0.347 acc 0.955 auc 0.786 recall 0.30 | best val_auc 0.780
+
+===== fold0 done in 10.3 min | kept stage B epoch 23 (overall 53) | threshold 0.0066 =====
+TEST fold: AUC 0.867 | malignant caught 8/10 | false alarms 28/256 benign (specificity 0.891)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/best.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/curves/accuracy.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/curves/auc.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/curves/loss.png (0.06 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/curves/pr_auc.png (0.08 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/curves/precision.png (0.08 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/curves/recall.png (0.09 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/epoch_log.csv (0.04 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/final.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/metrics.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/test_predictions.csv (0.02 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/threshold.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold0/val_predictions.csv (0.02 MB)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1791655711.728177    7106 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2246 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5
+[GPU GUARD] GPU: NVIDIA GeForce GTX 1650 | test matmul ran on: /job:localhost/replica:0/task:0/device:GPU:0
+[DATA] fold1 | train 808 (29 malignant) | val 270 (12) | test 265 (9) | class weights {0: 0.519, 1: 13.931}
+
+===== Stage A: head only, 30 epochs, lr 0.001 =====
+I0000 00:00:1791655737.770418    7207 device_compiler.h:196] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[stage A] epoch   1/30 (overall   1/120)  39.9s | TRAIN loss 0.743 acc 0.608 auc 0.593 recall 0.53 | VAL loss 0.672 acc 0.596 auc 0.637 recall 0.67 | TEST loss 0.650 acc 0.630 auc 0.467 recall 0.33 | best val_auc 0.637  <- saved
+[stage A] epoch   2/30 (overall   2/120)   2.4s | TRAIN loss 0.783 acc 0.546 auc 0.549 recall 0.48 | VAL loss 0.617 acc 0.622 auc 0.637 recall 0.58 | TEST loss 0.599 acc 0.694 auc 0.494 recall 0.33 | best val_auc 0.637  <- saved
+[stage A] epoch   3/30 (overall   3/120)   2.2s | TRAIN loss 0.630 acc 0.623 auc 0.696 recall 0.71 | VAL loss 0.580 acc 0.663 auc 0.649 recall 0.58 | TEST loss 0.562 acc 0.713 auc 0.520 recall 0.33 | best val_auc 0.649  <- saved
+[stage A] epoch   4/30 (overall   4/120)   2.4s | TRAIN loss 0.659 acc 0.618 auc 0.659 recall 0.66 | VAL loss 0.734 acc 0.537 auc 0.678 recall 0.67 | TEST loss 0.718 acc 0.547 auc 0.555 recall 0.44 | best val_auc 0.678  <- saved
+[stage A] epoch   5/30 (overall   5/120)   1.5s | TRAIN loss 0.578 acc 0.625 auc 0.765 recall 0.77 | VAL loss 0.437 acc 0.781 auc 0.651 recall 0.17 | TEST loss 0.420 acc 0.830 auc 0.571 recall 0.33 | best val_auc 0.678
+[stage A] epoch   6/30 (overall   6/120)   2.1s | TRAIN loss 0.661 acc 0.651 auc 0.690 recall 0.55 | VAL loss 0.676 acc 0.585 auc 0.687 recall 0.75 | TEST loss 0.663 acc 0.604 auc 0.600 recall 0.44 | best val_auc 0.687  <- saved
+[stage A] epoch   7/30 (overall   7/120)   1.5s | TRAIN loss 0.504 acc 0.689 auc 0.833 recall 0.87 | VAL loss 0.431 acc 0.781 auc 0.664 recall 0.25 | TEST loss 0.414 acc 0.823 auc 0.603 recall 0.33 | best val_auc 0.687
+[stage A] epoch   8/30 (overall   8/120)   2.2s | TRAIN loss 0.531 acc 0.738 auc 0.746 recall 0.67 | VAL loss 0.617 acc 0.633 auc 0.704 recall 0.58 | TEST loss 0.607 acc 0.645 auc 0.613 recall 0.44 | best val_auc 0.704  <- saved
+[stage A] epoch   9/30 (overall   9/120)   2.1s | TRAIN loss 0.574 acc 0.659 auc 0.818 recall 0.84 | VAL loss 0.583 acc 0.656 auc 0.708 recall 0.50 | TEST loss 0.575 acc 0.668 auc 0.620 recall 0.44 | best val_auc 0.708  <- saved
+[stage A] epoch  10/30 (overall  10/120)   1.4s | TRAIN loss 0.585 acc 0.702 auc 0.777 recall 0.69 | VAL loss 0.510 acc 0.711 auc 0.697 recall 0.50 | TEST loss 0.501 acc 0.743 auc 0.670 recall 0.44 | best val_auc 0.708
+[stage A] epoch  11/30 (overall  11/120)   1.5s | TRAIN loss 0.439 acc 0.764 auc 0.849 recall 0.79 | VAL loss 0.375 acc 0.848 auc 0.675 recall 0.25 | TEST loss 0.359 acc 0.894 auc 0.682 recall 0.44 | best val_auc 0.708
+[stage A] epoch  12/30 (overall  12/120)   1.4s | TRAIN loss 0.441 acc 0.752 auc 0.909 recall 0.91 | VAL loss 0.460 acc 0.752 auc 0.674 recall 0.42 | TEST loss 0.443 acc 0.785 auc 0.679 recall 0.44 | best val_auc 0.708
+[stage A] epoch  13/30 (overall  13/120)   1.4s | TRAIN loss 0.464 acc 0.778 auc 0.816 recall 0.78 | VAL loss 0.388 acc 0.833 auc 0.662 recall 0.33 | TEST loss 0.371 acc 0.849 auc 0.691 recall 0.44 | best val_auc 0.708
+[stage A] epoch  14/30 (overall  14/120)   1.4s | TRAIN loss 0.484 acc 0.749 auc 0.864 recall 0.87 | VAL loss 0.412 acc 0.804 auc 0.675 recall 0.33 | TEST loss 0.396 acc 0.826 auc 0.684 recall 0.44 | best val_auc 0.708
+[stage A] epoch  15/30 (overall  15/120)   1.4s | TRAIN loss 0.518 acc 0.718 auc 0.836 recall 0.81 | VAL loss 0.391 acc 0.826 auc 0.678 recall 0.33 | TEST loss 0.373 acc 0.845 auc 0.697 recall 0.44 | best val_auc 0.708
+[stage A] epoch  16/30 (overall  16/120)   1.4s | TRAIN loss 0.441 acc 0.770 auc 0.859 recall 0.78 | VAL loss 0.416 acc 0.793 auc 0.676 recall 0.33 | TEST loss 0.399 acc 0.823 auc 0.717 recall 0.44 | best val_auc 0.708
+[stage A] epoch  17/30 (overall  17/120)   1.4s | TRAIN loss 0.443 acc 0.785 auc 0.898 recall 0.85 | VAL loss 0.432 acc 0.781 auc 0.678 recall 0.42 | TEST loss 0.413 acc 0.800 auc 0.688 recall 0.44 | best val_auc 0.708
+[stage A] epoch  18/30 (overall  18/120)   1.4s | TRAIN loss 0.418 acc 0.796 auc 0.878 recall 0.74 | VAL loss 0.444 acc 0.778 auc 0.696 recall 0.42 | TEST loss 0.428 acc 0.789 auc 0.704 recall 0.44 | best val_auc 0.708
+[stage A] epoch  19/30 (overall  19/120)   1.5s | TRAIN loss 0.438 acc 0.754 auc 0.902 recall 0.86 | VAL loss 0.449 acc 0.763 auc 0.694 recall 0.42 | TEST loss 0.432 acc 0.774 auc 0.712 recall 0.44 | best val_auc 0.708
+[stage A] epoch  20/30 (overall  20/120)   1.5s | TRAIN loss 0.468 acc 0.773 auc 0.857 recall 0.76 | VAL loss 0.444 acc 0.767 auc 0.694 recall 0.42 | TEST loss 0.426 acc 0.792 auc 0.706 recall 0.44 | best val_auc 0.708
+[stage A] epoch  21/30 (overall  21/120)   1.7s | TRAIN loss 0.329 acc 0.812 auc 0.934 recall 0.88 | VAL loss 0.302 acc 0.896 auc 0.686 recall 0.08 | TEST loss 0.280 acc 0.936 auc 0.702 recall 0.33 | best val_auc 0.708
+[stage A] epoch  22/30 (overall  22/120)   1.8s | TRAIN loss 0.447 acc 0.804 auc 0.894 recall 0.82 | VAL loss 0.399 acc 0.807 auc 0.705 recall 0.42 | TEST loss 0.381 acc 0.834 auc 0.722 recall 0.44 | best val_auc 0.708
+[stage A] epoch  23/30 (overall  23/120)   1.6s | TRAIN loss 0.411 acc 0.817 auc 0.904 recall 0.87 | VAL loss 0.393 acc 0.811 auc 0.706 recall 0.33 | TEST loss 0.374 acc 0.834 auc 0.709 recall 0.44 | best val_auc 0.708
+[stage A] epoch  24/30 (overall  24/120)   2.1s | TRAIN loss 0.358 acc 0.819 auc 0.915 recall 0.85 | VAL loss 0.343 acc 0.852 auc 0.710 recall 0.33 | TEST loss 0.325 acc 0.891 auc 0.716 recall 0.33 | best val_auc 0.710  <- saved
+[stage A] epoch  25/30 (overall  25/120)   1.5s | TRAIN loss 0.410 acc 0.775 auc 0.909 recall 0.91 | VAL loss 0.435 acc 0.763 auc 0.710 recall 0.50 | TEST loss 0.414 acc 0.789 auc 0.714 recall 0.44 | best val_auc 0.710
+[stage A] epoch  26/30 (overall  26/120)   1.5s | TRAIN loss 0.344 acc 0.833 auc 0.921 recall 0.81 | VAL loss 0.364 acc 0.833 auc 0.704 recall 0.33 | TEST loss 0.341 acc 0.883 auc 0.731 recall 0.44 | best val_auc 0.710
+[stage A] epoch  27/30 (overall  27/120)   1.4s | TRAIN loss 0.364 acc 0.838 auc 0.921 recall 0.79 | VAL loss 0.346 acc 0.848 auc 0.700 recall 0.33 | TEST loss 0.324 acc 0.883 auc 0.741 recall 0.44 | best val_auc 0.710
+[stage A] epoch  28/30 (overall  28/120)   1.4s | TRAIN loss 0.381 acc 0.790 auc 0.933 recall 0.92 | VAL loss 0.372 acc 0.822 auc 0.706 recall 0.33 | TEST loss 0.352 acc 0.860 auc 0.716 recall 0.44 | best val_auc 0.710
+[stage A] epoch  29/30 (overall  29/120)   1.4s | TRAIN loss 0.357 acc 0.788 auc 0.916 recall 0.85 | VAL loss 0.387 acc 0.819 auc 0.701 recall 0.33 | TEST loss 0.367 acc 0.842 auc 0.738 recall 0.44 | best val_auc 0.710
+[stage A] epoch  30/30 (overall  30/120)   1.9s | TRAIN loss 0.365 acc 0.835 auc 0.921 recall 0.77 | VAL loss 0.334 acc 0.852 auc 0.697 recall 0.33 | TEST loss 0.311 acc 0.891 auc 0.726 recall 0.44 | best val_auc 0.710
+
+===== Stage B: fine-tuning, 72 backbone layers unfrozen, 90 epochs, lr 0.0001 =====
+[stage B] epoch   1/90 (overall  31/120)  33.2s | TRAIN loss 0.598 acc 0.666 auc 0.767 recall 0.73 | VAL loss 0.407 acc 0.837 auc 0.685 recall 0.50 | TEST loss 0.397 acc 0.823 auc 0.735 recall 0.67 | best val_auc 0.710
+[stage B] epoch   2/90 (overall  32/120)   3.1s | TRAIN loss 0.431 acc 0.752 auc 0.879 recall 0.86 | VAL loss 0.330 acc 0.859 auc 0.738 recall 0.17 | TEST loss 0.310 acc 0.883 auc 0.774 recall 0.44 | best val_auc 0.738  <- saved
+[stage B] epoch   3/90 (overall  33/120)   3.1s | TRAIN loss 0.308 acc 0.885 auc 0.947 recall 0.90 | VAL loss 0.269 acc 0.889 auc 0.793 recall 0.42 | TEST loss 0.256 acc 0.891 auc 0.804 recall 0.44 | best val_auc 0.793  <- saved
+[stage B] epoch   4/90 (overall  34/120)   2.0s | TRAIN loss 0.265 acc 0.875 auc 0.958 recall 0.87 | VAL loss 0.234 acc 0.922 auc 0.736 recall 0.42 | TEST loss 0.228 acc 0.913 auc 0.746 recall 0.56 | best val_auc 0.793
+[stage B] epoch   5/90 (overall  35/120)   2.9s | TRAIN loss 0.228 acc 0.883 auc 0.969 recall 0.93 | VAL loss 0.186 acc 0.926 auc 0.823 recall 0.25 | TEST loss 0.191 acc 0.925 auc 0.799 recall 0.44 | best val_auc 0.823  <- saved
+[stage B] epoch   6/90 (overall  36/120)   2.1s | TRAIN loss 0.217 acc 0.906 auc 0.969 recall 0.93 | VAL loss 0.179 acc 0.941 auc 0.762 recall 0.08 | TEST loss 0.131 acc 0.970 auc 0.788 recall 0.44 | best val_auc 0.823
+[stage B] epoch   7/90 (overall  37/120)   2.0s | TRAIN loss 0.141 acc 0.929 auc 0.989 recall 1.00 | VAL loss 0.174 acc 0.952 auc 0.796 recall 0.08 | TEST loss 0.160 acc 0.958 auc 0.768 recall 0.22 | best val_auc 0.823
+[stage B] epoch   8/90 (overall  38/120)   2.1s | TRAIN loss 0.129 acc 0.945 auc 0.992 recall 0.94 | VAL loss 0.205 acc 0.926 auc 0.805 recall 0.08 | TEST loss 0.157 acc 0.936 auc 0.784 recall 0.22 | best val_auc 0.823
+[stage B] epoch   9/90 (overall  39/120)   2.0s | TRAIN loss 0.109 acc 0.950 auc 0.992 recall 0.97 | VAL loss 0.199 acc 0.941 auc 0.750 recall 0.08 | TEST loss 0.151 acc 0.951 auc 0.796 recall 0.22 | best val_auc 0.823
+[stage B] epoch  10/90 (overall  40/120)   2.0s | TRAIN loss 0.095 acc 0.959 auc 0.994 recall 0.96 | VAL loss 0.279 acc 0.959 auc 0.641 recall 0.08 | TEST loss 0.161 acc 0.970 auc 0.810 recall 0.22 | best val_auc 0.823
+[stage B] epoch  11/90 (overall  41/120)   3.3s | TRAIN loss 0.148 acc 0.936 auc 0.988 recall 0.94 | VAL loss 0.250 acc 0.911 auc 0.825 recall 0.42 | TEST loss 0.252 acc 0.902 auc 0.789 recall 0.22 | best val_auc 0.825  <- saved
+[stage B] epoch  12/90 (overall  42/120)   2.1s | TRAIN loss 0.104 acc 0.945 auc 0.992 recall 0.96 | VAL loss 0.220 acc 0.944 auc 0.695 recall 0.17 | TEST loss 0.191 acc 0.958 auc 0.717 recall 0.22 | best val_auc 0.825
+[stage B] epoch  13/90 (overall  43/120)   2.1s | TRAIN loss 0.080 acc 0.964 auc 0.996 recall 1.00 | VAL loss 0.221 acc 0.959 auc 0.731 recall 0.08 | TEST loss 0.166 acc 0.962 auc 0.770 recall 0.22 | best val_auc 0.825
+[stage B] epoch  14/90 (overall  44/120)   2.2s | TRAIN loss 0.020 acc 0.994 auc 1.000 recall 1.00 | VAL loss 0.249 acc 0.959 auc 0.709 recall 0.08 | TEST loss 0.166 acc 0.966 auc 0.794 recall 0.22 | best val_auc 0.825
+[stage B] epoch  15/90 (overall  45/120)   2.1s | TRAIN loss 0.016 acc 0.993 auc 1.000 recall 1.00 | VAL loss 0.295 acc 0.959 auc 0.730 recall 0.08 | TEST loss 0.209 acc 0.966 auc 0.810 recall 0.22 | best val_auc 0.825
+[stage B] epoch  16/90 (overall  46/120)   2.1s | TRAIN loss 0.011 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.329 acc 0.959 auc 0.646 recall 0.08 | TEST loss 0.200 acc 0.970 auc 0.758 recall 0.22 | best val_auc 0.825
+[stage B] epoch  17/90 (overall  47/120)   2.0s | TRAIN loss 0.007 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.330 acc 0.959 auc 0.647 recall 0.08 | TEST loss 0.212 acc 0.958 auc 0.758 recall 0.22 | best val_auc 0.825
+[stage B] epoch  18/90 (overall  48/120)   2.0s | TRAIN loss 0.008 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.291 acc 0.952 auc 0.719 recall 0.08 | TEST loss 0.209 acc 0.962 auc 0.753 recall 0.44 | best val_auc 0.825
+[stage B] epoch  19/90 (overall  49/120)   2.2s | TRAIN loss 0.003 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.365 acc 0.959 auc 0.653 recall 0.08 | TEST loss 0.218 acc 0.970 auc 0.762 recall 0.44 | best val_auc 0.825
+[stage B] epoch  20/90 (overall  50/120)   2.2s | TRAIN loss 0.004 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.324 acc 0.952 auc 0.721 recall 0.08 | TEST loss 0.218 acc 0.966 auc 0.759 recall 0.44 | best val_auc 0.825
+[stage B] epoch  21/90 (overall  51/120)   2.6s | TRAIN loss 0.036 acc 0.988 auc 0.998 recall 0.97 | VAL loss 0.533 acc 0.837 auc 0.725 recall 0.42 | TEST loss 0.539 acc 0.860 auc 0.755 recall 0.44 | best val_auc 0.825
+[stage B] epoch  22/90 (overall  52/120)   2.1s | TRAIN loss 0.080 acc 0.963 auc 0.992 recall 1.00 | VAL loss 0.275 acc 0.948 auc 0.711 recall 0.08 | TEST loss 0.217 acc 0.958 auc 0.730 recall 0.22 | best val_auc 0.825
+[stage B] epoch  23/90 (overall  53/120)   2.1s | TRAIN loss 0.016 acc 0.992 auc 1.000 recall 1.00 | VAL loss 0.299 acc 0.948 auc 0.727 recall 0.08 | TEST loss 0.207 acc 0.955 auc 0.746 recall 0.22 | best val_auc 0.825
+[stage B] epoch  24/90 (overall  54/120)   2.1s | TRAIN loss 0.015 acc 0.992 auc 1.000 recall 1.00 | VAL loss 0.296 acc 0.915 auc 0.736 recall 0.08 | TEST loss 0.248 acc 0.925 auc 0.754 recall 0.44 | best val_auc 0.825
+[stage B] epoch  25/90 (overall  55/120)   2.2s | TRAIN loss 0.044 acc 0.982 auc 0.999 recall 1.00 | VAL loss 0.366 acc 0.956 auc 0.581 recall 0.17 | TEST loss 0.224 acc 0.955 auc 0.730 recall 0.22 | best val_auc 0.825
+[stage B] epoch  26/90 (overall  56/120)   2.0s | TRAIN loss 0.021 acc 0.993 auc 1.000 recall 1.00 | VAL loss 0.295 acc 0.948 auc 0.772 recall 0.25 | TEST loss 0.225 acc 0.955 auc 0.727 recall 0.22 | best val_auc 0.825
+[stage B] epoch  27/90 (overall  57/120)   2.0s | TRAIN loss 0.030 acc 0.983 auc 0.999 recall 1.00 | VAL loss 0.436 acc 0.952 auc 0.576 recall 0.00 | TEST loss 0.326 acc 0.962 auc 0.706 recall 0.22 | best val_auc 0.825
+[stage B] epoch  28/90 (overall  58/120)   2.2s | TRAIN loss 0.023 acc 0.990 auc 1.000 recall 1.00 | VAL loss 0.404 acc 0.959 auc 0.656 recall 0.08 | TEST loss 0.311 acc 0.966 auc 0.707 recall 0.22 | best val_auc 0.825
+[stage B] epoch  29/90 (overall  59/120)   2.1s | TRAIN loss 0.003 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.395 acc 0.959 auc 0.656 recall 0.08 | TEST loss 0.325 acc 0.966 auc 0.708 recall 0.22 | best val_auc 0.825
+[stage B] epoch  30/90 (overall  60/120)   2.1s | TRAIN loss 0.074 acc 0.964 auc 0.996 recall 1.00 | VAL loss 0.309 acc 0.944 auc 0.645 recall 0.08 | TEST loss 0.258 acc 0.951 auc 0.743 recall 0.44 | best val_auc 0.825
+[stage B] epoch  31/90 (overall  61/120)   2.1s | TRAIN loss 0.028 acc 0.992 auc 1.000 recall 1.00 | VAL loss 0.267 acc 0.941 auc 0.769 recall 0.17 | TEST loss 0.311 acc 0.932 auc 0.775 recall 0.22 | best val_auc 0.825
+[stage B] epoch  32/90 (overall  62/120)   2.1s | TRAIN loss 0.012 acc 0.993 auc 1.000 recall 1.00 | VAL loss 0.391 acc 0.959 auc 0.649 recall 0.08 | TEST loss 0.286 acc 0.958 auc 0.650 recall 0.22 | best val_auc 0.825
+[stage B] epoch  33/90 (overall  63/120)   2.1s | TRAIN loss 0.004 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.378 acc 0.956 auc 0.685 recall 0.08 | TEST loss 0.320 acc 0.955 auc 0.648 recall 0.22 | best val_auc 0.825
+[stage B] epoch  34/90 (overall  64/120)   2.1s | TRAIN loss 0.004 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.436 acc 0.959 auc 0.615 recall 0.08 | TEST loss 0.365 acc 0.955 auc 0.599 recall 0.22 | best val_auc 0.825
+[stage B] epoch  35/90 (overall  65/120)   2.2s | TRAIN loss 0.004 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.408 acc 0.959 auc 0.644 recall 0.08 | TEST loss 0.389 acc 0.951 auc 0.592 recall 0.22 | best val_auc 0.825
+[stage B] epoch  36/90 (overall  66/120)   2.2s | TRAIN loss 0.026 acc 0.984 auc 1.000 recall 1.00 | VAL loss 0.468 acc 0.963 auc 0.620 recall 0.17 | TEST loss 0.313 acc 0.966 auc 0.707 recall 0.22 | best val_auc 0.825
+[stage B] epoch  37/90 (overall  67/120)   2.2s | TRAIN loss 0.083 acc 0.989 auc 0.998 recall 0.97 | VAL loss 0.552 acc 0.867 auc 0.773 recall 0.67 | TEST loss 0.734 acc 0.838 auc 0.758 recall 0.44 | best val_auc 0.825
+[stage B] epoch  38/90 (overall  68/120)   2.0s | TRAIN loss 0.487 acc 0.863 auc 0.926 recall 0.88 | VAL loss 0.351 acc 0.826 auc 0.731 recall 0.58 | TEST loss 0.359 acc 0.842 auc 0.677 recall 0.33 | best val_auc 0.825
+[stage B] epoch  39/90 (overall  69/120)   2.1s | TRAIN loss 0.153 acc 0.916 auc 0.984 recall 0.92 | VAL loss 0.243 acc 0.922 auc 0.746 recall 0.17 | TEST loss 0.243 acc 0.940 auc 0.675 recall 0.33 | best val_auc 0.825
+[stage B] epoch  40/90 (overall  70/120)   2.1s | TRAIN loss 0.041 acc 0.983 auc 0.999 recall 1.00 | VAL loss 0.283 acc 0.963 auc 0.710 recall 0.17 | TEST loss 0.276 acc 0.962 auc 0.738 recall 0.22 | best val_auc 0.825
+[stage B] epoch  41/90 (overall  71/120)   2.1s | TRAIN loss 0.049 acc 0.982 auc 0.998 recall 0.96 | VAL loss 0.249 acc 0.948 auc 0.718 recall 0.25 | TEST loss 0.262 acc 0.940 auc 0.697 recall 0.22 | best val_auc 0.825
+[stage B] epoch  42/90 (overall  72/120)   2.1s | TRAIN loss 0.033 acc 0.986 auc 0.999 recall 1.00 | VAL loss 0.262 acc 0.948 auc 0.767 recall 0.33 | TEST loss 0.300 acc 0.940 auc 0.762 recall 0.22 | best val_auc 0.825
+[stage B] epoch  43/90 (overall  73/120)   2.1s | TRAIN loss 0.033 acc 0.980 auc 0.999 recall 1.00 | VAL loss 0.317 acc 0.941 auc 0.726 recall 0.33 | TEST loss 0.332 acc 0.928 auc 0.766 recall 0.33 | best val_auc 0.825
+[stage B] epoch  44/90 (overall  74/120)   2.2s | TRAIN loss 0.021 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.265 acc 0.926 auc 0.809 recall 0.33 | TEST loss 0.313 acc 0.921 auc 0.742 recall 0.22 | best val_auc 0.825
+[stage B] epoch  45/90 (overall  75/120)   2.1s | TRAIN loss 0.035 acc 0.982 auc 0.999 recall 1.00 | VAL loss 0.399 acc 0.959 auc 0.619 recall 0.08 | TEST loss 0.350 acc 0.966 auc 0.599 recall 0.11 | best val_auc 0.825
+[stage B] epoch  46/90 (overall  76/120)   2.1s | TRAIN loss 0.008 acc 0.996 auc 0.999 recall 1.00 | VAL loss 0.345 acc 0.959 auc 0.728 recall 0.25 | TEST loss 0.348 acc 0.958 auc 0.585 recall 0.22 | best val_auc 0.825
+[stage B] epoch  47/90 (overall  77/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.443 acc 0.959 auc 0.659 recall 0.08 | TEST loss 0.388 acc 0.966 auc 0.600 recall 0.22 | best val_auc 0.825
+[stage B] epoch  48/90 (overall  78/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.431 acc 0.963 auc 0.659 recall 0.17 | TEST loss 0.381 acc 0.966 auc 0.599 recall 0.22 | best val_auc 0.825
+[stage B] epoch  49/90 (overall  79/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.444 acc 0.963 auc 0.659 recall 0.17 | TEST loss 0.391 acc 0.966 auc 0.599 recall 0.22 | best val_auc 0.825
+[stage B] epoch  50/90 (overall  80/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.434 acc 0.963 auc 0.656 recall 0.17 | TEST loss 0.397 acc 0.966 auc 0.594 recall 0.22 | best val_auc 0.825
+[stage B] epoch  51/90 (overall  81/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.455 acc 0.963 auc 0.659 recall 0.17 | TEST loss 0.404 acc 0.966 auc 0.599 recall 0.22 | best val_auc 0.825
+[stage B] epoch  52/90 (overall  82/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.472 acc 0.959 auc 0.619 recall 0.08 | TEST loss 0.412 acc 0.966 auc 0.600 recall 0.22 | best val_auc 0.825
+[stage B] epoch  53/90 (overall  83/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.479 acc 0.959 auc 0.619 recall 0.08 | TEST loss 0.415 acc 0.966 auc 0.600 recall 0.22 | best val_auc 0.825
+[stage B] epoch  54/90 (overall  84/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.449 acc 0.963 auc 0.658 recall 0.17 | TEST loss 0.412 acc 0.966 auc 0.596 recall 0.22 | best val_auc 0.825
+[stage B] epoch  55/90 (overall  85/120)   2.3s | TRAIN loss 0.005 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.416 acc 0.956 auc 0.684 recall 0.25 | TEST loss 0.460 acc 0.951 auc 0.685 recall 0.22 | best val_auc 0.825
+[stage B] epoch  56/90 (overall  86/120)   2.1s | TRAIN loss 0.002 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.624 acc 0.959 auc 0.580 recall 0.08 | TEST loss 0.469 acc 0.966 auc 0.604 recall 0.22 | best val_auc 0.825
+[stage B] epoch  57/90 (overall  87/120)   2.1s | TRAIN loss 0.292 acc 0.945 auc 0.963 recall 0.93 | VAL loss 0.363 acc 0.863 auc 0.803 recall 0.67 | TEST loss 0.434 acc 0.819 auc 0.633 recall 0.33 | best val_auc 0.825
+[stage B] epoch  58/90 (overall  88/120)   3.7s | TRAIN loss 0.105 acc 0.933 auc 0.995 recall 1.00 | VAL loss 0.221 acc 0.948 auc 0.828 recall 0.42 | TEST loss 0.283 acc 0.940 auc 0.636 recall 0.33 | best val_auc 0.828  <- saved
+[stage B] epoch  59/90 (overall  89/120)   3.2s | TRAIN loss 0.039 acc 0.982 auc 0.999 recall 1.00 | VAL loss 0.236 acc 0.959 auc 0.844 recall 0.25 | TEST loss 0.305 acc 0.962 auc 0.724 recall 0.22 | best val_auc 0.844  <- saved
+[stage B] epoch  60/90 (overall  90/120)   2.4s | TRAIN loss 0.028 acc 0.981 auc 1.000 recall 1.00 | VAL loss 0.258 acc 0.956 auc 0.833 recall 0.42 | TEST loss 0.320 acc 0.955 auc 0.765 recall 0.44 | best val_auc 0.844
+[stage B] epoch  61/90 (overall  91/120)   2.2s | TRAIN loss 0.011 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.245 acc 0.963 auc 0.833 recall 0.33 | TEST loss 0.294 acc 0.951 auc 0.788 recall 0.44 | best val_auc 0.844
+[stage B] epoch  62/90 (overall  92/120)   2.2s | TRAIN loss 0.013 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.338 acc 0.967 auc 0.762 recall 0.33 | TEST loss 0.355 acc 0.955 auc 0.750 recall 0.22 | best val_auc 0.844
+[stage B] epoch  63/90 (overall  93/120)   3.3s | TRAIN loss 0.028 acc 0.988 auc 0.999 recall 1.00 | VAL loss 0.348 acc 0.911 auc 0.847 recall 0.58 | TEST loss 0.443 acc 0.913 auc 0.742 recall 0.56 | best val_auc 0.847  <- saved
+[stage B] epoch  64/90 (overall  94/120)   3.1s | TRAIN loss 0.026 acc 0.990 auc 1.000 recall 1.00 | VAL loss 0.221 acc 0.963 auc 0.873 recall 0.33 | TEST loss 0.259 acc 0.962 auc 0.734 recall 0.44 | best val_auc 0.873  <- saved
+[stage B] epoch  65/90 (overall  95/120)   2.2s | TRAIN loss 0.007 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.252 acc 0.963 auc 0.847 recall 0.25 | TEST loss 0.289 acc 0.958 auc 0.744 recall 0.22 | best val_auc 0.873
+[stage B] epoch  66/90 (overall  96/120)   2.1s | TRAIN loss 0.003 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.266 acc 0.963 auc 0.851 recall 0.25 | TEST loss 0.322 acc 0.958 auc 0.749 recall 0.22 | best val_auc 0.873
+[stage B] epoch  67/90 (overall  97/120)   2.2s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.286 acc 0.967 auc 0.777 recall 0.25 | TEST loss 0.338 acc 0.958 auc 0.756 recall 0.22 | best val_auc 0.873
+[stage B] epoch  68/90 (overall  98/120)   2.2s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.322 acc 0.959 auc 0.743 recall 0.08 | TEST loss 0.352 acc 0.962 auc 0.760 recall 0.22 | best val_auc 0.873
+[stage B] epoch  69/90 (overall  99/120)   2.3s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.310 acc 0.959 auc 0.740 recall 0.17 | TEST loss 0.362 acc 0.955 auc 0.758 recall 0.22 | best val_auc 0.873
+[stage B] epoch  70/90 (overall 100/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.324 acc 0.959 auc 0.740 recall 0.17 | TEST loss 0.369 acc 0.955 auc 0.760 recall 0.22 | best val_auc 0.873
+[stage B] epoch  71/90 (overall 101/120)   2.3s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.330 acc 0.963 auc 0.743 recall 0.17 | TEST loss 0.373 acc 0.955 auc 0.761 recall 0.22 | best val_auc 0.873
+[stage B] epoch  72/90 (overall 102/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.337 acc 0.963 auc 0.744 recall 0.17 | TEST loss 0.378 acc 0.955 auc 0.762 recall 0.22 | best val_auc 0.873
+[stage B] epoch  73/90 (overall 103/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.323 acc 0.967 auc 0.742 recall 0.25 | TEST loss 0.385 acc 0.955 auc 0.759 recall 0.22 | best val_auc 0.873
+[stage B] epoch  74/90 (overall 104/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.333 acc 0.967 auc 0.743 recall 0.25 | TEST loss 0.388 acc 0.955 auc 0.761 recall 0.22 | best val_auc 0.873
+[stage B] epoch  75/90 (overall 105/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.323 acc 0.963 auc 0.742 recall 0.25 | TEST loss 0.403 acc 0.955 auc 0.759 recall 0.22 | best val_auc 0.873
+[stage B] epoch  76/90 (overall 106/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.336 acc 0.967 auc 0.743 recall 0.25 | TEST loss 0.410 acc 0.955 auc 0.761 recall 0.22 | best val_auc 0.873
+[stage B] epoch  77/90 (overall 107/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.346 acc 0.967 auc 0.743 recall 0.25 | TEST loss 0.417 acc 0.955 auc 0.761 recall 0.22 | best val_auc 0.873
+[stage B] epoch  78/90 (overall 108/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.354 acc 0.967 auc 0.744 recall 0.25 | TEST loss 0.420 acc 0.955 auc 0.761 recall 0.22 | best val_auc 0.873
+[stage B] epoch  79/90 (overall 109/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.356 acc 0.967 auc 0.744 recall 0.25 | TEST loss 0.423 acc 0.955 auc 0.761 recall 0.22 | best val_auc 0.873
+[stage B] epoch  80/90 (overall 110/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.352 acc 0.967 auc 0.744 recall 0.25 | TEST loss 0.418 acc 0.955 auc 0.761 recall 0.22 | best val_auc 0.873
+[stage B] epoch  81/90 (overall 111/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.355 acc 0.967 auc 0.744 recall 0.25 | TEST loss 0.419 acc 0.955 auc 0.762 recall 0.22 | best val_auc 0.873
+[stage B] epoch  82/90 (overall 112/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.343 acc 0.967 auc 0.743 recall 0.25 | TEST loss 0.392 acc 0.955 auc 0.762 recall 0.22 | best val_auc 0.873
+[stage B] epoch  83/90 (overall 113/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.362 acc 0.967 auc 0.703 recall 0.25 | TEST loss 0.377 acc 0.962 auc 0.765 recall 0.44 | best val_auc 0.873
+[stage B] epoch  84/90 (overall 114/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.371 acc 0.959 auc 0.661 recall 0.08 | TEST loss 0.381 acc 0.962 auc 0.765 recall 0.44 | best val_auc 0.873
+[stage B] epoch  85/90 (overall 115/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.341 acc 0.967 auc 0.741 recall 0.25 | TEST loss 0.385 acc 0.962 auc 0.762 recall 0.44 | best val_auc 0.873
+[stage B] epoch  86/90 (overall 116/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.355 acc 0.967 auc 0.701 recall 0.25 | TEST loss 0.392 acc 0.962 auc 0.763 recall 0.44 | best val_auc 0.873
+[stage B] epoch  87/90 (overall 117/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.370 acc 0.967 auc 0.703 recall 0.25 | TEST loss 0.395 acc 0.962 auc 0.763 recall 0.44 | best val_auc 0.873
+[stage B] epoch  88/90 (overall 118/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.378 acc 0.963 auc 0.661 recall 0.17 | TEST loss 0.398 acc 0.962 auc 0.763 recall 0.44 | best val_auc 0.873
+[stage B] epoch  89/90 (overall 119/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.371 acc 0.967 auc 0.702 recall 0.25 | TEST loss 0.408 acc 0.962 auc 0.762 recall 0.44 | best val_auc 0.873
+[stage B] epoch  90/90 (overall 120/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.381 acc 0.967 auc 0.702 recall 0.25 | TEST loss 0.412 acc 0.962 auc 0.763 recall 0.44 | best val_auc 0.873
+
+===== fold1 done in 9.8 min | kept stage B epoch 64 (overall 94) | threshold 0.0364 =====
+TEST fold: AUC 0.765 | malignant caught 5/9 | false alarms 24/256 benign (specificity 0.906)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/best.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/curves/accuracy.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/curves/auc.png (0.08 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/curves/loss.png (0.09 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/curves/pr_auc.png (0.08 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/curves/precision.png (0.09 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/curves/recall.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/epoch_log.csv (0.04 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/final.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/metrics.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/test_predictions.csv (0.02 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/threshold.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold1/val_predictions.csv (0.02 MB)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1791656338.308862   13864 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2246 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5
+[GPU GUARD] GPU: NVIDIA GeForce GTX 1650 | test matmul ran on: /job:localhost/replica:0/task:0/device:GPU:0
+[DATA] fold2 | train 806 (29 malignant) | val 267 (9) | test 270 (12) | class weights {0: 0.519, 1: 13.897}
+
+===== Stage A: head only, 30 epochs, lr 0.001 =====
+I0000 00:00:1791656364.630803   13926 device_compiler.h:196] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[stage A] epoch   1/30 (overall   1/120)  38.7s | TRAIN loss 0.801 acc 0.659 auc 0.560 recall 0.40 | VAL loss 0.739 acc 0.513 auc 0.686 recall 0.78 | TEST loss 0.777 acc 0.452 auc 0.551 recall 0.50 | best val_auc 0.686  <- saved
+[stage A] epoch   2/30 (overall   2/120)   2.6s | TRAIN loss 0.680 acc 0.576 auc 0.639 recall 0.66 | VAL loss 0.581 acc 0.704 auc 0.734 recall 0.67 | TEST loss 0.615 acc 0.615 auc 0.541 recall 0.42 | best val_auc 0.734  <- saved
+[stage A] epoch   3/30 (overall   3/120)   2.5s | TRAIN loss 0.637 acc 0.660 auc 0.706 recall 0.63 | VAL loss 0.519 acc 0.768 auc 0.746 recall 0.44 | TEST loss 0.551 acc 0.715 auc 0.533 recall 0.33 | best val_auc 0.746  <- saved
+[stage A] epoch   4/30 (overall   4/120)   2.5s | TRAIN loss 0.592 acc 0.683 auc 0.756 recall 0.65 | VAL loss 0.522 acc 0.749 auc 0.752 recall 0.67 | TEST loss 0.551 acc 0.696 auc 0.572 recall 0.33 | best val_auc 0.752  <- saved
+[stage A] epoch   5/30 (overall   5/120)   1.7s | TRAIN loss 0.584 acc 0.675 auc 0.758 recall 0.76 | VAL loss 0.435 acc 0.824 auc 0.746 recall 0.33 | TEST loss 0.461 acc 0.811 auc 0.595 recall 0.33 | best val_auc 0.752
+[stage A] epoch   6/30 (overall   6/120)   2.2s | TRAIN loss 0.553 acc 0.720 auc 0.796 recall 0.77 | VAL loss 0.459 acc 0.798 auc 0.767 recall 0.33 | TEST loss 0.482 acc 0.793 auc 0.612 recall 0.42 | best val_auc 0.767  <- saved
+[stage A] epoch   7/30 (overall   7/120)   2.2s | TRAIN loss 0.571 acc 0.720 auc 0.798 recall 0.76 | VAL loss 0.485 acc 0.779 auc 0.772 recall 0.44 | TEST loss 0.507 acc 0.752 auc 0.627 recall 0.42 | best val_auc 0.772  <- saved
+[stage A] epoch   8/30 (overall   8/120)   1.7s | TRAIN loss 0.491 acc 0.660 auc 0.829 recall 0.80 | VAL loss 0.298 acc 0.906 auc 0.758 recall 0.11 | TEST loss 0.322 acc 0.915 auc 0.619 recall 0.00 | best val_auc 0.772
+[stage A] epoch   9/30 (overall   9/120)   1.6s | TRAIN loss 0.620 acc 0.686 auc 0.765 recall 0.62 | VAL loss 0.450 acc 0.805 auc 0.762 recall 0.56 | TEST loss 0.469 acc 0.789 auc 0.645 recall 0.42 | best val_auc 0.772
+[stage A] epoch  10/30 (overall  10/120)   1.6s | TRAIN loss 0.477 acc 0.737 auc 0.834 recall 0.78 | VAL loss 0.348 acc 0.858 auc 0.759 recall 0.22 | TEST loss 0.366 acc 0.878 auc 0.633 recall 0.17 | best val_auc 0.772
+[stage A] epoch  11/30 (overall  11/120)   1.5s | TRAIN loss 0.462 acc 0.799 auc 0.876 recall 0.84 | VAL loss 0.350 acc 0.854 auc 0.765 recall 0.22 | TEST loss 0.368 acc 0.874 auc 0.637 recall 0.25 | best val_auc 0.772
+[stage A] epoch  12/30 (overall  12/120)   2.2s | TRAIN loss 0.583 acc 0.689 auc 0.778 recall 0.64 | VAL loss 0.387 acc 0.839 auc 0.776 recall 0.44 | TEST loss 0.401 acc 0.852 auc 0.636 recall 0.33 | best val_auc 0.776  <- saved
+[stage A] epoch  13/30 (overall  13/120)   1.5s | TRAIN loss 0.406 acc 0.768 auc 0.906 recall 0.90 | VAL loss 0.347 acc 0.850 auc 0.769 recall 0.33 | TEST loss 0.360 acc 0.874 auc 0.636 recall 0.17 | best val_auc 0.776
+[stage A] epoch  14/30 (overall  14/120)   2.3s | TRAIN loss 0.492 acc 0.768 auc 0.839 recall 0.74 | VAL loss 0.457 acc 0.775 auc 0.790 recall 0.44 | TEST loss 0.465 acc 0.778 auc 0.647 recall 0.50 | best val_auc 0.790  <- saved
+[stage A] epoch  15/30 (overall  15/120)   1.6s | TRAIN loss 0.434 acc 0.769 auc 0.885 recall 0.83 | VAL loss 0.288 acc 0.899 auc 0.776 recall 0.22 | TEST loss 0.299 acc 0.922 auc 0.647 recall 0.08 | best val_auc 0.790
+[stage A] epoch  16/30 (overall  16/120)   1.6s | TRAIN loss 0.428 acc 0.815 auc 0.882 recall 0.69 | VAL loss 0.404 acc 0.820 auc 0.779 recall 0.44 | TEST loss 0.408 acc 0.833 auc 0.671 recall 0.33 | best val_auc 0.790
+[stage A] epoch  17/30 (overall  17/120)   1.7s | TRAIN loss 0.370 acc 0.797 auc 0.896 recall 0.86 | VAL loss 0.238 acc 0.925 auc 0.775 recall 0.11 | TEST loss 0.252 acc 0.937 auc 0.650 recall 0.00 | best val_auc 0.790
+[stage A] epoch  18/30 (overall  18/120)   1.7s | TRAIN loss 0.435 acc 0.833 auc 0.891 recall 0.87 | VAL loss 0.304 acc 0.869 auc 0.788 recall 0.33 | TEST loss 0.310 acc 0.900 auc 0.666 recall 0.17 | best val_auc 0.790
+[stage A] epoch  19/30 (overall  19/120)   2.2s | TRAIN loss 0.526 acc 0.725 auc 0.853 recall 0.78 | VAL loss 0.424 acc 0.798 auc 0.817 recall 0.44 | TEST loss 0.422 acc 0.811 auc 0.676 recall 0.42 | best val_auc 0.817  <- saved
+[stage A] epoch  20/30 (overall  20/120)   1.6s | TRAIN loss 0.363 acc 0.817 auc 0.925 recall 0.93 | VAL loss 0.310 acc 0.854 auc 0.811 recall 0.33 | TEST loss 0.313 acc 0.889 auc 0.661 recall 0.17 | best val_auc 0.817
+[stage A] epoch  21/30 (overall  21/120)   2.2s | TRAIN loss 0.424 acc 0.788 auc 0.898 recall 0.84 | VAL loss 0.383 acc 0.824 auc 0.818 recall 0.33 | TEST loss 0.381 acc 0.826 auc 0.667 recall 0.25 | best val_auc 0.818  <- saved
+[stage A] epoch  22/30 (overall  22/120)   1.6s | TRAIN loss 0.406 acc 0.823 auc 0.891 recall 0.81 | VAL loss 0.327 acc 0.843 auc 0.814 recall 0.33 | TEST loss 0.326 acc 0.896 auc 0.682 recall 0.25 | best val_auc 0.818
+[stage A] epoch  23/30 (overall  23/120)   1.5s | TRAIN loss 0.350 acc 0.849 auc 0.924 recall 0.85 | VAL loss 0.294 acc 0.876 auc 0.811 recall 0.33 | TEST loss 0.293 acc 0.915 auc 0.682 recall 0.08 | best val_auc 0.818
+[stage A] epoch  24/30 (overall  24/120)   1.5s | TRAIN loss 0.376 acc 0.821 auc 0.932 recall 0.82 | VAL loss 0.291 acc 0.884 auc 0.817 recall 0.33 | TEST loss 0.292 acc 0.915 auc 0.685 recall 0.08 | best val_auc 0.818
+[stage A] epoch  25/30 (overall  25/120)   2.1s | TRAIN loss 0.368 acc 0.868 auc 0.911 recall 0.79 | VAL loss 0.343 acc 0.835 auc 0.825 recall 0.33 | TEST loss 0.340 acc 0.881 auc 0.675 recall 0.25 | best val_auc 0.825  <- saved
+[stage A] epoch  26/30 (overall  26/120)   1.6s | TRAIN loss 0.393 acc 0.793 auc 0.915 recall 0.88 | VAL loss 0.300 acc 0.869 auc 0.817 recall 0.33 | TEST loss 0.299 acc 0.915 auc 0.677 recall 0.17 | best val_auc 0.825
+[stage A] epoch  27/30 (overall  27/120)   2.2s | TRAIN loss 0.354 acc 0.837 auc 0.941 recall 0.91 | VAL loss 0.295 acc 0.876 auc 0.826 recall 0.33 | TEST loss 0.296 acc 0.904 auc 0.675 recall 0.08 | best val_auc 0.826  <- saved
+[stage A] epoch  28/30 (overall  28/120)   2.2s | TRAIN loss 0.432 acc 0.837 auc 0.876 recall 0.68 | VAL loss 0.438 acc 0.783 auc 0.845 recall 0.56 | TEST loss 0.427 acc 0.785 auc 0.689 recall 0.33 | best val_auc 0.845  <- saved
+[stage A] epoch  29/30 (overall  29/120)   1.5s | TRAIN loss 0.351 acc 0.794 auc 0.935 recall 0.87 | VAL loss 0.308 acc 0.861 auc 0.828 recall 0.33 | TEST loss 0.308 acc 0.885 auc 0.678 recall 0.17 | best val_auc 0.845
+[stage A] epoch  30/30 (overall  30/120)   1.5s | TRAIN loss 0.344 acc 0.876 auc 0.942 recall 0.87 | VAL loss 0.298 acc 0.869 auc 0.828 recall 0.33 | TEST loss 0.297 acc 0.904 auc 0.686 recall 0.17 | best val_auc 0.845
+
+===== Stage B: fine-tuning, 72 backbone layers unfrozen, 90 epochs, lr 0.0001 =====
+[stage B] epoch   1/90 (overall  31/120)  34.0s | TRAIN loss 0.566 acc 0.764 auc 0.794 recall 0.68 | VAL loss 0.401 acc 0.865 auc 0.756 recall 0.44 | TEST loss 0.403 acc 0.870 auc 0.809 recall 0.25 | best val_auc 0.845
+[stage B] epoch   2/90 (overall  32/120)   2.5s | TRAIN loss 0.476 acc 0.802 auc 0.852 recall 0.68 | VAL loss 0.389 acc 0.813 auc 0.770 recall 0.44 | TEST loss 0.338 acc 0.815 auc 0.824 recall 0.58 | best val_auc 0.845
+[stage B] epoch   3/90 (overall  33/120)   2.2s | TRAIN loss 0.337 acc 0.796 auc 0.927 recall 0.86 | VAL loss 0.174 acc 0.948 auc 0.728 recall 0.33 | TEST loss 0.142 acc 0.948 auc 0.867 recall 0.00 | best val_auc 0.845
+[stage B] epoch   4/90 (overall  34/120)   3.1s | TRAIN loss 0.421 acc 0.790 auc 0.900 recall 0.82 | VAL loss 0.339 acc 0.846 auc 0.893 recall 0.67 | TEST loss 0.345 acc 0.856 auc 0.822 recall 0.50 | best val_auc 0.893  <- saved
+[stage B] epoch   5/90 (overall  35/120)   2.1s | TRAIN loss 0.316 acc 0.861 auc 0.939 recall 0.90 | VAL loss 0.471 acc 0.730 auc 0.875 recall 0.78 | TEST loss 0.445 acc 0.752 auc 0.761 recall 0.58 | best val_auc 0.893
+[stage B] epoch   6/90 (overall  36/120)   2.1s | TRAIN loss 0.223 acc 0.913 auc 0.967 recall 0.93 | VAL loss 0.229 acc 0.891 auc 0.822 recall 0.33 | TEST loss 0.217 acc 0.915 auc 0.781 recall 0.33 | best val_auc 0.893
+[stage B] epoch   7/90 (overall  37/120)   2.2s | TRAIN loss 0.212 acc 0.912 auc 0.975 recall 0.94 | VAL loss 0.198 acc 0.921 auc 0.841 recall 0.33 | TEST loss 0.162 acc 0.948 auc 0.848 recall 0.25 | best val_auc 0.893
+[stage B] epoch   8/90 (overall  38/120)   2.2s | TRAIN loss 0.187 acc 0.928 auc 0.982 recall 0.91 | VAL loss 0.296 acc 0.876 auc 0.854 recall 0.67 | TEST loss 0.268 acc 0.874 auc 0.799 recall 0.33 | best val_auc 0.893
+[stage B] epoch   9/90 (overall  39/120)   2.1s | TRAIN loss 0.146 acc 0.930 auc 0.984 recall 0.96 | VAL loss 0.131 acc 0.966 auc 0.794 recall 0.22 | TEST loss 0.195 acc 0.959 auc 0.785 recall 0.08 | best val_auc 0.893
+[stage B] epoch  10/90 (overall  40/120)   2.3s | TRAIN loss 0.238 acc 0.893 auc 0.973 recall 0.91 | VAL loss 0.131 acc 0.959 auc 0.865 recall 0.22 | TEST loss 0.181 acc 0.959 auc 0.721 recall 0.17 | best val_auc 0.893
+[stage B] epoch  11/90 (overall  41/120)   2.1s | TRAIN loss 0.143 acc 0.958 auc 0.988 recall 0.90 | VAL loss 0.172 acc 0.921 auc 0.871 recall 0.22 | TEST loss 0.203 acc 0.922 auc 0.768 recall 0.42 | best val_auc 0.893
+[stage B] epoch  12/90 (overall  42/120)   2.1s | TRAIN loss 0.144 acc 0.952 auc 0.986 recall 0.96 | VAL loss 0.341 acc 0.813 auc 0.846 recall 0.67 | TEST loss 0.315 acc 0.859 auc 0.791 recall 0.50 | best val_auc 0.893
+[stage B] epoch  13/90 (overall  43/120)   2.1s | TRAIN loss 0.122 acc 0.927 auc 0.992 recall 1.00 | VAL loss 0.167 acc 0.933 auc 0.841 recall 0.22 | TEST loss 0.191 acc 0.952 auc 0.777 recall 0.33 | best val_auc 0.893
+[stage B] epoch  14/90 (overall  44/120)   2.1s | TRAIN loss 0.047 acc 0.983 auc 0.999 recall 1.00 | VAL loss 0.189 acc 0.940 auc 0.769 recall 0.22 | TEST loss 0.191 acc 0.948 auc 0.712 recall 0.25 | best val_auc 0.893
+[stage B] epoch  15/90 (overall  45/120)   2.1s | TRAIN loss 0.050 acc 0.983 auc 0.999 recall 0.97 | VAL loss 0.308 acc 0.873 auc 0.815 recall 0.33 | TEST loss 0.253 acc 0.889 auc 0.846 recall 0.42 | best val_auc 0.893
+[stage B] epoch  16/90 (overall  46/120)   2.2s | TRAIN loss 0.063 acc 0.972 auc 0.995 recall 1.00 | VAL loss 0.161 acc 0.959 auc 0.747 recall 0.22 | TEST loss 0.218 acc 0.948 auc 0.695 recall 0.17 | best val_auc 0.893
+[stage B] epoch  17/90 (overall  47/120)   2.3s | TRAIN loss 0.054 acc 0.980 auc 0.998 recall 0.96 | VAL loss 0.208 acc 0.970 auc 0.634 recall 0.22 | TEST loss 0.248 acc 0.963 auc 0.687 recall 0.17 | best val_auc 0.893
+[stage B] epoch  18/90 (overall  48/120)   2.3s | TRAIN loss 0.039 acc 0.981 auc 0.999 recall 1.00 | VAL loss 0.232 acc 0.959 auc 0.626 recall 0.22 | TEST loss 0.256 acc 0.963 auc 0.722 recall 0.17 | best val_auc 0.893
+[stage B] epoch  19/90 (overall  49/120)   2.2s | TRAIN loss 0.015 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.220 acc 0.959 auc 0.670 recall 0.22 | TEST loss 0.254 acc 0.959 auc 0.719 recall 0.33 | best val_auc 0.893
+[stage B] epoch  20/90 (overall  50/120)   2.1s | TRAIN loss 0.124 acc 0.941 auc 0.993 recall 0.97 | VAL loss 0.193 acc 0.963 auc 0.688 recall 0.33 | TEST loss 0.191 acc 0.959 auc 0.767 recall 0.25 | best val_auc 0.893
+[stage B] epoch  21/90 (overall  51/120)   2.2s | TRAIN loss 0.020 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.215 acc 0.963 auc 0.669 recall 0.33 | TEST loss 0.210 acc 0.959 auc 0.740 recall 0.17 | best val_auc 0.893
+[stage B] epoch  22/90 (overall  52/120)   2.2s | TRAIN loss 0.061 acc 0.964 auc 0.998 recall 0.97 | VAL loss 0.575 acc 0.805 auc 0.772 recall 0.56 | TEST loss 0.599 acc 0.785 auc 0.729 recall 0.42 | best val_auc 0.893
+[stage B] epoch  23/90 (overall  53/120)   2.3s | TRAIN loss 0.067 acc 0.966 auc 0.996 recall 1.00 | VAL loss 0.156 acc 0.944 auc 0.867 recall 0.56 | TEST loss 0.251 acc 0.956 auc 0.680 recall 0.42 | best val_auc 0.893
+[stage B] epoch  24/90 (overall  54/120)   2.2s | TRAIN loss 0.017 acc 0.992 auc 1.000 recall 1.00 | VAL loss 0.235 acc 0.970 auc 0.754 recall 0.11 | TEST loss 0.382 acc 0.963 auc 0.699 recall 0.17 | best val_auc 0.893
+[stage B] epoch  25/90 (overall  55/120)   2.2s | TRAIN loss 0.045 acc 0.978 auc 0.999 recall 1.00 | VAL loss 0.176 acc 0.940 auc 0.847 recall 0.33 | TEST loss 0.237 acc 0.956 auc 0.700 recall 0.50 | best val_auc 0.893
+[stage B] epoch  26/90 (overall  56/120)   2.3s | TRAIN loss 0.106 acc 0.970 auc 0.994 recall 0.94 | VAL loss 0.250 acc 0.891 auc 0.834 recall 0.33 | TEST loss 0.220 acc 0.926 auc 0.856 recall 0.42 | best val_auc 0.893
+[stage B] epoch  27/90 (overall  57/120)   2.1s | TRAIN loss 0.089 acc 0.956 auc 0.994 recall 0.96 | VAL loss 0.234 acc 0.925 auc 0.784 recall 0.44 | TEST loss 0.203 acc 0.930 auc 0.824 recall 0.33 | best val_auc 0.893
+[stage B] epoch  28/90 (overall  58/120)   2.0s | TRAIN loss 0.112 acc 0.957 auc 0.993 recall 0.97 | VAL loss 0.627 acc 0.749 auc 0.792 recall 0.56 | TEST loss 0.599 acc 0.737 auc 0.762 recall 0.67 | best val_auc 0.893
+[stage B] epoch  29/90 (overall  59/120)   2.1s | TRAIN loss 0.114 acc 0.940 auc 0.990 recall 0.96 | VAL loss 0.321 acc 0.895 auc 0.809 recall 0.56 | TEST loss 0.327 acc 0.904 auc 0.792 recall 0.42 | best val_auc 0.893
+[stage B] epoch  30/90 (overall  60/120)   2.3s | TRAIN loss 0.115 acc 0.968 auc 0.993 recall 0.94 | VAL loss 0.262 acc 0.880 auc 0.850 recall 0.33 | TEST loss 0.287 acc 0.907 auc 0.768 recall 0.50 | best val_auc 0.893
+[stage B] epoch  31/90 (overall  61/120)   2.1s | TRAIN loss 0.058 acc 0.969 auc 0.998 recall 0.97 | VAL loss 0.167 acc 0.940 auc 0.782 recall 0.11 | TEST loss 0.239 acc 0.944 auc 0.747 recall 0.33 | best val_auc 0.893
+[stage B] epoch  32/90 (overall  62/120)   2.1s | TRAIN loss 0.020 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.181 acc 0.959 auc 0.707 recall 0.11 | TEST loss 0.259 acc 0.952 auc 0.732 recall 0.25 | best val_auc 0.893
+[stage B] epoch  33/90 (overall  63/120)   2.2s | TRAIN loss 0.008 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.186 acc 0.955 auc 0.716 recall 0.11 | TEST loss 0.259 acc 0.959 auc 0.708 recall 0.33 | best val_auc 0.893
+[stage B] epoch  34/90 (overall  64/120)   2.2s | TRAIN loss 0.007 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.222 acc 0.963 auc 0.635 recall 0.11 | TEST loss 0.307 acc 0.963 auc 0.722 recall 0.17 | best val_auc 0.893
+[stage B] epoch  35/90 (overall  65/120)   2.2s | TRAIN loss 0.004 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.235 acc 0.963 auc 0.635 recall 0.11 | TEST loss 0.321 acc 0.959 auc 0.683 recall 0.08 | best val_auc 0.893
+[stage B] epoch  36/90 (overall  66/120)   2.3s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.262 acc 0.966 auc 0.638 recall 0.11 | TEST loss 0.349 acc 0.959 auc 0.689 recall 0.08 | best val_auc 0.893
+[stage B] epoch  37/90 (overall  67/120)   2.3s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.274 acc 0.966 auc 0.586 recall 0.11 | TEST loss 0.360 acc 0.959 auc 0.690 recall 0.08 | best val_auc 0.893
+[stage B] epoch  38/90 (overall  68/120)   2.3s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.293 acc 0.966 auc 0.589 recall 0.11 | TEST loss 0.377 acc 0.959 auc 0.695 recall 0.08 | best val_auc 0.893
+[stage B] epoch  39/90 (overall  69/120)   2.4s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.293 acc 0.966 auc 0.587 recall 0.11 | TEST loss 0.372 acc 0.959 auc 0.694 recall 0.08 | best val_auc 0.893
+[stage B] epoch  40/90 (overall  70/120)   2.2s | TRAIN loss 0.002 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.308 acc 0.966 auc 0.588 recall 0.11 | TEST loss 0.393 acc 0.959 auc 0.695 recall 0.08 | best val_auc 0.893
+[stage B] epoch  41/90 (overall  71/120)   2.3s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.326 acc 0.966 auc 0.588 recall 0.11 | TEST loss 0.414 acc 0.959 auc 0.696 recall 0.08 | best val_auc 0.893
+[stage B] epoch  42/90 (overall  72/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.329 acc 0.966 auc 0.589 recall 0.11 | TEST loss 0.418 acc 0.959 auc 0.695 recall 0.08 | best val_auc 0.893
+[stage B] epoch  43/90 (overall  73/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.332 acc 0.966 auc 0.589 recall 0.11 | TEST loss 0.420 acc 0.959 auc 0.696 recall 0.08 | best val_auc 0.893
+[stage B] epoch  44/90 (overall  74/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.354 acc 0.966 auc 0.593 recall 0.11 | TEST loss 0.445 acc 0.959 auc 0.701 recall 0.08 | best val_auc 0.893
+[stage B] epoch  45/90 (overall  75/120)   2.3s | TRAIN loss 0.003 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.317 acc 0.963 auc 0.587 recall 0.11 | TEST loss 0.394 acc 0.963 auc 0.694 recall 0.17 | best val_auc 0.893
+[stage B] epoch  46/90 (overall  76/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.334 acc 0.966 auc 0.591 recall 0.11 | TEST loss 0.415 acc 0.963 auc 0.697 recall 0.17 | best val_auc 0.893
+[stage B] epoch  47/90 (overall  77/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.370 acc 0.966 auc 0.596 recall 0.11 | TEST loss 0.465 acc 0.959 auc 0.660 recall 0.08 | best val_auc 0.893
+[stage B] epoch  48/90 (overall  78/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.386 acc 0.966 auc 0.599 recall 0.11 | TEST loss 0.484 acc 0.959 auc 0.660 recall 0.08 | best val_auc 0.893
+[stage B] epoch  49/90 (overall  79/120)   2.3s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.362 acc 0.966 auc 0.594 recall 0.11 | TEST loss 0.454 acc 0.963 auc 0.700 recall 0.17 | best val_auc 0.893
+[stage B] epoch  50/90 (overall  80/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.363 acc 0.966 auc 0.596 recall 0.11 | TEST loss 0.457 acc 0.963 auc 0.700 recall 0.17 | best val_auc 0.893
+[stage B] epoch  51/90 (overall  81/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.381 acc 0.966 auc 0.600 recall 0.11 | TEST loss 0.483 acc 0.959 auc 0.660 recall 0.08 | best val_auc 0.893
+[stage B] epoch  52/90 (overall  82/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.385 acc 0.966 auc 0.600 recall 0.11 | TEST loss 0.488 acc 0.959 auc 0.660 recall 0.08 | best val_auc 0.893
+[stage B] epoch  53/90 (overall  83/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.407 acc 0.966 auc 0.601 recall 0.11 | TEST loss 0.516 acc 0.959 auc 0.661 recall 0.08 | best val_auc 0.893
+[stage B] epoch  54/90 (overall  84/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.413 acc 0.966 auc 0.602 recall 0.11 | TEST loss 0.524 acc 0.959 auc 0.663 recall 0.08 | best val_auc 0.893
+[stage B] epoch  55/90 (overall  85/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.407 acc 0.966 auc 0.602 recall 0.11 | TEST loss 0.515 acc 0.959 auc 0.661 recall 0.08 | best val_auc 0.893
+[stage B] epoch  56/90 (overall  86/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.439 acc 0.963 auc 0.603 recall 0.00 | TEST loss 0.548 acc 0.959 auc 0.664 recall 0.08 | best val_auc 0.893
+[stage B] epoch  57/90 (overall  87/120)   2.8s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.430 acc 0.966 auc 0.601 recall 0.11 | TEST loss 0.532 acc 0.959 auc 0.663 recall 0.08 | best val_auc 0.893
+[stage B] epoch  58/90 (overall  88/120)   3.3s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.406 acc 0.966 auc 0.599 recall 0.11 | TEST loss 0.500 acc 0.963 auc 0.702 recall 0.17 | best val_auc 0.893
+[stage B] epoch  59/90 (overall  89/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.432 acc 0.966 auc 0.603 recall 0.11 | TEST loss 0.536 acc 0.959 auc 0.705 recall 0.08 | best val_auc 0.893
+[stage B] epoch  60/90 (overall  90/120)   3.4s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.346 acc 0.963 auc 0.643 recall 0.22 | TEST loss 0.419 acc 0.963 auc 0.696 recall 0.17 | best val_auc 0.893
+[stage B] epoch  61/90 (overall  91/120)   3.8s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.371 acc 0.963 auc 0.599 recall 0.22 | TEST loss 0.477 acc 0.963 auc 0.700 recall 0.17 | best val_auc 0.893
+[stage B] epoch  62/90 (overall  92/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.396 acc 0.966 auc 0.599 recall 0.11 | TEST loss 0.518 acc 0.963 auc 0.702 recall 0.17 | best val_auc 0.893
+[stage B] epoch  63/90 (overall  93/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.412 acc 0.966 auc 0.602 recall 0.11 | TEST loss 0.540 acc 0.963 auc 0.704 recall 0.17 | best val_auc 0.893
+[stage B] epoch  64/90 (overall  94/120)   3.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.428 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.563 acc 0.963 auc 0.664 recall 0.17 | best val_auc 0.893
+[stage B] epoch  65/90 (overall  95/120)   4.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.434 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.572 acc 0.963 auc 0.664 recall 0.17 | best val_auc 0.893
+[stage B] epoch  66/90 (overall  96/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.430 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.567 acc 0.963 auc 0.664 recall 0.17 | best val_auc 0.893
+[stage B] epoch  67/90 (overall  97/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.466 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.606 acc 0.963 auc 0.665 recall 0.17 | best val_auc 0.893
+[stage B] epoch  68/90 (overall  98/120)   3.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.476 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.615 acc 0.963 auc 0.665 recall 0.17 | best val_auc 0.893
+[stage B] epoch  69/90 (overall  99/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.474 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.611 acc 0.963 auc 0.664 recall 0.17 | best val_auc 0.893
+[stage B] epoch  70/90 (overall 100/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.468 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.602 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  71/90 (overall 101/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.466 acc 0.966 auc 0.603 recall 0.11 | TEST loss 0.600 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  72/90 (overall 102/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.471 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.607 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  73/90 (overall 103/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.479 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.615 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  74/90 (overall 104/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.478 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.614 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  75/90 (overall 105/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.476 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.611 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  76/90 (overall 106/120)   2.4s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.468 acc 0.966 auc 0.603 recall 0.11 | TEST loss 0.601 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  77/90 (overall 107/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.467 acc 0.966 auc 0.604 recall 0.11 | TEST loss 0.600 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  78/90 (overall 108/120)   2.4s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.469 acc 0.966 auc 0.603 recall 0.11 | TEST loss 0.603 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  79/90 (overall 109/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.473 acc 0.966 auc 0.603 recall 0.11 | TEST loss 0.608 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  80/90 (overall 110/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.476 acc 0.966 auc 0.603 recall 0.11 | TEST loss 0.613 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  81/90 (overall 111/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.439 acc 0.966 auc 0.600 recall 0.11 | TEST loss 0.560 acc 0.963 auc 0.702 recall 0.17 | best val_auc 0.893
+[stage B] epoch  82/90 (overall 112/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.441 acc 0.966 auc 0.600 recall 0.11 | TEST loss 0.561 acc 0.963 auc 0.702 recall 0.17 | best val_auc 0.893
+[stage B] epoch  83/90 (overall 113/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.444 acc 0.966 auc 0.600 recall 0.11 | TEST loss 0.565 acc 0.963 auc 0.702 recall 0.17 | best val_auc 0.893
+[stage B] epoch  84/90 (overall 114/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.448 acc 0.966 auc 0.599 recall 0.11 | TEST loss 0.569 acc 0.963 auc 0.702 recall 0.17 | best val_auc 0.893
+[stage B] epoch  85/90 (overall 115/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.454 acc 0.966 auc 0.601 recall 0.11 | TEST loss 0.576 acc 0.963 auc 0.703 recall 0.17 | best val_auc 0.893
+[stage B] epoch  86/90 (overall 116/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.459 acc 0.966 auc 0.601 recall 0.11 | TEST loss 0.583 acc 0.963 auc 0.703 recall 0.17 | best val_auc 0.893
+[stage B] epoch  87/90 (overall 117/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.464 acc 0.966 auc 0.601 recall 0.11 | TEST loss 0.591 acc 0.963 auc 0.703 recall 0.17 | best val_auc 0.893
+[stage B] epoch  88/90 (overall 118/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.465 acc 0.966 auc 0.601 recall 0.11 | TEST loss 0.592 acc 0.963 auc 0.703 recall 0.17 | best val_auc 0.893
+[stage B] epoch  89/90 (overall 119/120)   3.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.478 acc 0.966 auc 0.601 recall 0.11 | TEST loss 0.610 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+[stage B] epoch  90/90 (overall 120/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.480 acc 0.966 auc 0.601 recall 0.11 | TEST loss 0.613 acc 0.963 auc 0.663 recall 0.17 | best val_auc 0.893
+
+===== fold2 done in 10.4 min | kept stage B epoch 4 (overall 34) | threshold 0.3959 =====
+TEST fold: AUC 0.823 | malignant caught 9/12 | false alarms 63/258 benign (specificity 0.756)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/best.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/curves/accuracy.png (0.06 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/curves/auc.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/curves/loss.png (0.08 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/curves/pr_auc.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/curves/precision.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/curves/recall.png (0.08 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/epoch_log.csv (0.04 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/final.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/metrics.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/test_predictions.csv (0.02 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/threshold.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold2/val_predictions.csv (0.02 MB)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1791657008.998435   20566 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2246 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5
+[GPU GUARD] GPU: NVIDIA GeForce GTX 1650 | test matmul ran on: /job:localhost/replica:0/task:0/device:GPU:0
+[DATA] fold3 | train 801 (31 malignant) | val 275 (10) | test 267 (9) | class weights {0: 0.520, 1: 12.919}
+
+===== Stage A: head only, 30 epochs, lr 0.001 =====
+I0000 00:00:1791657034.352027   20630 device_compiler.h:196] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[stage A] epoch   1/30 (overall   1/120)  40.1s | TRAIN loss 0.896 acc 0.405 auc 0.413 recall 0.47 | VAL loss 0.572 acc 0.676 auc 0.610 recall 0.50 | TEST loss 0.561 acc 0.704 auc 0.686 recall 0.44 | best val_auc 0.610  <- saved
+[stage A] epoch   2/30 (overall   2/120)   2.7s | TRAIN loss 0.731 acc 0.590 auc 0.555 recall 0.52 | VAL loss 0.521 acc 0.724 auc 0.650 recall 0.50 | TEST loss 0.509 acc 0.768 auc 0.705 recall 0.44 | best val_auc 0.650  <- saved
+[stage A] epoch   3/30 (overall   3/120)   2.2s | TRAIN loss 0.690 acc 0.565 auc 0.655 recall 0.59 | VAL loss 0.568 acc 0.651 auc 0.710 recall 0.60 | TEST loss 0.557 acc 0.712 auc 0.733 recall 0.56 | best val_auc 0.710  <- saved
+[stage A] epoch   4/30 (overall   4/120)   2.3s | TRAIN loss 0.696 acc 0.603 auc 0.614 recall 0.48 | VAL loss 0.524 acc 0.738 auc 0.731 recall 0.60 | TEST loss 0.515 acc 0.753 auc 0.773 recall 0.56 | best val_auc 0.731  <- saved
+[stage A] epoch   5/30 (overall   5/120)   2.4s | TRAIN loss 0.632 acc 0.692 auc 0.715 recall 0.59 | VAL loss 0.685 acc 0.549 auc 0.750 recall 0.80 | TEST loss 0.673 acc 0.596 auc 0.798 recall 0.89 | best val_auc 0.750  <- saved
+[stage A] epoch   6/30 (overall   6/120)   2.4s | TRAIN loss 0.590 acc 0.594 auc 0.768 recall 0.73 | VAL loss 0.406 acc 0.887 auc 0.784 recall 0.30 | TEST loss 0.403 acc 0.869 auc 0.804 recall 0.44 | best val_auc 0.784  <- saved
+[stage A] epoch   7/30 (overall   7/120)   2.3s | TRAIN loss 0.525 acc 0.742 auc 0.807 recall 0.70 | VAL loss 0.474 acc 0.822 auc 0.805 recall 0.60 | TEST loss 0.469 acc 0.805 auc 0.820 recall 0.56 | best val_auc 0.805  <- saved
+[stage A] epoch   8/30 (overall   8/120)   2.6s | TRAIN loss 0.525 acc 0.660 auc 0.818 recall 0.81 | VAL loss 0.338 acc 0.920 auc 0.822 recall 0.30 | TEST loss 0.338 acc 0.903 auc 0.793 recall 0.44 | best val_auc 0.822  <- saved
+[stage A] epoch   9/30 (overall   9/120)   2.3s | TRAIN loss 0.560 acc 0.766 auc 0.827 recall 0.70 | VAL loss 0.470 acc 0.796 auc 0.825 recall 0.70 | TEST loss 0.465 acc 0.783 auc 0.802 recall 0.67 | best val_auc 0.825  <- saved
+[stage A] epoch  10/30 (overall  10/120)   2.3s | TRAIN loss 0.536 acc 0.751 auc 0.829 recall 0.77 | VAL loss 0.462 acc 0.822 auc 0.843 recall 0.70 | TEST loss 0.460 acc 0.798 auc 0.820 recall 0.67 | best val_auc 0.843  <- saved
+[stage A] epoch  11/30 (overall  11/120)   2.4s | TRAIN loss 0.467 acc 0.724 auc 0.822 recall 0.77 | VAL loss 0.326 acc 0.927 auc 0.860 recall 0.40 | TEST loss 0.330 acc 0.906 auc 0.817 recall 0.33 | best val_auc 0.860  <- saved
+[stage A] epoch  12/30 (overall  12/120)   1.7s | TRAIN loss 0.582 acc 0.716 auc 0.809 recall 0.75 | VAL loss 0.596 acc 0.662 auc 0.847 recall 0.90 | TEST loss 0.595 acc 0.648 auc 0.838 recall 0.89 | best val_auc 0.860
+[stage A] epoch  13/30 (overall  13/120)   1.6s | TRAIN loss 0.444 acc 0.775 auc 0.802 recall 0.76 | VAL loss 0.296 acc 0.935 auc 0.856 recall 0.40 | TEST loss 0.302 acc 0.918 auc 0.790 recall 0.33 | best val_auc 0.860
+[stage A] epoch  14/30 (overall  14/120)   1.8s | TRAIN loss 0.548 acc 0.685 auc 0.807 recall 0.80 | VAL loss 0.475 acc 0.782 auc 0.846 recall 0.70 | TEST loss 0.473 acc 0.775 auc 0.820 recall 0.67 | best val_auc 0.860
+[stage A] epoch  15/30 (overall  15/120)   1.6s | TRAIN loss 0.518 acc 0.751 auc 0.801 recall 0.61 | VAL loss 0.422 acc 0.851 auc 0.846 recall 0.60 | TEST loss 0.420 acc 0.831 auc 0.821 recall 0.67 | best val_auc 0.860
+[stage A] epoch  16/30 (overall  16/120)   1.6s | TRAIN loss 0.478 acc 0.734 auc 0.874 recall 0.85 | VAL loss 0.395 acc 0.865 auc 0.843 recall 0.50 | TEST loss 0.395 acc 0.854 auc 0.819 recall 0.56 | best val_auc 0.860
+[stage A] epoch  17/30 (overall  17/120)   1.8s | TRAIN loss 0.500 acc 0.745 auc 0.836 recall 0.75 | VAL loss 0.391 acc 0.858 auc 0.848 recall 0.60 | TEST loss 0.393 acc 0.839 auc 0.808 recall 0.56 | best val_auc 0.860
+[stage A] epoch  18/30 (overall  18/120)   1.7s | TRAIN loss 0.473 acc 0.764 auc 0.882 recall 0.76 | VAL loss 0.455 acc 0.800 auc 0.857 recall 0.60 | TEST loss 0.452 acc 0.772 auc 0.813 recall 0.67 | best val_auc 0.860
+[stage A] epoch  19/30 (overall  19/120)   2.4s | TRAIN loss 0.396 acc 0.805 auc 0.878 recall 0.80 | VAL loss 0.291 acc 0.942 auc 0.862 recall 0.50 | TEST loss 0.295 acc 0.914 auc 0.794 recall 0.44 | best val_auc 0.862  <- saved
+[stage A] epoch  20/30 (overall  20/120)   1.6s | TRAIN loss 0.468 acc 0.768 auc 0.853 recall 0.81 | VAL loss 0.387 acc 0.869 auc 0.857 recall 0.60 | TEST loss 0.386 acc 0.858 auc 0.795 recall 0.56 | best val_auc 0.862
+[stage A] epoch  21/30 (overall  21/120)   2.3s | TRAIN loss 0.431 acc 0.816 auc 0.889 recall 0.82 | VAL loss 0.328 acc 0.905 auc 0.868 recall 0.60 | TEST loss 0.333 acc 0.891 auc 0.795 recall 0.56 | best val_auc 0.868  <- saved
+[stage A] epoch  22/30 (overall  22/120)   1.6s | TRAIN loss 0.441 acc 0.773 auc 0.898 recall 0.91 | VAL loss 0.367 acc 0.884 auc 0.866 recall 0.60 | TEST loss 0.372 acc 0.861 auc 0.806 recall 0.56 | best val_auc 0.868
+[stage A] epoch  23/30 (overall  23/120)   1.7s | TRAIN loss 0.388 acc 0.843 auc 0.918 recall 0.81 | VAL loss 0.316 acc 0.916 auc 0.868 recall 0.50 | TEST loss 0.320 acc 0.895 auc 0.798 recall 0.44 | best val_auc 0.868
+[stage A] epoch  24/30 (overall  24/120)   2.3s | TRAIN loss 0.357 acc 0.838 auc 0.931 recall 0.90 | VAL loss 0.324 acc 0.905 auc 0.870 recall 0.60 | TEST loss 0.327 acc 0.884 auc 0.796 recall 0.44 | best val_auc 0.870  <- saved
+[stage A] epoch  25/30 (overall  25/120)   1.6s | TRAIN loss 0.376 acc 0.804 auc 0.938 recall 0.86 | VAL loss 0.331 acc 0.905 auc 0.867 recall 0.60 | TEST loss 0.336 acc 0.876 auc 0.808 recall 0.44 | best val_auc 0.870
+[stage A] epoch  26/30 (overall  26/120)   1.5s | TRAIN loss 0.371 acc 0.864 auc 0.940 recall 0.84 | VAL loss 0.315 acc 0.913 auc 0.866 recall 0.60 | TEST loss 0.322 acc 0.884 auc 0.797 recall 0.44 | best val_auc 0.870
+[stage A] epoch  27/30 (overall  27/120)   1.5s | TRAIN loss 0.403 acc 0.787 auc 0.909 recall 0.88 | VAL loss 0.342 acc 0.891 auc 0.863 recall 0.60 | TEST loss 0.346 acc 0.876 auc 0.794 recall 0.44 | best val_auc 0.870
+[stage A] epoch  28/30 (overall  28/120)   1.5s | TRAIN loss 0.406 acc 0.812 auc 0.902 recall 0.84 | VAL loss 0.384 acc 0.851 auc 0.862 recall 0.60 | TEST loss 0.385 acc 0.846 auc 0.805 recall 0.56 | best val_auc 0.870
+[stage A] epoch  29/30 (overall  29/120)   1.6s | TRAIN loss 0.381 acc 0.815 auc 0.931 recall 0.86 | VAL loss 0.313 acc 0.909 auc 0.861 recall 0.60 | TEST loss 0.316 acc 0.888 auc 0.794 recall 0.44 | best val_auc 0.870
+[stage A] epoch  30/30 (overall  30/120)   1.8s | TRAIN loss 0.365 acc 0.868 auc 0.944 recall 0.88 | VAL loss 0.395 acc 0.836 auc 0.866 recall 0.60 | TEST loss 0.396 acc 0.820 auc 0.803 recall 0.56 | best val_auc 0.870
+
+===== Stage B: fine-tuning, 72 backbone layers unfrozen, 90 epochs, lr 0.0001 =====
+[stage B] epoch   1/90 (overall  31/120)  34.7s | TRAIN loss 0.514 acc 0.755 auc 0.823 recall 0.72 | VAL loss 0.464 acc 0.771 auc 0.797 recall 0.60 | TEST loss 0.462 acc 0.779 auc 0.809 recall 0.67 | best val_auc 0.870
+[stage B] epoch   2/90 (overall  32/120)   3.6s | TRAIN loss 0.391 acc 0.798 auc 0.896 recall 0.78 | VAL loss 0.164 acc 0.956 auc 0.887 recall 0.50 | TEST loss 0.215 acc 0.929 auc 0.738 recall 0.22 | best val_auc 0.887  <- saved
+[stage B] epoch   3/90 (overall  33/120)   2.4s | TRAIN loss 0.336 acc 0.847 auc 0.934 recall 0.88 | VAL loss 0.242 acc 0.909 auc 0.790 recall 0.30 | TEST loss 0.268 acc 0.895 auc 0.720 recall 0.11 | best val_auc 0.887
+[stage B] epoch   4/90 (overall  34/120)   2.5s | TRAIN loss 0.387 acc 0.808 auc 0.909 recall 0.82 | VAL loss 0.186 acc 0.927 auc 0.819 recall 0.30 | TEST loss 0.179 acc 0.951 auc 0.735 recall 0.44 | best val_auc 0.887
+[stage B] epoch   5/90 (overall  35/120)   2.3s | TRAIN loss 0.266 acc 0.876 auc 0.951 recall 0.86 | VAL loss 0.259 acc 0.905 auc 0.794 recall 0.50 | TEST loss 0.236 acc 0.925 auc 0.789 recall 0.56 | best val_auc 0.887
+[stage B] epoch   6/90 (overall  36/120)   2.2s | TRAIN loss 0.280 acc 0.885 auc 0.953 recall 0.91 | VAL loss 0.186 acc 0.924 auc 0.831 recall 0.30 | TEST loss 0.195 acc 0.948 auc 0.752 recall 0.56 | best val_auc 0.887
+[stage B] epoch   7/90 (overall  37/120)   2.2s | TRAIN loss 0.152 acc 0.933 auc 0.989 recall 0.97 | VAL loss 0.136 acc 0.949 auc 0.841 recall 0.40 | TEST loss 0.151 acc 0.951 auc 0.728 recall 0.33 | best val_auc 0.887
+[stage B] epoch   8/90 (overall  38/120)   3.3s | TRAIN loss 0.180 acc 0.958 auc 0.984 recall 0.95 | VAL loss 0.171 acc 0.938 auc 0.896 recall 0.40 | TEST loss 0.179 acc 0.929 auc 0.837 recall 0.44 | best val_auc 0.896  <- saved
+[stage B] epoch   9/90 (overall  39/120)   2.3s | TRAIN loss 0.106 acc 0.956 auc 0.994 recall 0.96 | VAL loss 0.128 acc 0.949 auc 0.895 recall 0.40 | TEST loss 0.121 acc 0.970 auc 0.862 recall 0.44 | best val_auc 0.896
+[stage B] epoch  10/90 (overall  40/120)   2.2s | TRAIN loss 0.140 acc 0.936 auc 0.989 recall 0.97 | VAL loss 0.120 acc 0.964 auc 0.886 recall 0.40 | TEST loss 0.126 acc 0.974 auc 0.771 recall 0.33 | best val_auc 0.896
+[stage B] epoch  11/90 (overall  41/120)   3.4s | TRAIN loss 0.063 acc 0.982 auc 0.999 recall 1.00 | VAL loss 0.169 acc 0.942 auc 0.900 recall 0.50 | TEST loss 0.172 acc 0.944 auc 0.791 recall 0.56 | best val_auc 0.900  <- saved
+[stage B] epoch  12/90 (overall  42/120)   2.2s | TRAIN loss 0.045 acc 0.993 auc 0.999 recall 0.97 | VAL loss 0.138 acc 0.956 auc 0.879 recall 0.40 | TEST loss 0.162 acc 0.963 auc 0.718 recall 0.44 | best val_auc 0.900
+[stage B] epoch  13/90 (overall  43/120)   2.2s | TRAIN loss 0.035 acc 0.983 auc 1.000 recall 1.00 | VAL loss 0.144 acc 0.953 auc 0.838 recall 0.40 | TEST loss 0.158 acc 0.959 auc 0.774 recall 0.33 | best val_auc 0.900
+[stage B] epoch  14/90 (overall  44/120)   2.2s | TRAIN loss 0.243 acc 0.916 auc 0.963 recall 0.93 | VAL loss 0.194 acc 0.898 auc 0.866 recall 0.50 | TEST loss 0.191 acc 0.936 auc 0.815 recall 0.67 | best val_auc 0.900
+[stage B] epoch  15/90 (overall  45/120)   2.2s | TRAIN loss 0.080 acc 0.977 auc 0.997 recall 0.96 | VAL loss 0.151 acc 0.949 auc 0.805 recall 0.60 | TEST loss 0.133 acc 0.970 auc 0.762 recall 0.56 | best val_auc 0.900
+[stage B] epoch  16/90 (overall  46/120)   2.2s | TRAIN loss 0.047 acc 0.988 auc 0.999 recall 1.00 | VAL loss 0.157 acc 0.953 auc 0.829 recall 0.40 | TEST loss 0.115 acc 0.970 auc 0.829 recall 0.56 | best val_auc 0.900
+[stage B] epoch  17/90 (overall  47/120)   1.8s | TRAIN loss 0.013 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.192 acc 0.960 auc 0.791 recall 0.40 | TEST loss 0.146 acc 0.963 auc 0.783 recall 0.33 | best val_auc 0.900
+[stage B] epoch  18/90 (overall  48/120)   2.1s | TRAIN loss 0.010 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.198 acc 0.945 auc 0.795 recall 0.50 | TEST loss 0.158 acc 0.963 auc 0.787 recall 0.56 | best val_auc 0.900
+[stage B] epoch  19/90 (overall  49/120)   2.4s | TRAIN loss 0.009 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.186 acc 0.964 auc 0.769 recall 0.40 | TEST loss 0.147 acc 0.978 auc 0.751 recall 0.44 | best val_auc 0.900
+[stage B] epoch  20/90 (overall  50/120)   2.3s | TRAIN loss 0.022 acc 0.990 auc 1.000 recall 1.00 | VAL loss 0.265 acc 0.924 auc 0.795 recall 0.60 | TEST loss 0.195 acc 0.948 auc 0.788 recall 0.56 | best val_auc 0.900
+[stage B] epoch  21/90 (overall  51/120)   2.3s | TRAIN loss 0.022 acc 0.995 auc 1.000 recall 0.97 | VAL loss 0.525 acc 0.844 auc 0.875 recall 0.80 | TEST loss 0.425 acc 0.873 auc 0.777 recall 0.67 | best val_auc 0.900
+[stage B] epoch  22/90 (overall  52/120)   2.3s | TRAIN loss 0.064 acc 0.965 auc 0.997 recall 0.97 | VAL loss 0.194 acc 0.949 auc 0.765 recall 0.20 | TEST loss 0.151 acc 0.959 auc 0.763 recall 0.22 | best val_auc 0.900
+[stage B] epoch  23/90 (overall  53/120)   2.1s | TRAIN loss 0.053 acc 0.983 auc 0.998 recall 0.97 | VAL loss 0.169 acc 0.960 auc 0.812 recall 0.30 | TEST loss 0.173 acc 0.963 auc 0.800 recall 0.22 | best val_auc 0.900
+[stage B] epoch  24/90 (overall  54/120)   2.1s | TRAIN loss 0.022 acc 0.993 auc 1.000 recall 1.00 | VAL loss 0.143 acc 0.956 auc 0.847 recall 0.30 | TEST loss 0.170 acc 0.963 auc 0.776 recall 0.33 | best val_auc 0.900
+[stage B] epoch  25/90 (overall  55/120)   2.2s | TRAIN loss 0.004 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.146 acc 0.967 auc 0.865 recall 0.40 | TEST loss 0.198 acc 0.963 auc 0.752 recall 0.22 | best val_auc 0.900
+[stage B] epoch  26/90 (overall  56/120)   3.2s | TRAIN loss 0.004 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.143 acc 0.960 auc 0.912 recall 0.40 | TEST loss 0.201 acc 0.966 auc 0.749 recall 0.44 | best val_auc 0.912  <- saved
+[stage B] epoch  27/90 (overall  57/120)   2.2s | TRAIN loss 0.003 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.154 acc 0.967 auc 0.817 recall 0.40 | TEST loss 0.200 acc 0.963 auc 0.754 recall 0.22 | best val_auc 0.912
+[stage B] epoch  28/90 (overall  58/120)   2.1s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.162 acc 0.967 auc 0.772 recall 0.40 | TEST loss 0.206 acc 0.966 auc 0.754 recall 0.22 | best val_auc 0.912
+[stage B] epoch  29/90 (overall  59/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.170 acc 0.967 auc 0.772 recall 0.40 | TEST loss 0.213 acc 0.966 auc 0.755 recall 0.22 | best val_auc 0.912
+[stage B] epoch  30/90 (overall  60/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.166 acc 0.964 auc 0.818 recall 0.40 | TEST loss 0.216 acc 0.966 auc 0.752 recall 0.33 | best val_auc 0.912
+[stage B] epoch  31/90 (overall  61/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.176 acc 0.967 auc 0.778 recall 0.40 | TEST loss 0.225 acc 0.966 auc 0.757 recall 0.22 | best val_auc 0.912
+[stage B] epoch  32/90 (overall  62/120)   2.0s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.178 acc 0.960 auc 0.773 recall 0.40 | TEST loss 0.228 acc 0.966 auc 0.759 recall 0.33 | best val_auc 0.912
+[stage B] epoch  33/90 (overall  63/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.186 acc 0.964 auc 0.775 recall 0.40 | TEST loss 0.228 acc 0.966 auc 0.759 recall 0.33 | best val_auc 0.912
+[stage B] epoch  34/90 (overall  64/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.195 acc 0.964 auc 0.777 recall 0.30 | TEST loss 0.232 acc 0.970 auc 0.760 recall 0.33 | best val_auc 0.912
+[stage B] epoch  35/90 (overall  65/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.193 acc 0.964 auc 0.775 recall 0.40 | TEST loss 0.232 acc 0.970 auc 0.760 recall 0.33 | best val_auc 0.912
+[stage B] epoch  36/90 (overall  66/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.200 acc 0.964 auc 0.731 recall 0.30 | TEST loss 0.238 acc 0.970 auc 0.708 recall 0.33 | best val_auc 0.912
+[stage B] epoch  37/90 (overall  67/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.204 acc 0.964 auc 0.732 recall 0.30 | TEST loss 0.240 acc 0.970 auc 0.708 recall 0.33 | best val_auc 0.912
+[stage B] epoch  38/90 (overall  68/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.200 acc 0.967 auc 0.732 recall 0.40 | TEST loss 0.242 acc 0.970 auc 0.761 recall 0.33 | best val_auc 0.912
+[stage B] epoch  39/90 (overall  69/120)   1.8s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.207 acc 0.964 auc 0.732 recall 0.30 | TEST loss 0.248 acc 0.970 auc 0.708 recall 0.33 | best val_auc 0.912
+[stage B] epoch  40/90 (overall  70/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.210 acc 0.964 auc 0.732 recall 0.30 | TEST loss 0.251 acc 0.970 auc 0.709 recall 0.33 | best val_auc 0.912
+[stage B] epoch  41/90 (overall  71/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.214 acc 0.964 auc 0.685 recall 0.30 | TEST loss 0.256 acc 0.970 auc 0.710 recall 0.33 | best val_auc 0.912
+[stage B] epoch  42/90 (overall  72/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.218 acc 0.964 auc 0.685 recall 0.30 | TEST loss 0.260 acc 0.970 auc 0.711 recall 0.33 | best val_auc 0.912
+[stage B] epoch  43/90 (overall  73/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.218 acc 0.964 auc 0.685 recall 0.30 | TEST loss 0.261 acc 0.970 auc 0.711 recall 0.33 | best val_auc 0.912
+[stage B] epoch  44/90 (overall  74/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.220 acc 0.964 auc 0.685 recall 0.30 | TEST loss 0.265 acc 0.970 auc 0.711 recall 0.33 | best val_auc 0.912
+[stage B] epoch  45/90 (overall  75/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.217 acc 0.964 auc 0.684 recall 0.40 | TEST loss 0.264 acc 0.970 auc 0.712 recall 0.33 | best val_auc 0.912
+[stage B] epoch  46/90 (overall  76/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.226 acc 0.971 auc 0.688 recall 0.40 | TEST loss 0.268 acc 0.966 auc 0.712 recall 0.22 | best val_auc 0.912
+[stage B] epoch  47/90 (overall  77/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.231 acc 0.967 auc 0.688 recall 0.30 | TEST loss 0.269 acc 0.966 auc 0.713 recall 0.22 | best val_auc 0.912
+[stage B] epoch  48/90 (overall  78/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.232 acc 0.967 auc 0.688 recall 0.30 | TEST loss 0.273 acc 0.966 auc 0.713 recall 0.22 | best val_auc 0.912
+[stage B] epoch  49/90 (overall  79/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.233 acc 0.971 auc 0.688 recall 0.40 | TEST loss 0.273 acc 0.966 auc 0.713 recall 0.22 | best val_auc 0.912
+[stage B] epoch  50/90 (overall  80/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.237 acc 0.967 auc 0.688 recall 0.30 | TEST loss 0.277 acc 0.966 auc 0.714 recall 0.22 | best val_auc 0.912
+[stage B] epoch  51/90 (overall  81/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.238 acc 0.967 auc 0.688 recall 0.30 | TEST loss 0.278 acc 0.966 auc 0.714 recall 0.22 | best val_auc 0.912
+[stage B] epoch  52/90 (overall  82/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.251 acc 0.971 auc 0.689 recall 0.30 | TEST loss 0.287 acc 0.966 auc 0.714 recall 0.22 | best val_auc 0.912
+[stage B] epoch  53/90 (overall  83/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.240 acc 0.971 auc 0.689 recall 0.30 | TEST loss 0.283 acc 0.970 auc 0.713 recall 0.33 | best val_auc 0.912
+[stage B] epoch  54/90 (overall  84/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.227 acc 0.971 auc 0.688 recall 0.40 | TEST loss 0.275 acc 0.970 auc 0.712 recall 0.33 | best val_auc 0.912
+[stage B] epoch  55/90 (overall  85/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.226 acc 0.967 auc 0.688 recall 0.40 | TEST loss 0.273 acc 0.970 auc 0.711 recall 0.33 | best val_auc 0.912
+[stage B] epoch  56/90 (overall  86/120)   2.1s | TRAIN loss 0.001 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.284 acc 0.967 auc 0.689 recall 0.20 | TEST loss 0.291 acc 0.970 auc 0.715 recall 0.22 | best val_auc 0.912
+[stage B] epoch  57/90 (overall  87/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.231 acc 0.967 auc 0.735 recall 0.40 | TEST loss 0.276 acc 0.970 auc 0.713 recall 0.33 | best val_auc 0.912
+[stage B] epoch  58/90 (overall  88/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.249 acc 0.967 auc 0.689 recall 0.30 | TEST loss 0.280 acc 0.970 auc 0.714 recall 0.33 | best val_auc 0.912
+[stage B] epoch  59/90 (overall  89/120)   2.1s | TRAIN loss 0.003 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.624 acc 0.880 auc 0.899 recall 0.80 | TEST loss 0.528 acc 0.910 auc 0.780 recall 0.56 | best val_auc 0.912
+[stage B] epoch  60/90 (overall  90/120)   2.3s | TRAIN loss 0.033 acc 0.978 auc 0.999 recall 1.00 | VAL loss 0.228 acc 0.964 auc 0.835 recall 0.10 | TEST loss 0.235 acc 0.974 auc 0.718 recall 0.22 | best val_auc 0.912
+[stage B] epoch  61/90 (overall  91/120)   2.1s | TRAIN loss 0.049 acc 0.987 auc 0.999 recall 0.97 | VAL loss 0.175 acc 0.931 auc 0.888 recall 0.40 | TEST loss 0.199 acc 0.951 auc 0.796 recall 0.33 | best val_auc 0.912
+[stage B] epoch  62/90 (overall  92/120)   2.1s | TRAIN loss 0.119 acc 0.938 auc 0.993 recall 0.94 | VAL loss 0.549 acc 0.818 auc 0.849 recall 0.80 | TEST loss 0.569 acc 0.813 auc 0.728 recall 0.56 | best val_auc 0.912
+[stage B] epoch  63/90 (overall  93/120)   2.1s | TRAIN loss 0.140 acc 0.959 auc 0.989 recall 0.92 | VAL loss 0.160 acc 0.942 auc 0.863 recall 0.40 | TEST loss 0.141 acc 0.970 auc 0.800 recall 0.56 | best val_auc 0.912
+[stage B] epoch  64/90 (overall  94/120)   2.1s | TRAIN loss 0.067 acc 0.962 auc 0.998 recall 1.00 | VAL loss 0.165 acc 0.949 auc 0.895 recall 0.60 | TEST loss 0.220 acc 0.944 auc 0.773 recall 0.44 | best val_auc 0.912
+[stage B] epoch  65/90 (overall  95/120)   2.3s | TRAIN loss 0.023 acc 0.992 auc 1.000 recall 1.00 | VAL loss 0.190 acc 0.967 auc 0.690 recall 0.20 | TEST loss 0.227 acc 0.966 auc 0.765 recall 0.00 | best val_auc 0.912
+[stage B] epoch  66/90 (overall  96/120)   2.3s | TRAIN loss 0.009 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.168 acc 0.960 auc 0.819 recall 0.40 | TEST loss 0.237 acc 0.974 auc 0.761 recall 0.56 | best val_auc 0.912
+[stage B] epoch  67/90 (overall  97/120)   2.2s | TRAIN loss 0.003 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.177 acc 0.960 auc 0.825 recall 0.30 | TEST loss 0.237 acc 0.974 auc 0.766 recall 0.56 | best val_auc 0.912
+[stage B] epoch  68/90 (overall  98/120)   2.1s | TRAIN loss 0.016 acc 0.993 auc 1.000 recall 1.00 | VAL loss 0.288 acc 0.967 auc 0.742 recall 0.20 | TEST loss 0.356 acc 0.970 auc 0.719 recall 0.11 | best val_auc 0.912
+[stage B] epoch  69/90 (overall  99/120)   2.0s | TRAIN loss 0.079 acc 0.975 auc 0.995 recall 0.97 | VAL loss 0.227 acc 0.975 auc 0.782 recall 0.30 | TEST loss 0.235 acc 0.974 auc 0.768 recall 0.22 | best val_auc 0.912
+[stage B] epoch  70/90 (overall 100/120)   2.2s | TRAIN loss 0.061 acc 0.977 auc 0.997 recall 1.00 | VAL loss 0.187 acc 0.927 auc 0.882 recall 0.40 | TEST loss 0.258 acc 0.963 auc 0.787 recall 0.56 | best val_auc 0.912
+[stage B] epoch  71/90 (overall 101/120)   2.2s | TRAIN loss 0.014 acc 0.994 auc 1.000 recall 1.00 | VAL loss 0.173 acc 0.967 auc 0.815 recall 0.40 | TEST loss 0.269 acc 0.974 auc 0.812 recall 0.44 | best val_auc 0.912
+[stage B] epoch  72/90 (overall 102/120)   2.2s | TRAIN loss 0.014 acc 0.994 auc 1.000 recall 1.00 | VAL loss 0.211 acc 0.967 auc 0.779 recall 0.30 | TEST loss 0.302 acc 0.970 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  73/90 (overall 103/120)   2.1s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.188 acc 0.964 auc 0.829 recall 0.30 | TEST loss 0.269 acc 0.966 auc 0.766 recall 0.22 | best val_auc 0.912
+[stage B] epoch  74/90 (overall 104/120)   2.2s | TRAIN loss 0.013 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.225 acc 0.971 auc 0.728 recall 0.30 | TEST loss 0.354 acc 0.970 auc 0.712 recall 0.22 | best val_auc 0.912
+[stage B] epoch  75/90 (overall 105/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.365 acc 0.967 auc 0.647 recall 0.20 | TEST loss 0.484 acc 0.970 auc 0.661 recall 0.11 | best val_auc 0.912
+[stage B] epoch  76/90 (overall 106/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.235 acc 0.971 auc 0.731 recall 0.30 | TEST loss 0.357 acc 0.963 auc 0.767 recall 0.22 | best val_auc 0.912
+[stage B] epoch  77/90 (overall 107/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.244 acc 0.971 auc 0.732 recall 0.30 | TEST loss 0.366 acc 0.970 auc 0.768 recall 0.33 | best val_auc 0.912
+[stage B] epoch  78/90 (overall 108/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.262 acc 0.971 auc 0.735 recall 0.30 | TEST loss 0.378 acc 0.966 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  79/90 (overall 109/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.276 acc 0.967 auc 0.736 recall 0.20 | TEST loss 0.386 acc 0.966 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  80/90 (overall 110/120)   4.9s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.284 acc 0.967 auc 0.737 recall 0.20 | TEST loss 0.392 acc 0.966 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  81/90 (overall 111/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.286 acc 0.967 auc 0.737 recall 0.20 | TEST loss 0.393 acc 0.966 auc 0.769 recall 0.22 | best val_auc 0.912
+[stage B] epoch  82/90 (overall 112/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.291 acc 0.967 auc 0.738 recall 0.20 | TEST loss 0.396 acc 0.966 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  83/90 (overall 113/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.292 acc 0.971 auc 0.737 recall 0.30 | TEST loss 0.398 acc 0.966 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  84/90 (overall 114/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.295 acc 0.971 auc 0.737 recall 0.30 | TEST loss 0.400 acc 0.970 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  85/90 (overall 115/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.306 acc 0.971 auc 0.738 recall 0.30 | TEST loss 0.407 acc 0.970 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  86/90 (overall 116/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.311 acc 0.971 auc 0.691 recall 0.30 | TEST loss 0.411 acc 0.970 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  87/90 (overall 117/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.312 acc 0.971 auc 0.692 recall 0.30 | TEST loss 0.411 acc 0.970 auc 0.770 recall 0.22 | best val_auc 0.912
+[stage B] epoch  88/90 (overall 118/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.335 acc 0.967 auc 0.693 recall 0.20 | TEST loss 0.429 acc 0.970 auc 0.769 recall 0.22 | best val_auc 0.912
+[stage B] epoch  89/90 (overall 119/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.337 acc 0.967 auc 0.693 recall 0.20 | TEST loss 0.432 acc 0.970 auc 0.769 recall 0.22 | best val_auc 0.912
+[stage B] epoch  90/90 (overall 120/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.338 acc 0.967 auc 0.693 recall 0.20 | TEST loss 0.432 acc 0.970 auc 0.769 recall 0.22 | best val_auc 0.912
+
+===== fold3 done in 10.2 min | kept stage B epoch 26 (overall 56) | threshold 0.0171 =====
+TEST fold: AUC 0.836 | malignant caught 5/9 | false alarms 19/258 benign (specificity 0.926)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/best.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/curves/accuracy.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/curves/auc.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/curves/loss.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/curves/pr_auc.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/curves/precision.png (0.09 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/curves/recall.png (0.08 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/epoch_log.csv (0.04 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/final.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/metrics.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/test_predictions.csv (0.02 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/threshold.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold3/val_predictions.csv (0.02 MB)
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1791657645.815793   27705 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2246 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5
+[GPU GUARD] GPU: NVIDIA GeForce GTX 1650 | test matmul ran on: /job:localhost/replica:0/task:0/device:GPU:0
+[DATA] fold4 | train 802 (30 malignant) | val 266 (10) | test 275 (10) | class weights {0: 0.519, 1: 13.367}
+
+===== Stage A: head only, 30 epochs, lr 0.001 =====
+I0000 00:00:1791657670.185369   27767 device_compiler.h:196] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[stage A] epoch   1/30 (overall   1/120)  36.6s | TRAIN loss 0.833 acc 0.594 auc 0.500 recall 0.42 | VAL loss 0.735 acc 0.530 auc 0.490 recall 0.20 | TEST loss 0.747 acc 0.447 auc 0.537 recall 0.60 | best val_auc 0.490  <- saved
+[stage A] epoch   2/30 (overall   2/120)   2.5s | TRAIN loss 0.801 acc 0.624 auc 0.525 recall 0.42 | VAL loss 0.867 acc 0.327 auc 0.607 recall 1.00 | TEST loss 0.882 acc 0.320 auc 0.661 recall 0.90 | best val_auc 0.607  <- saved
+[stage A] epoch   3/30 (overall   3/120)   2.6s | TRAIN loss 0.712 acc 0.498 auc 0.611 recall 0.63 | VAL loss 0.720 acc 0.489 auc 0.684 recall 0.80 | TEST loss 0.735 acc 0.473 auc 0.749 recall 0.80 | best val_auc 0.684  <- saved
+[stage A] epoch   4/30 (overall   4/120)   2.7s | TRAIN loss 0.649 acc 0.662 auc 0.678 recall 0.65 | VAL loss 0.674 acc 0.526 auc 0.741 recall 0.80 | TEST loss 0.686 acc 0.549 auc 0.782 recall 0.80 | best val_auc 0.741  <- saved
+[stage A] epoch   5/30 (overall   5/120)   2.3s | TRAIN loss 0.621 acc 0.605 auc 0.698 recall 0.67 | VAL loss 0.569 acc 0.711 auc 0.793 recall 0.80 | TEST loss 0.577 acc 0.687 auc 0.826 recall 0.80 | best val_auc 0.793  <- saved
+[stage A] epoch   6/30 (overall   6/120)   2.2s | TRAIN loss 0.592 acc 0.694 auc 0.761 recall 0.70 | VAL loss 0.691 acc 0.511 auc 0.812 recall 0.80 | TEST loss 0.698 acc 0.538 auc 0.839 recall 1.00 | best val_auc 0.812  <- saved
+[stage A] epoch   7/30 (overall   7/120)   1.6s | TRAIN loss 0.554 acc 0.643 auc 0.750 recall 0.68 | VAL loss 0.521 acc 0.771 auc 0.808 recall 0.70 | TEST loss 0.526 acc 0.745 auc 0.859 recall 0.80 | best val_auc 0.812
+[stage A] epoch   8/30 (overall   8/120)   2.4s | TRAIN loss 0.638 acc 0.667 auc 0.736 recall 0.67 | VAL loss 0.686 acc 0.489 auc 0.828 recall 0.90 | TEST loss 0.692 acc 0.524 auc 0.870 recall 1.00 | best val_auc 0.828  <- saved
+[stage A] epoch   9/30 (overall   9/120)   2.3s | TRAIN loss 0.549 acc 0.656 auc 0.778 recall 0.77 | VAL loss 0.456 acc 0.823 auc 0.853 recall 0.80 | TEST loss 0.465 acc 0.804 auc 0.882 recall 0.80 | best val_auc 0.853  <- saved
+[stage A] epoch  10/30 (overall  10/120)   1.5s | TRAIN loss 0.531 acc 0.696 auc 0.783 recall 0.66 | VAL loss 0.509 acc 0.752 auc 0.849 recall 0.80 | TEST loss 0.517 acc 0.742 auc 0.872 recall 0.80 | best val_auc 0.853
+[stage A] epoch  11/30 (overall  11/120)   1.5s | TRAIN loss 0.540 acc 0.714 auc 0.804 recall 0.77 | VAL loss 0.602 acc 0.628 auc 0.851 recall 0.80 | TEST loss 0.613 acc 0.615 auc 0.868 recall 0.90 | best val_auc 0.853
+[stage A] epoch  12/30 (overall  12/120)   2.2s | TRAIN loss 0.575 acc 0.651 auc 0.795 recall 0.72 | VAL loss 0.602 acc 0.624 auc 0.863 recall 0.80 | TEST loss 0.617 acc 0.604 auc 0.864 recall 0.90 | best val_auc 0.863  <- saved
+[stage A] epoch  13/30 (overall  13/120)   1.5s | TRAIN loss 0.457 acc 0.780 auc 0.846 recall 0.78 | VAL loss 0.493 acc 0.763 auc 0.856 recall 0.80 | TEST loss 0.508 acc 0.731 auc 0.867 recall 0.80 | best val_auc 0.863
+[stage A] epoch  14/30 (overall  14/120)   2.2s | TRAIN loss 0.530 acc 0.708 auc 0.821 recall 0.79 | VAL loss 0.539 acc 0.695 auc 0.873 recall 0.80 | TEST loss 0.561 acc 0.680 auc 0.863 recall 0.80 | best val_auc 0.873  <- saved
+[stage A] epoch  15/30 (overall  15/120)   1.7s | TRAIN loss 0.466 acc 0.734 auc 0.841 recall 0.71 | VAL loss 0.360 acc 0.898 auc 0.868 recall 0.70 | TEST loss 0.378 acc 0.873 auc 0.869 recall 0.70 | best val_auc 0.873
+[stage A] epoch  16/30 (overall  16/120)   1.6s | TRAIN loss 0.512 acc 0.706 auc 0.853 recall 0.83 | VAL loss 0.585 acc 0.643 auc 0.873 recall 0.80 | TEST loss 0.605 acc 0.629 auc 0.865 recall 0.80 | best val_auc 0.873
+[stage A] epoch  17/30 (overall  17/120)   2.2s | TRAIN loss 0.496 acc 0.716 auc 0.849 recall 0.81 | VAL loss 0.469 acc 0.767 auc 0.874 recall 0.80 | TEST loss 0.490 acc 0.735 auc 0.867 recall 0.80 | best val_auc 0.874  <- saved
+[stage A] epoch  18/30 (overall  18/120)   1.7s | TRAIN loss 0.472 acc 0.782 auc 0.855 recall 0.70 | VAL loss 0.446 acc 0.797 auc 0.861 recall 0.80 | TEST loss 0.467 acc 0.767 auc 0.865 recall 0.80 | best val_auc 0.874
+[stage A] epoch  19/30 (overall  19/120)   1.5s | TRAIN loss 0.443 acc 0.726 auc 0.908 recall 0.94 | VAL loss 0.429 acc 0.820 auc 0.861 recall 0.80 | TEST loss 0.449 acc 0.800 auc 0.867 recall 0.80 | best val_auc 0.874
+[stage A] epoch  20/30 (overall  20/120)   1.5s | TRAIN loss 0.438 acc 0.814 auc 0.883 recall 0.73 | VAL loss 0.456 acc 0.763 auc 0.862 recall 0.80 | TEST loss 0.477 acc 0.749 auc 0.868 recall 0.80 | best val_auc 0.874
+[stage A] epoch  21/30 (overall  21/120)   1.6s | TRAIN loss 0.432 acc 0.725 auc 0.905 recall 0.97 | VAL loss 0.497 acc 0.729 auc 0.871 recall 0.80 | TEST loss 0.522 acc 0.691 auc 0.870 recall 0.80 | best val_auc 0.874
+[stage A] epoch  22/30 (overall  22/120)   2.5s | TRAIN loss 0.406 acc 0.819 auc 0.917 recall 0.97 | VAL loss 0.397 acc 0.846 auc 0.875 recall 0.80 | TEST loss 0.422 acc 0.815 auc 0.867 recall 0.80 | best val_auc 0.875  <- saved
+[stage A] epoch  23/30 (overall  23/120)   2.6s | TRAIN loss 0.399 acc 0.802 auc 0.900 recall 0.79 | VAL loss 0.459 acc 0.774 auc 0.881 recall 0.80 | TEST loss 0.486 acc 0.742 auc 0.866 recall 0.80 | best val_auc 0.881  <- saved
+[stage A] epoch  24/30 (overall  24/120)   1.5s | TRAIN loss 0.429 acc 0.739 auc 0.891 recall 0.83 | VAL loss 0.411 acc 0.827 auc 0.869 recall 0.80 | TEST loss 0.437 acc 0.778 auc 0.865 recall 0.80 | best val_auc 0.881
+[stage A] epoch  25/30 (overall  25/120)   1.6s | TRAIN loss 0.424 acc 0.802 auc 0.917 recall 0.88 | VAL loss 0.449 acc 0.767 auc 0.872 recall 0.80 | TEST loss 0.478 acc 0.735 auc 0.863 recall 0.80 | best val_auc 0.881
+[stage A] epoch  26/30 (overall  26/120)   1.6s | TRAIN loss 0.430 acc 0.839 auc 0.882 recall 0.70 | VAL loss 0.454 acc 0.759 auc 0.870 recall 0.80 | TEST loss 0.484 acc 0.720 auc 0.864 recall 0.80 | best val_auc 0.881
+[stage A] epoch  27/30 (overall  27/120)   1.6s | TRAIN loss 0.382 acc 0.751 auc 0.937 recall 0.94 | VAL loss 0.391 acc 0.842 auc 0.866 recall 0.80 | TEST loss 0.419 acc 0.804 auc 0.875 recall 0.80 | best val_auc 0.881
+[stage A] epoch  28/30 (overall  28/120)   1.5s | TRAIN loss 0.384 acc 0.822 auc 0.921 recall 0.87 | VAL loss 0.420 acc 0.801 auc 0.863 recall 0.80 | TEST loss 0.449 acc 0.771 auc 0.873 recall 0.80 | best val_auc 0.881
+[stage A] epoch  29/30 (overall  29/120)   1.5s | TRAIN loss 0.416 acc 0.820 auc 0.919 recall 0.89 | VAL loss 0.454 acc 0.774 auc 0.862 recall 0.80 | TEST loss 0.487 acc 0.742 auc 0.866 recall 0.80 | best val_auc 0.881
+[stage A] epoch  30/30 (overall  30/120)   1.3s | TRAIN loss 0.393 acc 0.743 auc 0.907 recall 0.89 | VAL loss 0.325 acc 0.883 auc 0.866 recall 0.70 | TEST loss 0.355 acc 0.869 auc 0.877 recall 0.80 | best val_auc 0.881
+
+===== Stage B: fine-tuning, 72 backbone layers unfrozen, 90 epochs, lr 0.0001 =====
+[stage B] epoch   1/90 (overall  31/120)  34.0s | TRAIN loss 0.606 acc 0.731 auc 0.737 recall 0.57 | VAL loss 0.546 acc 0.624 auc 0.843 recall 0.80 | TEST loss 0.565 acc 0.651 auc 0.812 recall 0.90 | best val_auc 0.881
+[stage B] epoch   2/90 (overall  32/120)   2.6s | TRAIN loss 0.476 acc 0.750 auc 0.850 recall 0.81 | VAL loss 0.382 acc 0.786 auc 0.872 recall 0.80 | TEST loss 0.407 acc 0.785 auc 0.877 recall 0.90 | best val_auc 0.881
+[stage B] epoch   3/90 (overall  33/120)   2.1s | TRAIN loss 0.307 acc 0.829 auc 0.943 recall 0.88 | VAL loss 0.198 acc 0.936 auc 0.875 recall 0.50 | TEST loss 0.204 acc 0.927 auc 0.892 recall 0.50 | best val_auc 0.881
+[stage B] epoch   4/90 (overall  34/120)   3.1s | TRAIN loss 0.319 acc 0.838 auc 0.927 recall 0.79 | VAL loss 0.167 acc 0.959 auc 0.884 recall 0.40 | TEST loss 0.173 acc 0.956 auc 0.910 recall 0.50 | best val_auc 0.884  <- saved
+[stage B] epoch   5/90 (overall  35/120)   3.2s | TRAIN loss 0.270 acc 0.868 auc 0.951 recall 0.89 | VAL loss 0.244 acc 0.914 auc 0.899 recall 0.80 | TEST loss 0.271 acc 0.884 auc 0.902 recall 0.70 | best val_auc 0.899  <- saved
+[stage B] epoch   6/90 (overall  36/120)   2.0s | TRAIN loss 0.332 acc 0.855 auc 0.945 recall 0.89 | VAL loss 0.402 acc 0.793 auc 0.864 recall 0.80 | TEST loss 0.382 acc 0.771 auc 0.876 recall 0.70 | best val_auc 0.899
+[stage B] epoch   7/90 (overall  37/120)   2.4s | TRAIN loss 0.181 acc 0.921 auc 0.983 recall 0.94 | VAL loss 0.316 acc 0.868 auc 0.859 recall 0.80 | TEST loss 0.363 acc 0.844 auc 0.877 recall 0.80 | best val_auc 0.899
+[stage B] epoch   8/90 (overall  38/120)   2.3s | TRAIN loss 0.191 acc 0.895 auc 0.976 recall 0.93 | VAL loss 0.340 acc 0.853 auc 0.805 recall 0.50 | TEST loss 0.362 acc 0.840 auc 0.886 recall 0.80 | best val_auc 0.899
+[stage B] epoch   9/90 (overall  39/120)   2.2s | TRAIN loss 0.146 acc 0.938 auc 0.990 recall 0.97 | VAL loss 0.159 acc 0.951 auc 0.798 recall 0.20 | TEST loss 0.153 acc 0.945 auc 0.856 recall 0.40 | best val_auc 0.899
+[stage B] epoch  10/90 (overall  40/120)   2.1s | TRAIN loss 0.225 acc 0.913 auc 0.974 recall 0.89 | VAL loss 0.306 acc 0.883 auc 0.860 recall 0.70 | TEST loss 0.299 acc 0.869 auc 0.892 recall 0.80 | best val_auc 0.899
+[stage B] epoch  11/90 (overall  41/120)   2.2s | TRAIN loss 0.079 acc 0.965 auc 0.995 recall 1.00 | VAL loss 0.164 acc 0.955 auc 0.881 recall 0.30 | TEST loss 0.134 acc 0.953 auc 0.870 recall 0.50 | best val_auc 0.899
+[stage B] epoch  12/90 (overall  42/120)   2.2s | TRAIN loss 0.054 acc 0.966 auc 0.999 recall 1.00 | VAL loss 0.176 acc 0.959 auc 0.850 recall 0.20 | TEST loss 0.163 acc 0.956 auc 0.793 recall 0.40 | best val_auc 0.899
+[stage B] epoch  13/90 (overall  43/120)   2.7s | TRAIN loss 0.052 acc 0.975 auc 0.998 recall 0.96 | VAL loss 0.187 acc 0.959 auc 0.907 recall 0.20 | TEST loss 0.131 acc 0.964 auc 0.861 recall 0.40 | best val_auc 0.907  <- saved
+[stage B] epoch  14/90 (overall  44/120)   3.4s | TRAIN loss 0.153 acc 0.942 auc 0.987 recall 0.97 | VAL loss 0.137 acc 0.966 auc 0.908 recall 0.40 | TEST loss 0.120 acc 0.960 auc 0.883 recall 0.40 | best val_auc 0.908  <- saved
+[stage B] epoch  15/90 (overall  45/120)   2.2s | TRAIN loss 0.098 acc 0.947 auc 0.996 recall 0.97 | VAL loss 0.167 acc 0.962 auc 0.877 recall 0.20 | TEST loss 0.142 acc 0.956 auc 0.863 recall 0.50 | best val_auc 0.908
+[stage B] epoch  16/90 (overall  46/120)   2.1s | TRAIN loss 0.083 acc 0.965 auc 0.996 recall 0.93 | VAL loss 0.165 acc 0.951 auc 0.861 recall 0.20 | TEST loss 0.151 acc 0.956 auc 0.825 recall 0.30 | best val_auc 0.908
+[stage B] epoch  17/90 (overall  47/120)   2.3s | TRAIN loss 0.039 acc 0.987 auc 1.000 recall 1.00 | VAL loss 0.177 acc 0.962 auc 0.883 recall 0.30 | TEST loss 0.164 acc 0.960 auc 0.794 recall 0.40 | best val_auc 0.908
+[stage B] epoch  18/90 (overall  48/120)   2.1s | TRAIN loss 0.012 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.190 acc 0.959 auc 0.801 recall 0.20 | TEST loss 0.160 acc 0.967 auc 0.798 recall 0.40 | best val_auc 0.908
+[stage B] epoch  19/90 (overall  49/120)   2.4s | TRAIN loss 0.007 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.219 acc 0.959 auc 0.761 recall 0.20 | TEST loss 0.190 acc 0.967 auc 0.760 recall 0.30 | best val_auc 0.908
+[stage B] epoch  20/90 (overall  50/120)   1.9s | TRAIN loss 0.009 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.206 acc 0.955 auc 0.799 recall 0.20 | TEST loss 0.182 acc 0.956 auc 0.796 recall 0.30 | best val_auc 0.908
+[stage B] epoch  21/90 (overall  51/120)   2.2s | TRAIN loss 0.011 acc 0.993 auc 1.000 recall 1.00 | VAL loss 0.245 acc 0.955 auc 0.716 recall 0.20 | TEST loss 0.196 acc 0.967 auc 0.757 recall 0.30 | best val_auc 0.908
+[stage B] epoch  22/90 (overall  52/120)   2.1s | TRAIN loss 0.007 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.257 acc 0.959 auc 0.724 recall 0.20 | TEST loss 0.216 acc 0.964 auc 0.720 recall 0.20 | best val_auc 0.908
+[stage B] epoch  23/90 (overall  53/120)   2.0s | TRAIN loss 0.003 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.242 acc 0.955 auc 0.757 recall 0.20 | TEST loss 0.201 acc 0.953 auc 0.761 recall 0.40 | best val_auc 0.908
+[stage B] epoch  24/90 (overall  54/120)   2.1s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.259 acc 0.959 auc 0.767 recall 0.30 | TEST loss 0.212 acc 0.964 auc 0.719 recall 0.30 | best val_auc 0.908
+[stage B] epoch  25/90 (overall  55/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.272 acc 0.955 auc 0.721 recall 0.20 | TEST loss 0.226 acc 0.960 auc 0.719 recall 0.20 | best val_auc 0.908
+[stage B] epoch  26/90 (overall  56/120)   2.0s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.286 acc 0.955 auc 0.678 recall 0.20 | TEST loss 0.246 acc 0.960 auc 0.723 recall 0.20 | best val_auc 0.908
+[stage B] epoch  27/90 (overall  57/120)   1.7s | TRAIN loss 0.003 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.293 acc 0.951 auc 0.669 recall 0.20 | TEST loss 0.226 acc 0.960 auc 0.762 recall 0.40 | best val_auc 0.908
+[stage B] epoch  28/90 (overall  58/120)   2.0s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.306 acc 0.955 auc 0.677 recall 0.20 | TEST loss 0.248 acc 0.964 auc 0.722 recall 0.20 | best val_auc 0.908
+[stage B] epoch  29/90 (overall  59/120)   2.1s | TRAIN loss 0.021 acc 0.992 auc 1.000 recall 1.00 | VAL loss 0.514 acc 0.876 auc 0.861 recall 0.60 | TEST loss 0.463 acc 0.858 auc 0.911 recall 0.70 | best val_auc 0.908
+[stage B] epoch  30/90 (overall  60/120)   2.3s | TRAIN loss 0.022 acc 0.989 auc 0.999 recall 1.00 | VAL loss 0.246 acc 0.944 auc 0.873 recall 0.40 | TEST loss 0.221 acc 0.931 auc 0.845 recall 0.70 | best val_auc 0.908
+[stage B] epoch  31/90 (overall  61/120)   2.2s | TRAIN loss 0.008 acc 0.994 auc 1.000 recall 1.00 | VAL loss 0.220 acc 0.955 auc 0.811 recall 0.30 | TEST loss 0.232 acc 0.953 auc 0.815 recall 0.40 | best val_auc 0.908
+[stage B] epoch  32/90 (overall  62/120)   2.2s | TRAIN loss 0.030 acc 0.984 auc 0.999 recall 1.00 | VAL loss 0.319 acc 0.940 auc 0.801 recall 0.30 | TEST loss 0.167 acc 0.953 auc 0.901 recall 0.60 | best val_auc 0.908
+[stage B] epoch  33/90 (overall  63/120)   2.1s | TRAIN loss 0.011 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.238 acc 0.951 auc 0.837 recall 0.40 | TEST loss 0.222 acc 0.938 auc 0.858 recall 0.60 | best val_auc 0.908
+[stage B] epoch  34/90 (overall  64/120)   2.2s | TRAIN loss 0.002 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.286 acc 0.966 auc 0.733 recall 0.30 | TEST loss 0.201 acc 0.960 auc 0.773 recall 0.30 | best val_auc 0.908
+[stage B] epoch  35/90 (overall  65/120)   2.0s | TRAIN loss 0.002 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.323 acc 0.955 auc 0.724 recall 0.30 | TEST loss 0.206 acc 0.956 auc 0.766 recall 0.40 | best val_auc 0.908
+[stage B] epoch  36/90 (overall  66/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.328 acc 0.962 auc 0.731 recall 0.30 | TEST loss 0.221 acc 0.964 auc 0.775 recall 0.30 | best val_auc 0.908
+[stage B] epoch  37/90 (overall  67/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.347 acc 0.966 auc 0.686 recall 0.30 | TEST loss 0.243 acc 0.964 auc 0.779 recall 0.30 | best val_auc 0.908
+[stage B] epoch  38/90 (overall  68/120)   2.2s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.378 acc 0.966 auc 0.676 recall 0.30 | TEST loss 0.259 acc 0.953 auc 0.774 recall 0.40 | best val_auc 0.908
+[stage B] epoch  39/90 (overall  69/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.427 acc 0.966 auc 0.687 recall 0.30 | TEST loss 0.279 acc 0.967 auc 0.776 recall 0.40 | best val_auc 0.908
+[stage B] epoch  40/90 (overall  70/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.406 acc 0.966 auc 0.686 recall 0.30 | TEST loss 0.270 acc 0.967 auc 0.776 recall 0.40 | best val_auc 0.908
+[stage B] epoch  41/90 (overall  71/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.400 acc 0.966 auc 0.686 recall 0.30 | TEST loss 0.267 acc 0.967 auc 0.776 recall 0.40 | best val_auc 0.908
+[stage B] epoch  42/90 (overall  72/120)   1.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.390 acc 0.966 auc 0.684 recall 0.30 | TEST loss 0.263 acc 0.964 auc 0.775 recall 0.40 | best val_auc 0.908
+[stage B] epoch  43/90 (overall  73/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.387 acc 0.966 auc 0.685 recall 0.30 | TEST loss 0.263 acc 0.967 auc 0.776 recall 0.40 | best val_auc 0.908
+[stage B] epoch  44/90 (overall  74/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.378 acc 0.966 auc 0.683 recall 0.30 | TEST loss 0.267 acc 0.956 auc 0.776 recall 0.40 | best val_auc 0.908
+[stage B] epoch  45/90 (overall  75/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.368 acc 0.966 auc 0.683 recall 0.30 | TEST loss 0.272 acc 0.956 auc 0.776 recall 0.40 | best val_auc 0.908
+[stage B] epoch  46/90 (overall  76/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.385 acc 0.966 auc 0.684 recall 0.30 | TEST loss 0.287 acc 0.964 auc 0.776 recall 0.40 | best val_auc 0.908
+[stage B] epoch  47/90 (overall  77/120)   2.2s | TRAIN loss 0.001 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.454 acc 0.974 auc 0.645 recall 0.30 | TEST loss 0.321 acc 0.967 auc 0.780 recall 0.40 | best val_auc 0.908
+[stage B] epoch  48/90 (overall  78/120)   2.1s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.413 acc 0.970 auc 0.687 recall 0.30 | TEST loss 0.303 acc 0.967 auc 0.778 recall 0.40 | best val_auc 0.908
+[stage B] epoch  49/90 (overall  79/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.383 acc 0.970 auc 0.683 recall 0.30 | TEST loss 0.295 acc 0.960 auc 0.777 recall 0.40 | best val_auc 0.908
+[stage B] epoch  50/90 (overall  80/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.388 acc 0.970 auc 0.685 recall 0.30 | TEST loss 0.298 acc 0.960 auc 0.778 recall 0.40 | best val_auc 0.908
+[stage B] epoch  51/90 (overall  81/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.395 acc 0.970 auc 0.686 recall 0.30 | TEST loss 0.303 acc 0.960 auc 0.778 recall 0.40 | best val_auc 0.908
+[stage B] epoch  52/90 (overall  82/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.401 acc 0.970 auc 0.688 recall 0.30 | TEST loss 0.307 acc 0.967 auc 0.778 recall 0.40 | best val_auc 0.908
+[stage B] epoch  53/90 (overall  83/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.444 acc 0.970 auc 0.643 recall 0.30 | TEST loss 0.362 acc 0.971 auc 0.740 recall 0.30 | best val_auc 0.908
+[stage B] epoch  54/90 (overall  84/120)   2.2s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.396 acc 0.970 auc 0.684 recall 0.30 | TEST loss 0.308 acc 0.964 auc 0.778 recall 0.40 | best val_auc 0.908
+[stage B] epoch  55/90 (overall  85/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.406 acc 0.970 auc 0.687 recall 0.30 | TEST loss 0.314 acc 0.964 auc 0.777 recall 0.40 | best val_auc 0.908
+[stage B] epoch  56/90 (overall  86/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.409 acc 0.970 auc 0.687 recall 0.30 | TEST loss 0.316 acc 0.964 auc 0.729 recall 0.40 | best val_auc 0.908
+[stage B] epoch  57/90 (overall  87/120)   1.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.414 acc 0.970 auc 0.688 recall 0.30 | TEST loss 0.320 acc 0.964 auc 0.730 recall 0.40 | best val_auc 0.908
+[stage B] epoch  58/90 (overall  88/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.420 acc 0.970 auc 0.690 recall 0.30 | TEST loss 0.325 acc 0.967 auc 0.731 recall 0.40 | best val_auc 0.908
+[stage B] epoch  59/90 (overall  89/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.420 acc 0.970 auc 0.690 recall 0.30 | TEST loss 0.326 acc 0.967 auc 0.731 recall 0.40 | best val_auc 0.908
+[stage B] epoch  60/90 (overall  90/120)   2.3s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.424 acc 0.970 auc 0.690 recall 0.30 | TEST loss 0.330 acc 0.967 auc 0.732 recall 0.40 | best val_auc 0.908
+[stage B] epoch  61/90 (overall  91/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.423 acc 0.970 auc 0.690 recall 0.30 | TEST loss 0.330 acc 0.967 auc 0.732 recall 0.40 | best val_auc 0.908
+[stage B] epoch  62/90 (overall  92/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.410 acc 0.970 auc 0.689 recall 0.30 | TEST loss 0.323 acc 0.964 auc 0.730 recall 0.40 | best val_auc 0.908
+[stage B] epoch  63/90 (overall  93/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.409 acc 0.970 auc 0.689 recall 0.30 | TEST loss 0.323 acc 0.964 auc 0.730 recall 0.40 | best val_auc 0.908
+[stage B] epoch  64/90 (overall  94/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.428 acc 0.970 auc 0.693 recall 0.30 | TEST loss 0.340 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  65/90 (overall  95/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.433 acc 0.970 auc 0.693 recall 0.30 | TEST loss 0.344 acc 0.964 auc 0.735 recall 0.30 | best val_auc 0.908
+[stage B] epoch  66/90 (overall  96/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.426 acc 0.970 auc 0.693 recall 0.30 | TEST loss 0.337 acc 0.964 auc 0.735 recall 0.30 | best val_auc 0.908
+[stage B] epoch  67/90 (overall  97/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.428 acc 0.970 auc 0.693 recall 0.30 | TEST loss 0.339 acc 0.964 auc 0.735 recall 0.30 | best val_auc 0.908
+[stage B] epoch  68/90 (overall  98/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.429 acc 0.970 auc 0.693 recall 0.30 | TEST loss 0.337 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  69/90 (overall  99/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.432 acc 0.970 auc 0.693 recall 0.30 | TEST loss 0.340 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  70/90 (overall 100/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.429 acc 0.970 auc 0.693 recall 0.30 | TEST loss 0.337 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  71/90 (overall 101/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.431 acc 0.970 auc 0.693 recall 0.30 | TEST loss 0.338 acc 0.967 auc 0.734 recall 0.40 | best val_auc 0.908
+[stage B] epoch  72/90 (overall 102/120)   1.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.432 acc 0.970 auc 0.690 recall 0.30 | TEST loss 0.337 acc 0.967 auc 0.734 recall 0.40 | best val_auc 0.908
+[stage B] epoch  73/90 (overall 103/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.446 acc 0.970 auc 0.694 recall 0.30 | TEST loss 0.351 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  74/90 (overall 104/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.454 acc 0.970 auc 0.694 recall 0.30 | TEST loss 0.359 acc 0.960 auc 0.734 recall 0.20 | best val_auc 0.908
+[stage B] epoch  75/90 (overall 105/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.454 acc 0.970 auc 0.694 recall 0.30 | TEST loss 0.359 acc 0.960 auc 0.734 recall 0.20 | best val_auc 0.908
+[stage B] epoch  76/90 (overall 106/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.451 acc 0.970 auc 0.694 recall 0.30 | TEST loss 0.355 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  77/90 (overall 107/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.452 acc 0.970 auc 0.694 recall 0.30 | TEST loss 0.356 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  78/90 (overall 108/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.451 acc 0.970 auc 0.694 recall 0.30 | TEST loss 0.356 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  79/90 (overall 109/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.451 acc 0.970 auc 0.694 recall 0.30 | TEST loss 0.356 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  80/90 (overall 110/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.459 acc 0.970 auc 0.694 recall 0.30 | TEST loss 0.363 acc 0.960 auc 0.734 recall 0.20 | best val_auc 0.908
+[stage B] epoch  81/90 (overall 111/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.468 acc 0.974 auc 0.694 recall 0.30 | TEST loss 0.373 acc 0.960 auc 0.735 recall 0.20 | best val_auc 0.908
+[stage B] epoch  82/90 (overall 112/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.457 acc 0.970 auc 0.694 recall 0.30 | TEST loss 0.364 acc 0.964 auc 0.734 recall 0.30 | best val_auc 0.908
+[stage B] epoch  83/90 (overall 113/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.434 acc 0.966 auc 0.691 recall 0.30 | TEST loss 0.339 acc 0.964 auc 0.731 recall 0.40 | best val_auc 0.908
+[stage B] epoch  84/90 (overall 114/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.432 acc 0.966 auc 0.689 recall 0.30 | TEST loss 0.336 acc 0.964 auc 0.731 recall 0.40 | best val_auc 0.908
+[stage B] epoch  85/90 (overall 115/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.451 acc 0.966 auc 0.691 recall 0.30 | TEST loss 0.351 acc 0.964 auc 0.732 recall 0.30 | best val_auc 0.908
+[stage B] epoch  86/90 (overall 116/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.506 acc 0.974 auc 0.694 recall 0.30 | TEST loss 0.395 acc 0.964 auc 0.734 recall 0.20 | best val_auc 0.908
+[stage B] epoch  87/90 (overall 117/120)   1.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.474 acc 0.966 auc 0.692 recall 0.30 | TEST loss 0.363 acc 0.964 auc 0.732 recall 0.30 | best val_auc 0.908
+[stage B] epoch  88/90 (overall 118/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.462 acc 0.970 auc 0.690 recall 0.40 | TEST loss 0.344 acc 0.967 auc 0.731 recall 0.40 | best val_auc 0.908
+[stage B] epoch  89/90 (overall 119/120)   2.2s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.537 acc 0.974 auc 0.646 recall 0.30 | TEST loss 0.416 acc 0.967 auc 0.737 recall 0.20 | best val_auc 0.908
+[stage B] epoch  90/90 (overall 120/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.536 acc 0.974 auc 0.646 recall 0.30 | TEST loss 0.414 acc 0.964 auc 0.736 recall 0.20 | best val_auc 0.908
+
+===== fold4 done in 9.8 min | kept stage B epoch 14 (overall 44) | threshold 0.0842 =====
+TEST fold: AUC 0.916 | malignant caught 7/10 | false alarms 22/265 benign (specificity 0.917)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/best.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/curves/accuracy.png (0.06 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/curves/auc.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/curves/loss.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/curves/pr_auc.png (0.06 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/curves/precision.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/curves/recall.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/epoch_log.csv (0.04 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/final.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/metrics.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/test_predictions.csv (0.02 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/threshold.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/fold4/val_predictions.csv (0.02 MB)
+# E0 baseline, isolated re-run: 5-fold CV summary
+
+| | this run | original E0_ep120 |
+|---|---|---|
+| Pooled AUC | 0.819 | 0.823 |
+| Fold AUC mean ± SD | 0.841 ± 0.056 | 0.825 ± 0.036 |
+| Malignant caught | **34/50** (68%, 95% CI 54%–79%) | 35/50 |
+| False alarms | 156/1293 benign (specificity 0.879) | 286 (0.779) |
+| PPV (alarm is really malignant) | 17.9% | 10.9% |
+
+## Per fold
+
+| fold | AUC | malignant caught | false alarms | threshold | kept checkpoint |
+|---|---|---|---|---|---|
+| 0 | 0.867 | 8/10 | 28/256 | 0.0066 | stage B epoch 23 (overall 53) |
+| 1 | 0.765 | 5/9 | 24/256 | 0.0364 | stage B epoch 64 (overall 94) |
+| 2 | 0.823 | 9/12 | 63/258 | 0.3959 | stage B epoch 4 (overall 34) |
+| 3 | 0.836 | 5/9 | 19/258 | 0.0171 | stage B epoch 26 (overall 56) |
+| 4 | 0.916 | 7/10 | 22/265 | 0.0842 | stage B epoch 14 (overall 44) |
+
+GPU training is not bit-for-bit deterministic, so expect small differences from the original run.
+
+Saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/summary.md, /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/roc.png and 18 curves in /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/cv/curves_all_folds
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1791658276.956451   34505 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2246 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5
+[GPU GUARD] GPU: NVIDIA GeForce GTX 1650 | test matmul ran on: /job:localhost/replica:0/task:0/device:GPU:0
+[DATA] final | train 1068 (40 malignant) | val 275 (10) | test 0 (0) | class weights {0: 0.519, 1: 13.350}
+
+===== Stage A: head only, 30 epochs, lr 0.001 =====
+I0000 00:00:1791658300.823939   34573 device_compiler.h:196] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[stage A] epoch   1/30 (overall   1/120)  37.9s | TRAIN loss 0.772 acc 0.590 auc 0.546 recall 0.47 | VAL loss 0.644 acc 0.625 auc 0.604 recall 0.40 | best val_auc 0.604  <- saved
+[stage A] epoch   2/30 (overall   2/120)   3.1s | TRAIN loss 0.813 acc 0.501 auc 0.520 recall 0.55 | VAL loss 0.601 acc 0.673 auc 0.738 recall 0.70 | best val_auc 0.738  <- saved
+[stage A] epoch   3/30 (overall   3/120)   2.8s | TRAIN loss 0.749 acc 0.594 auc 0.604 recall 0.56 | VAL loss 0.779 acc 0.436 auc 0.806 recall 1.00 | best val_auc 0.806  <- saved
+[stage A] epoch   4/30 (overall   4/120)   2.6s | TRAIN loss 0.636 acc 0.676 auc 0.711 recall 0.64 | VAL loss 0.764 acc 0.495 auc 0.812 recall 1.00 | best val_auc 0.812  <- saved
+[stage A] epoch   5/30 (overall   5/120)   2.6s | TRAIN loss 0.668 acc 0.660 auc 0.707 recall 0.68 | VAL loss 0.845 acc 0.436 auc 0.826 recall 1.00 | best val_auc 0.826  <- saved
+[stage A] epoch   6/30 (overall   6/120)   2.6s | TRAIN loss 0.590 acc 0.629 auc 0.728 recall 0.72 | VAL loss 0.615 acc 0.644 auc 0.837 recall 0.90 | best val_auc 0.837  <- saved
+[stage A] epoch   7/30 (overall   7/120)   2.7s | TRAIN loss 0.560 acc 0.676 auc 0.788 recall 0.76 | VAL loss 0.539 acc 0.735 auc 0.847 recall 0.90 | best val_auc 0.847  <- saved
+[stage A] epoch   8/30 (overall   8/120)   2.1s | TRAIN loss 0.529 acc 0.708 auc 0.796 recall 0.74 | VAL loss 0.493 acc 0.767 auc 0.864 recall 0.80 | best val_auc 0.864  <- saved
+[stage A] epoch   9/30 (overall   9/120)   2.7s | TRAIN loss 0.521 acc 0.692 auc 0.805 recall 0.76 | VAL loss 0.373 acc 0.865 auc 0.868 recall 0.40 | best val_auc 0.868  <- saved
+[stage A] epoch  10/30 (overall  10/120)   2.6s | TRAIN loss 0.550 acc 0.728 auc 0.788 recall 0.71 | VAL loss 0.684 acc 0.589 auc 0.870 recall 1.00 | best val_auc 0.870  <- saved
+[stage A] epoch  11/30 (overall  11/120)   2.6s | TRAIN loss 0.521 acc 0.744 auc 0.832 recall 0.81 | VAL loss 0.619 acc 0.644 auc 0.876 recall 1.00 | best val_auc 0.876  <- saved
+[stage A] epoch  12/30 (overall  12/120)   2.6s | TRAIN loss 0.500 acc 0.739 auc 0.834 recall 0.76 | VAL loss 0.546 acc 0.724 auc 0.882 recall 1.00 | best val_auc 0.882  <- saved
+[stage A] epoch  13/30 (overall  13/120)   2.6s | TRAIN loss 0.474 acc 0.750 auc 0.845 recall 0.76 | VAL loss 0.528 acc 0.731 auc 0.886 recall 0.90 | best val_auc 0.886  <- saved
+[stage A] epoch  14/30 (overall  14/120)   2.7s | TRAIN loss 0.470 acc 0.753 auc 0.875 recall 0.86 | VAL loss 0.574 acc 0.673 auc 0.889 recall 1.00 | best val_auc 0.889  <- saved
+[stage A] epoch  15/30 (overall  15/120)   1.9s | TRAIN loss 0.430 acc 0.775 auc 0.874 recall 0.78 | VAL loss 0.391 acc 0.829 auc 0.888 recall 0.70 | best val_auc 0.889
+[stage A] epoch  16/30 (overall  16/120)   1.8s | TRAIN loss 0.455 acc 0.758 auc 0.893 recall 0.84 | VAL loss 0.504 acc 0.738 auc 0.884 recall 0.90 | best val_auc 0.889
+[stage A] epoch  17/30 (overall  17/120)   1.8s | TRAIN loss 0.479 acc 0.765 auc 0.839 recall 0.70 | VAL loss 0.559 acc 0.705 auc 0.883 recall 1.00 | best val_auc 0.889
+[stage A] epoch  18/30 (overall  18/120)   1.8s | TRAIN loss 0.447 acc 0.761 auc 0.876 recall 0.81 | VAL loss 0.580 acc 0.658 auc 0.877 recall 1.00 | best val_auc 0.889
+[stage A] epoch  19/30 (overall  19/120)   1.8s | TRAIN loss 0.441 acc 0.778 auc 0.878 recall 0.78 | VAL loss 0.551 acc 0.684 auc 0.875 recall 0.90 | best val_auc 0.889
+[stage A] epoch  20/30 (overall  20/120)   1.8s | TRAIN loss 0.415 acc 0.796 auc 0.881 recall 0.78 | VAL loss 0.451 acc 0.782 auc 0.873 recall 0.80 | best val_auc 0.889
+[stage A] epoch  21/30 (overall  21/120)   1.8s | TRAIN loss 0.451 acc 0.746 auc 0.890 recall 0.89 | VAL loss 0.581 acc 0.673 auc 0.877 recall 0.90 | best val_auc 0.889
+[stage A] epoch  22/30 (overall  22/120)   1.8s | TRAIN loss 0.370 acc 0.834 auc 0.936 recall 0.87 | VAL loss 0.428 acc 0.804 auc 0.869 recall 0.70 | best val_auc 0.889
+[stage A] epoch  23/30 (overall  23/120)   1.8s | TRAIN loss 0.402 acc 0.779 auc 0.897 recall 0.77 | VAL loss 0.538 acc 0.705 auc 0.872 recall 0.90 | best val_auc 0.889
+[stage A] epoch  24/30 (overall  24/120)   1.8s | TRAIN loss 0.406 acc 0.834 auc 0.908 recall 0.85 | VAL loss 0.491 acc 0.753 auc 0.876 recall 0.70 | best val_auc 0.889
+[stage A] epoch  25/30 (overall  25/120)   1.8s | TRAIN loss 0.371 acc 0.795 auc 0.914 recall 0.94 | VAL loss 0.381 acc 0.829 auc 0.871 recall 0.70 | best val_auc 0.889
+[stage A] epoch  26/30 (overall  26/120)   1.8s | TRAIN loss 0.447 acc 0.789 auc 0.884 recall 0.80 | VAL loss 0.480 acc 0.756 auc 0.872 recall 0.70 | best val_auc 0.889
+[stage A] epoch  27/30 (overall  27/120)   1.8s | TRAIN loss 0.338 acc 0.834 auc 0.920 recall 0.88 | VAL loss 0.405 acc 0.818 auc 0.865 recall 0.70 | best val_auc 0.889
+[stage A] epoch  28/30 (overall  28/120)   2.0s | TRAIN loss 0.392 acc 0.801 auc 0.910 recall 0.80 | VAL loss 0.356 acc 0.862 auc 0.865 recall 0.70 | best val_auc 0.889
+[stage A] epoch  29/30 (overall  29/120)   1.8s | TRAIN loss 0.436 acc 0.781 auc 0.899 recall 0.87 | VAL loss 0.424 acc 0.796 auc 0.868 recall 0.70 | best val_auc 0.889
+[stage A] epoch  30/30 (overall  30/120)   1.8s | TRAIN loss 0.330 acc 0.863 auc 0.941 recall 0.82 | VAL loss 0.406 acc 0.818 auc 0.857 recall 0.70 | best val_auc 0.889
+
+===== Stage B: fine-tuning, 72 backbone layers unfrozen, 90 epochs, lr 0.0001 =====
+[stage B] epoch   1/90 (overall  31/120)  33.9s | TRAIN loss 0.453 acc 0.756 auc 0.862 recall 0.78 | VAL loss 0.279 acc 0.880 auc 0.851 recall 0.60 | best val_auc 0.889
+[stage B] epoch   2/90 (overall  32/120)   2.8s | TRAIN loss 0.417 acc 0.835 auc 0.892 recall 0.79 | VAL loss 0.304 acc 0.876 auc 0.796 recall 0.50 | best val_auc 0.889
+[stage B] epoch   3/90 (overall  33/120)   2.6s | TRAIN loss 0.346 acc 0.842 auc 0.927 recall 0.81 | VAL loss 0.234 acc 0.913 auc 0.865 recall 0.50 | best val_auc 0.889
+[stage B] epoch   4/90 (overall  34/120)   2.6s | TRAIN loss 0.223 acc 0.894 auc 0.974 recall 0.95 | VAL loss 0.420 acc 0.822 auc 0.851 recall 0.70 | best val_auc 0.889
+[stage B] epoch   5/90 (overall  35/120)   3.2s | TRAIN loss 0.184 acc 0.914 auc 0.980 recall 0.90 | VAL loss 0.357 acc 0.836 auc 0.904 recall 0.70 | best val_auc 0.904  <- saved
+[stage B] epoch   6/90 (overall  36/120)   2.6s | TRAIN loss 0.222 acc 0.918 auc 0.972 recall 0.91 | VAL loss 0.460 acc 0.818 auc 0.873 recall 0.80 | best val_auc 0.904
+[stage B] epoch   7/90 (overall  37/120)   2.7s | TRAIN loss 0.224 acc 0.890 auc 0.970 recall 0.92 | VAL loss 0.233 acc 0.905 auc 0.819 recall 0.60 | best val_auc 0.904
+[stage B] epoch   8/90 (overall  38/120)   2.5s | TRAIN loss 0.098 acc 0.966 auc 0.995 recall 0.95 | VAL loss 0.190 acc 0.953 auc 0.828 recall 0.10 | best val_auc 0.904
+[stage B] epoch   9/90 (overall  39/120)   2.6s | TRAIN loss 0.064 acc 0.973 auc 0.998 recall 1.00 | VAL loss 0.266 acc 0.913 auc 0.795 recall 0.30 | best val_auc 0.904
+[stage B] epoch  10/90 (overall  40/120)   2.5s | TRAIN loss 0.036 acc 0.983 auc 0.999 recall 1.00 | VAL loss 0.306 acc 0.956 auc 0.716 recall 0.00 | best val_auc 0.904
+[stage B] epoch  11/90 (overall  41/120)   3.7s | TRAIN loss 0.371 acc 0.896 auc 0.950 recall 0.88 | VAL loss 0.637 acc 0.749 auc 0.905 recall 0.90 | best val_auc 0.905  <- saved
+[stage B] epoch  12/90 (overall  42/120)   3.2s | TRAIN loss 0.140 acc 0.936 auc 0.986 recall 1.00 | VAL loss 0.223 acc 0.909 auc 0.928 recall 0.70 | best val_auc 0.928  <- saved
+[stage B] epoch  13/90 (overall  43/120)   2.6s | TRAIN loss 0.140 acc 0.962 auc 0.978 recall 0.97 | VAL loss 0.192 acc 0.924 auc 0.836 recall 0.60 | best val_auc 0.928
+[stage B] epoch  14/90 (overall  44/120)   2.5s | TRAIN loss 0.063 acc 0.977 auc 0.999 recall 1.00 | VAL loss 0.196 acc 0.938 auc 0.919 recall 0.50 | best val_auc 0.928
+[stage B] epoch  15/90 (overall  45/120)   2.5s | TRAIN loss 0.034 acc 0.984 auc 0.999 recall 1.00 | VAL loss 0.191 acc 0.956 auc 0.803 recall 0.40 | best val_auc 0.928
+[stage B] epoch  16/90 (overall  46/120)   2.7s | TRAIN loss 0.028 acc 0.990 auc 0.999 recall 1.00 | VAL loss 0.171 acc 0.938 auc 0.845 recall 0.40 | best val_auc 0.928
+[stage B] epoch  17/90 (overall  47/120)   2.6s | TRAIN loss 0.032 acc 0.986 auc 0.999 recall 0.98 | VAL loss 0.564 acc 0.829 auc 0.916 recall 0.80 | best val_auc 0.928
+[stage B] epoch  18/90 (overall  48/120)   3.5s | TRAIN loss 0.109 acc 0.948 auc 0.992 recall 0.95 | VAL loss 0.227 acc 0.927 auc 0.933 recall 0.60 | best val_auc 0.933  <- saved
+[stage B] epoch  19/90 (overall  49/120)   2.7s | TRAIN loss 0.032 acc 0.991 auc 1.000 recall 1.00 | VAL loss 0.431 acc 0.873 auc 0.916 recall 0.80 | best val_auc 0.933
+[stage B] epoch  20/90 (overall  50/120)   2.5s | TRAIN loss 0.056 acc 0.977 auc 0.998 recall 0.98 | VAL loss 0.355 acc 0.891 auc 0.907 recall 0.70 | best val_auc 0.933
+[stage B] epoch  21/90 (overall  51/120)   2.5s | TRAIN loss 0.023 acc 0.994 auc 1.000 recall 1.00 | VAL loss 0.285 acc 0.924 auc 0.837 recall 0.70 | best val_auc 0.933
+[stage B] epoch  22/90 (overall  52/120)   2.7s | TRAIN loss 0.094 acc 0.958 auc 0.996 recall 0.98 | VAL loss 0.553 acc 0.796 auc 0.896 recall 0.70 | best val_auc 0.933
+[stage B] epoch  23/90 (overall  53/120)   2.7s | TRAIN loss 0.063 acc 0.974 auc 0.998 recall 0.94 | VAL loss 0.222 acc 0.938 auc 0.871 recall 0.50 | best val_auc 0.933
+[stage B] epoch  24/90 (overall  54/120)   2.7s | TRAIN loss 0.025 acc 0.990 auc 1.000 recall 1.00 | VAL loss 0.228 acc 0.949 auc 0.836 recall 0.60 | best val_auc 0.933
+[stage B] epoch  25/90 (overall  55/120)   2.5s | TRAIN loss 0.032 acc 0.987 auc 0.999 recall 0.97 | VAL loss 0.252 acc 0.942 auc 0.830 recall 0.60 | best val_auc 0.933
+[stage B] epoch  26/90 (overall  56/120)   2.0s | TRAIN loss 0.011 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.193 acc 0.953 auc 0.754 recall 0.40 | best val_auc 0.933
+[stage B] epoch  27/90 (overall  57/120)   2.5s | TRAIN loss 0.122 acc 0.956 auc 0.994 recall 0.95 | VAL loss 0.353 acc 0.873 auc 0.863 recall 0.60 | best val_auc 0.933
+[stage B] epoch  28/90 (overall  58/120)   2.6s | TRAIN loss 0.073 acc 0.970 auc 0.996 recall 0.98 | VAL loss 0.350 acc 0.884 auc 0.911 recall 0.70 | best val_auc 0.933
+[stage B] epoch  29/90 (overall  59/120)   2.7s | TRAIN loss 0.014 acc 0.997 auc 1.000 recall 1.00 | VAL loss 0.184 acc 0.938 auc 0.889 recall 0.50 | best val_auc 0.933
+[stage B] epoch  30/90 (overall  60/120)   2.7s | TRAIN loss 0.005 acc 0.998 auc 1.000 recall 1.00 | VAL loss 0.161 acc 0.964 auc 0.863 recall 0.40 | best val_auc 0.933
+[stage B] epoch  31/90 (overall  61/120)   2.7s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.162 acc 0.964 auc 0.866 recall 0.40 | best val_auc 0.933
+[stage B] epoch  32/90 (overall  62/120)   2.5s | TRAIN loss 0.003 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.170 acc 0.964 auc 0.862 recall 0.50 | best val_auc 0.933
+[stage B] epoch  33/90 (overall  63/120)   1.9s | TRAIN loss 0.002 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.177 acc 0.960 auc 0.863 recall 0.50 | best val_auc 0.933
+[stage B] epoch  34/90 (overall  64/120)   2.5s | TRAIN loss 0.003 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.178 acc 0.975 auc 0.868 recall 0.50 | best val_auc 0.933
+[stage B] epoch  35/90 (overall  65/120)   2.5s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.179 acc 0.975 auc 0.866 recall 0.50 | best val_auc 0.933
+[stage B] epoch  36/90 (overall  66/120)   2.7s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.184 acc 0.967 auc 0.865 recall 0.50 | best val_auc 0.933
+[stage B] epoch  37/90 (overall  67/120)   2.5s | TRAIN loss 0.007 acc 0.996 auc 1.000 recall 1.00 | VAL loss 0.193 acc 0.964 auc 0.826 recall 0.20 | best val_auc 0.933
+[stage B] epoch  38/90 (overall  68/120)   2.5s | TRAIN loss 0.005 acc 0.997 auc 1.000 recall 1.00 | VAL loss 0.226 acc 0.945 auc 0.857 recall 0.50 | best val_auc 0.933
+[stage B] epoch  39/90 (overall  69/120)   2.7s | TRAIN loss 0.001 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.196 acc 0.967 auc 0.822 recall 0.30 | best val_auc 0.933
+[stage B] epoch  40/90 (overall  70/120)   2.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.193 acc 0.971 auc 0.822 recall 0.40 | best val_auc 0.933
+[stage B] epoch  41/90 (overall  71/120)   2.7s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.194 acc 0.967 auc 0.822 recall 0.50 | best val_auc 0.933
+[stage B] epoch  42/90 (overall  72/120)   2.7s | TRAIN loss 0.037 acc 0.990 auc 0.999 recall 0.97 | VAL loss 0.917 acc 0.800 auc 0.919 recall 0.80 | best val_auc 0.933
+[stage B] epoch  43/90 (overall  73/120)   2.6s | TRAIN loss 0.216 acc 0.940 auc 0.971 recall 0.98 | VAL loss 0.174 acc 0.938 auc 0.853 recall 0.40 | best val_auc 0.933
+[stage B] epoch  44/90 (overall  74/120)   2.6s | TRAIN loss 0.067 acc 0.970 auc 0.997 recall 1.00 | VAL loss 0.273 acc 0.898 auc 0.916 recall 0.70 | best val_auc 0.933
+[stage B] epoch  45/90 (overall  75/120)   2.6s | TRAIN loss 0.016 acc 0.993 auc 1.000 recall 1.00 | VAL loss 0.227 acc 0.924 auc 0.926 recall 0.60 | best val_auc 0.933
+[stage B] epoch  46/90 (overall  76/120)   2.6s | TRAIN loss 0.008 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.145 acc 0.956 auc 0.904 recall 0.50 | best val_auc 0.933
+[stage B] epoch  47/90 (overall  77/120)   2.5s | TRAIN loss 0.002 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.154 acc 0.953 auc 0.858 recall 0.50 | best val_auc 0.933
+[stage B] epoch  48/90 (overall  78/120)   2.1s | TRAIN loss 0.005 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.203 acc 0.942 auc 0.853 recall 0.50 | best val_auc 0.933
+[stage B] epoch  49/90 (overall  79/120)   2.6s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.175 acc 0.945 auc 0.818 recall 0.50 | best val_auc 0.933
+[stage B] epoch  50/90 (overall  80/120)   2.6s | TRAIN loss 0.004 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.261 acc 0.924 auc 0.898 recall 0.50 | best val_auc 0.933
+[stage B] epoch  51/90 (overall  81/120)   2.7s | TRAIN loss 0.004 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.226 acc 0.971 auc 0.779 recall 0.40 | best val_auc 0.933
+[stage B] epoch  52/90 (overall  82/120)   2.5s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.206 acc 0.960 auc 0.778 recall 0.40 | best val_auc 0.933
+[stage B] epoch  53/90 (overall  83/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.207 acc 0.960 auc 0.778 recall 0.40 | best val_auc 0.933
+[stage B] epoch  54/90 (overall  84/120)   2.6s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.207 acc 0.960 auc 0.778 recall 0.40 | best val_auc 0.933
+[stage B] epoch  55/90 (overall  85/120)   2.0s | TRAIN loss 0.001 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.202 acc 0.956 auc 0.780 recall 0.40 | best val_auc 0.933
+[stage B] epoch  56/90 (overall  86/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.204 acc 0.956 auc 0.779 recall 0.40 | best val_auc 0.933
+[stage B] epoch  57/90 (overall  87/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.209 acc 0.956 auc 0.779 recall 0.40 | best val_auc 0.933
+[stage B] epoch  58/90 (overall  88/120)   2.6s | TRAIN loss 0.005 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.376 acc 0.909 auc 0.931 recall 0.60 | best val_auc 0.933
+[stage B] epoch  59/90 (overall  89/120)   2.5s | TRAIN loss 0.046 acc 0.977 auc 0.998 recall 1.00 | VAL loss 0.177 acc 0.949 auc 0.861 recall 0.40 | best val_auc 0.933
+[stage B] epoch  60/90 (overall  90/120)   2.6s | TRAIN loss 0.003 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.263 acc 0.938 auc 0.809 recall 0.50 | best val_auc 0.933
+[stage B] epoch  61/90 (overall  91/120)   2.7s | TRAIN loss 0.008 acc 0.995 auc 1.000 recall 1.00 | VAL loss 0.320 acc 0.920 auc 0.851 recall 0.80 | best val_auc 0.933
+[stage B] epoch  62/90 (overall  92/120)   2.5s | TRAIN loss 0.002 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.170 acc 0.964 auc 0.826 recall 0.40 | best val_auc 0.933
+[stage B] epoch  63/90 (overall  93/120)   2.5s | TRAIN loss 0.001 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.194 acc 0.953 auc 0.821 recall 0.60 | best val_auc 0.933
+[stage B] epoch  64/90 (overall  94/120)   2.6s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.177 acc 0.960 auc 0.829 recall 0.40 | best val_auc 0.933
+[stage B] epoch  65/90 (overall  95/120)   2.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.181 acc 0.960 auc 0.828 recall 0.40 | best val_auc 0.933
+[stage B] epoch  66/90 (overall  96/120)   2.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.183 acc 0.960 auc 0.828 recall 0.40 | best val_auc 0.933
+[stage B] epoch  67/90 (overall  97/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.183 acc 0.960 auc 0.828 recall 0.40 | best val_auc 0.933
+[stage B] epoch  68/90 (overall  98/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.183 acc 0.960 auc 0.828 recall 0.40 | best val_auc 0.933
+[stage B] epoch  69/90 (overall  99/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.183 acc 0.960 auc 0.828 recall 0.40 | best val_auc 0.933
+[stage B] epoch  70/90 (overall 100/120)   2.0s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.187 acc 0.964 auc 0.829 recall 0.40 | best val_auc 0.933
+[stage B] epoch  71/90 (overall 101/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.192 acc 0.964 auc 0.827 recall 0.40 | best val_auc 0.933
+[stage B] epoch  72/90 (overall 102/120)   2.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.193 acc 0.967 auc 0.828 recall 0.40 | best val_auc 0.933
+[stage B] epoch  73/90 (overall 103/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.194 acc 0.960 auc 0.827 recall 0.40 | best val_auc 0.933
+[stage B] epoch  74/90 (overall 104/120)   2.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.194 acc 0.960 auc 0.827 recall 0.40 | best val_auc 0.933
+[stage B] epoch  75/90 (overall 105/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.195 acc 0.960 auc 0.827 recall 0.40 | best val_auc 0.933
+[stage B] epoch  76/90 (overall 106/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.196 acc 0.960 auc 0.827 recall 0.40 | best val_auc 0.933
+[stage B] epoch  77/90 (overall 107/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.197 acc 0.960 auc 0.827 recall 0.40 | best val_auc 0.933
+[stage B] epoch  78/90 (overall 108/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.197 acc 0.960 auc 0.827 recall 0.40 | best val_auc 0.933
+[stage B] epoch  79/90 (overall 109/120)   2.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.197 acc 0.960 auc 0.827 recall 0.40 | best val_auc 0.933
+[stage B] epoch  80/90 (overall 110/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.198 acc 0.960 auc 0.828 recall 0.40 | best val_auc 0.933
+[stage B] epoch  81/90 (overall 111/120)   2.5s | TRAIN loss 0.001 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.226 acc 0.953 auc 0.824 recall 0.50 | best val_auc 0.933
+[stage B] epoch  82/90 (overall 112/120)   2.5s | TRAIN loss 0.001 acc 0.999 auc 1.000 recall 1.00 | VAL loss 0.223 acc 0.960 auc 0.779 recall 0.30 | best val_auc 0.933
+[stage B] epoch  83/90 (overall 113/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.206 acc 0.964 auc 0.830 recall 0.30 | best val_auc 0.933
+[stage B] epoch  84/90 (overall 114/120)   2.6s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.196 acc 0.964 auc 0.829 recall 0.30 | best val_auc 0.933
+[stage B] epoch  85/90 (overall 115/120)   2.1s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.196 acc 0.964 auc 0.828 recall 0.30 | best val_auc 0.933
+[stage B] epoch  86/90 (overall 116/120)   2.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.194 acc 0.964 auc 0.828 recall 0.30 | best val_auc 0.933
+[stage B] epoch  87/90 (overall 117/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.197 acc 0.964 auc 0.828 recall 0.30 | best val_auc 0.933
+[stage B] epoch  88/90 (overall 118/120)   2.7s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.195 acc 0.967 auc 0.827 recall 0.50 | best val_auc 0.933
+[stage B] epoch  89/90 (overall 119/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.195 acc 0.967 auc 0.827 recall 0.50 | best val_auc 0.933
+[stage B] epoch  90/90 (overall 120/120)   2.5s | TRAIN loss 0.000 acc 1.000 auc 1.000 recall 1.00 | VAL loss 0.196 acc 0.967 auc 0.827 recall 0.50 | best val_auc 0.933
+
+===== final done in 9.5 min | kept stage B epoch 18 (overall 48) | threshold 0.1100 =====
+VALIDATION fold (also chose checkpoint + threshold, so optimistic): AUC 0.932 | malignant caught 10/10 | false alarms 44/265 benign (specificity 0.834)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/best.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/curves/accuracy.png (0.06 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/curves/auc.png (0.06 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/curves/loss.png (0.06 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/curves/pr_auc.png (0.05 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/curves/precision.png (0.07 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/curves/recall.png (0.06 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/epoch_log.csv (0.03 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/final.keras (35.20 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/metrics.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/threshold.json (0.00 MB)
+  saved /mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs/final/val_predictions.csv (0.02 MB)
+===== E0 run finished Sat Oct 10 19:01:03 UTC 2026 =====

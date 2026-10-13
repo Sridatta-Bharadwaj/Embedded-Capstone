@@ -1,0 +1,26 @@
+{
+  "model": "E0_baseline_ep120 (final, best.keras)",
+  "backbone": "MobileNetV3-Large",
+  "input": [
+    224,
+    224,
+    3
+  ],
+  "input_range": "raw 0-255 grayscale replicated to 3 channels",
+  "threshold": 0.10997089743614197,
+  "threshold_rule": "Youden J on validation fold 4",
+  "positive_class": "high-grade serous carcinoma",
+  "outputs": {
+    "prob": [
+      1,
+      1
+    ],
+    "cam": [
+      1,
+      7,
+      7
+    ]
+  },
+  "keep_color": false,
+  "blackout_tables": false
+}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Model{% endblock %}
+{% block body %}
+<div class="head"><div><h1>Model card: E0 baseline</h1><p class="sub">What runs on this device, how well it did, and where it can fail.</p></div></div>
+
+<div class="cols">
+<section class="card">
+  <h2>What it is</h2>
+  <dl class="kv">
+    <dt>Network</dt><dd>MobileNetV3-Large (ImageNet) → global average pooling → dropout 0.3 → one sigmoid output</dd>
+    <dt>Task</dt><dd>Binary: <b>high-grade serous carcinoma</b> (malignant) vs. everything else (7 benign classes and normal ovary)</dd>
+    <dt>Training data</dt><dd>OTU_2D / MMOTU, 1,343 cleaned 2D B-mode images, 50 of them malignant</dd>
+    <dt>Input</dt><dd>Overlays inpainted, cropped to the scan fan, letterboxed to 224 × 224 grayscale</dd>
+    <dt>Threshold</dt><dd>{{ '%.4f'|format(info.threshold) }} ({{ info.threshold_rule }})</dd>
+    <dt>On this device</dt><dd>{{ model_version }}.tflite · {{ '%.1f'|format(size_mb) }} MB · runtime <code>{{ backend }}</code></dd>
+  </dl>
+</section>
+
+<section class="card">
+  <h2>How well it did</h2>
+  <p class="small muted">5-fold grouped cross-validation. Every malignant image is tested once, by a model that never saw it.</p>
+  <div class="stats compact">
+    <div><b>0.819</b><span>pooled ROC AUC</span></div>
+    <div><b>34/50</b><span>cancers caught (68%, 95% CI 54–79%)</span></div>
+    <div><b>0.879</b><span>specificity (156 false alarms in 1,293)</span></div>
+  </div>
+  {% if check %}
+  <p class="small">Export check on the final model's validation fold ({{ check.n_val }} images, {{ check.malignant }} malignant): the on-device TFLite model reproduces the trained Keras model
+  (max probability difference {{ '%.1e'|format(check.fp32.max_abs_prob_diff_vs_keras) }}, {{ check.fp32.decisions_changed_vs_keras }} decisions changed, AUC {{ '%.3f'|format(check.fp32.auc) }}).
+  The attention outline matches TensorFlow Grad-CAM to within {{ '%.1e'|format(check.fp32.gradcam_max_abs_err_normalised) }}.</p>
+  {% endif %}
+</section>
+</div>
+
+<div class="cols">
+<section class="card">
+  <h2>Reading a result</h2>
+  <ul class="tight">
+    <li><b>Tumour type.</b> The model can say only “high-grade serous carcinoma” or “not”. It does not name benign subtypes.</li>
+    <li><b>Confidence.</b> Raw scores are rescaled so the threshold sits at 50%. Confidence is the distance from that boundary, not a calibrated clinical probability.</li>
+    <li><b>Outline.</b> A Grad-CAM map from the network's last feature layer (7 × 7, upsampled). It shows where the evidence came from, not the tumour's exact edge.</li>
+    <li><b>Twin risk.</b> An exponentially smoothed average of a patient's scan scores, with an alert on sharp rises or whenever the latest scan scores malignant.</li>
+  </ul>
+</section>
+<section class="card">
+  <h2>Limitations</h2>
+  <ul class="tight">
+    <li>Only 50 malignant training images, all of one cancer type, from one hospital. Behaviour on other scanners is unknown.</li>
+    <li>Roughly 1 in 3 cancers in testing was missed, and most alarms were false (PPV ≈ 18%).</li>
+    <li>Grad-CAM showed the model sometimes attends to on-screen artefacts, such as inpainted measurement boxes. Check the outline.</li>
+    <li>A research prototype for a student project. It is not a medical device and not for diagnosis.</li>
+  </ul>
+</section>
+</div>
+{% endblock %}

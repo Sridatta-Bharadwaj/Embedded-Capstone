@@ -1,0 +1,8 @@
+{
+  "benign_simple_cyst.jpg": {"label": "Simple cyst (benign)", "truth": "benign"},
+  "benign_chocolate_cyst.jpg": {"label": "Chocolate cyst (benign)", "truth": "benign"},
+  "benign_teratoma.jpg": {"label": "Teratoma (benign)", "truth": "benign"},
+  "normal_ovary.jpg": {"label": "Normal ovary", "truth": "benign"},
+  "malignant_hgsc_a.jpg": {"label": "High-grade serous A (malignant)", "truth": "malignant"},
+  "malignant_hgsc_b.jpg": {"label": "High-grade serous B (malignant)", "truth": "malignant"}
+}

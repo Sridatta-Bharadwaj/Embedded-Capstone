@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %} · Ovarian Twin</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="{{ url_for('dashboard') }}">
+    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="5.5" fill="currentColor"/></svg>
+    <span>Ovarian Twin</span><small>E0 · edge</small>
+  </a>
+  {% set ep = request.endpoint %}
+  <nav>
+    <a href="{{ url_for('dashboard') }}" class="{{ 'on' if ep in ('dashboard', 'patient', 'visit', 'new_patient') }}">Twins</a>
+    <a href="{{ url_for('model_card') }}" class="{{ 'on' if ep == 'model_card' }}">Model</a>
+    <a href="{{ url_for('scan') }}" class="btn primary sm">New scan</a>
+  </nav>
+</header>
+<main>
+  {% with msgs = get_flashed_messages(with_categories=true) %}
+    {% for cat, m in msgs %}<div class="flash {{ cat }}" role="status">{{ m }}</div>{% endfor %}
+  {% endwith %}
+  {% block body %}{% endblock %}
+</main>
+<footer>Research prototype · model {{ model_version }} on Raspberry Pi 4 · Not a medical device. Every result must be reviewed by a clinician.</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

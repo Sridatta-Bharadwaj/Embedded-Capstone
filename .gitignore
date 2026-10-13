@@ -1,0 +1,12 @@
+# dependencies / caches (reinstall with `npm install` in E0_report, `pip install -r requirements.txt` in E0_webapp)
+node_modules/
+__pycache__/
+*.pyc
+.ruff_cache/
+.pytest_cache/
+.venv/
+.playwright-mcp/
+# web app runtime data (patient database, uploaded scans, session key)
+E0_webapp/data/
+# Office lock files
+~$*

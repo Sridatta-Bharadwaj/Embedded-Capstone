@@ -1,0 +1,9 @@
+class_name,processed_path
+simple_cyst,data/processed/images/1.png
+chocolate_cyst,data/processed/images/6.png
+mucinous_cystadenoma,data/processed/images/20.png
+teratoma,data/processed/images/45.png
+serous_cystadenoma,data/processed/images/58.png
+normal_ovary,data/processed/images/74.png
+theca_cell_tumor,data/processed/images/150.png
+high_grade_serous,data/processed/images/1417.png

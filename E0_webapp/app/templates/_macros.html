@@ -1,0 +1,14 @@
+{% macro pill(status) -%}
+{%- set text = {'alert': 'Risk alert', 'high': 'Above boundary', 'low': 'Below boundary', 'none': 'No scans'}[status] -%}
+<span class="pill {{ status }}">{{ text }}</span>
+{%- endmacro %}
+{% macro pred_tag(p) -%}
+<span class="tag {{ p }}">{{ 'Malignant' if p == 'malignant' else 'Benign' }}</span>
+{%- endmacro %}
+{% macro trend(t) -%}
+{%- set arrow = {'rising': '↗', 'falling': '↘', 'stable': '→', 'baseline': '•', 'no scans': ''}[t] -%}
+<span class="trend {{ t|replace(' ', '-') }}">{{ arrow }} {{ t }}</span>
+{%- endmacro %}
+{% macro meter(v, boundary=true) -%}
+<span class="meter" role="img" aria-label="{{ v|pct }}"><span class="fill" style="width: {{ (100 * v)|round(1) }}%"></span>{% if boundary %}<span class="mark"></span>{% endif %}</span>
+{%- endmacro %}

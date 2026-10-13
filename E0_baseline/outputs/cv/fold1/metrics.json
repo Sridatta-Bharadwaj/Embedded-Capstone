@@ -1,0 +1,51 @@
+{
+  "experiment": "E0_baseline_ep120 (isolated)",
+  "mode": "cv",
+  "fold": 1,
+  "gpu": "NVIDIA GeForce GTX 1650",
+  "train_seconds": 591,
+  "args": {
+    "mode": "cv",
+    "fold": 1,
+    "data_root": "/home/codin/ovarian-twin",
+    "folds_csv": "/mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/data/cv_folds.csv",
+    "out": "/mnt/d/Sridatta/Embedded_Systems_project/E0_baseline/outputs",
+    "head_epochs": 30,
+    "ft_epochs": 90,
+    "head_lr": 0.001,
+    "ft_lr": 0.0001,
+    "unfreeze_fraction": 0.5,
+    "batch_size": 32,
+    "seed": 42,
+    "force": false
+  },
+  "kept_checkpoint": "stage B epoch 64 (overall 94)",
+  "threshold_rule": "Youden J on the validation fold (lowest threshold among ties)",
+  "note": "test curves are monitoring only; checkpoint and threshold use validation only",
+  "val": {
+    "threshold": 0.03639886900782585,
+    "n": 270,
+    "malignant": 12,
+    "tp": 9,
+    "fn": 3,
+    "tn": 243,
+    "fp": 15,
+    "sensitivity": 0.75,
+    "specificity": 0.9418604651162791,
+    "roc_auc": 0.8478682170542635,
+    "pr_auc": 0.5022339996604702
+  },
+  "test": {
+    "threshold": 0.03639886900782585,
+    "n": 265,
+    "malignant": 9,
+    "tp": 5,
+    "fn": 4,
+    "tn": 232,
+    "fp": 24,
+    "sensitivity": 0.5555555555555556,
+    "specificity": 0.90625,
+    "roc_auc": 0.7651909722222222,
+    "pr_auc": 0.39340209938035214
+  }
+}

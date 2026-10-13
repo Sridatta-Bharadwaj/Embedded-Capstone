@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}New scan{% endblock %}
+{% block body %}
+<div class="head"><div><h1>Analyse a scan</h1><p class="sub">Upload one 2D B-mode ovarian ultrasound frame. The model runs on this device, and the image never leaves it.</p></div></div>
+<form id="scanform" class="scan-grid" method="post" enctype="multipart/form-data">
+  <section class="card form">
+    <h2>1 · Patient</h2>
+    <label>Existing patient
+      <select name="patient_id" id="patient_id">
+        <option value="">Select…</option>
+        {% for p in patients %}<option value="{{ p.id }}" {{ 'selected' if p.id == preselect }}>{{ p.id }}{% if p.name %} · {{ p.name }}{% endif %}</option>{% endfor %}
+      </select>
+    </label>
+    <label>or new patient ID <input name="new_patient_id" id="new_pid" maxlength="40" pattern="[A-Za-z0-9][A-Za-z0-9_.\-]{0,39}" placeholder="e.g. PT-0042"></label>
+    <label>Scan date <input type="date" name="scan_date" value="{{ today }}" max="{{ today }}" required></label>
+    <label><span>Notes <span class="opt">optional</span></span><textarea name="notes" rows="2" maxlength="500" placeholder="e.g. left ovary, follow-up"></textarea></label>
+  </section>
+
+  <section class="card form">
+    <h2>2 · Ultrasound image</h2>
+    <label class="drop" id="drop">
+      <input type="file" name="image" id="file" accept=".jpg,.jpeg,.png,.bmp,.tif,.tiff,image/*">
+      <img id="preview" alt="" hidden>
+      <span id="droptext"><b>Choose an image</b> or drag it here<br><span class="muted">JPG, PNG, BMP or TIFF · up to 20 MB</span></span>
+    </label>
+    {% if samples %}
+    <details class="samples" {{ 'open' if not patients }}>
+      <summary>…or use a built-in sample scan</summary>
+      <p class="muted small">Held-out images from the final model's validation fold. The model never trained on them.</p>
+      <div class="sample-grid">
+        {% for s in samples %}
+        <label class="sample"><input type="radio" name="sample" value="{{ s }}">
+          <img src="{{ url_for('static', filename='samples/' + s) }}" alt="" loading="lazy">
+          <span>{{ sample_meta.get(s, {}).get('label', s) }}</span></label>
+        {% endfor %}
+      </div>
+    </details>
+    {% endif %}
+  </section>
+
+  <div class="submitbar"><button class="btn primary lg" id="go">Analyse scan</button><span class="muted" id="busy" hidden>Analysing on the Pi…</span></div>
+</form>
+{% endblock %}
+{% block scripts %}
+<script>
+(() => {
+  const f = document.getElementById('file'), img = document.getElementById('preview'), txt = document.getElementById('droptext');
+  const drop = document.getElementById('drop');
+  f.addEventListener('change', () => {
+    if (!f.files[0]) return;
+    img.src = URL.createObjectURL(f.files[0]); img.hidden = false; txt.hidden = true;
+    document.querySelectorAll('input[name=sample]').forEach(r => r.checked = false);
+  });
+  ['dragenter', 'dragover'].forEach(e => drop.addEventListener(e, ev => { ev.preventDefault(); drop.classList.add('over'); }));
+  ['dragleave', 'drop'].forEach(e => drop.addEventListener(e, () => drop.classList.remove('over')));
+  drop.addEventListener('drop', ev => { ev.preventDefault(); f.files = ev.dataTransfer.files; f.dispatchEvent(new Event('change')); });
+  document.querySelectorAll('input[name=sample]').forEach(r => r.addEventListener('change', () => {
+    f.value = ''; img.hidden = true; txt.hidden = false;
+  }));
+  const sel = document.getElementById('patient_id'), np = document.getElementById('new_pid');
+  np.addEventListener('input', () => { if (np.value) sel.value = ''; });
+  sel.addEventListener('change', () => { if (sel.value) np.value = ''; });
+  document.getElementById('scanform').addEventListener('submit', ev => {
+    if (!sel.value && !np.value.trim()) { ev.preventDefault(); np.focus(); np.setCustomValidity('Select a patient or enter a new ID'); np.reportValidity(); np.setCustomValidity(''); return; }
+    const go = document.getElementById('go'); go.disabled = true; go.textContent = 'Analysing…';
+    document.getElementById('busy').hidden = false;
+  });
+})();
+</script>
+{% endblock %}

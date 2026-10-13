@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% from "_macros.html" import pill, pred_tag, trend, meter %}
+{% block title %}Twins{% endblock %}
+{% block body %}
+<div class="head">
+  <div><h1>Patient twins</h1><p class="sub">Each patient has a digital twin. It tracks their scans and a smoothed malignancy risk over time.</p></div>
+  <a class="btn" href="{{ url_for('new_patient') }}">+ New patient</a>
+</div>
+
+<section class="stats">
+  <div><b>{{ counts.patients }}</b><span>patients</span></div>
+  <div><b>{{ counts.visits }}</b><span>scans analysed</span></div>
+  <div><b>{{ counts.malignant }}</b><span>scans flagged malignant</span></div>
+  <div class="{{ 'warn' if flagged }}"><b>{{ flagged }}</b><span>twins with an alert</span></div>
+</section>
+
+{% if not twins %}
+<section class="empty card">
+  <h2>No twins yet</h2>
+  <p>Analyse a scan and a twin is created for that patient automatically. Sample scans are built in, so you can try it now.</p>
+  <div class="row"><a class="btn primary" href="{{ url_for('scan') }}">Analyse a scan</a><a class="btn" href="{{ url_for('new_patient') }}">Create a patient</a></div>
+</section>
+{% else %}
+<section class="card flush">
+  <table class="twins">
+    <thead><tr><th>Patient</th><th>Status</th><th>Current risk</th><th>Trend</th><th>Last scan</th><th class="num">Scans</th></tr></thead>
+    <tbody>
+    {% for t in twins %}
+      <tr onclick="location.href='{{ url_for('patient', pid=t.p.id) }}'">
+        <td><a href="{{ url_for('patient', pid=t.p.id) }}"><b>{{ t.p.id }}</b></a>{% if t.p.name %}<div class="muted">{{ t.p.name }}</div>{% endif %}</td>
+        <td>{{ pill(t.st.status) }}</td>
+        <td>{% if t.st.risk is not none %}<div class="riskcell">{{ meter(t.st.risk) }}<span>{{ t.st.risk|pct }}</span></div>{% else %}<span class="muted">–</span>{% endif %}</td>
+        <td>{{ trend(t.st.trend) }}</td>
+        <td>{% if t.last %}{{ pred_tag(t.last.prediction) }} <span class="muted">{{ t.last.scan_date }}</span>{% else %}<span class="muted">–</span>{% endif %}</td>
+        <td class="num">{{ t.n }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endif %}
+
+{% if recent %}
+<h2 class="section">Recent scans</h2>
+<section class="thumbs">
+  {% for v in recent %}
+  <a class="thumb" href="{{ url_for('visit', vid=v.id) }}">
+    <img src="{{ media(v.file_stem, 'outline') }}" alt="Scan {{ v.id }} with outline" loading="lazy">
+    <div>{{ pred_tag(v.prediction) }} <b>{{ v.confidence|pct }}</b></div>
+    <div class="muted">{{ v.patient_id }} · {{ v.scan_date }}</div>
+  </a>
+  {% endfor %}
+</section>
+{% endif %}
+{% endblock %}

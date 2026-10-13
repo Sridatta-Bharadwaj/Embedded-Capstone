@@ -1,0 +1,8 @@
+# Runtime for the web app (Raspberry Pi 4, 64-bit Raspberry Pi OS, or any PC). No TensorFlow needed.
+flask>=3.0
+waitress>=3.0
+numpy
+opencv-python-headless
+# TFLite interpreter: tflite-runtime has wheels up to Python 3.11; ai-edge-litert covers newer Pythons.
+tflite-runtime; python_version < "3.12" and platform_machine == "aarch64"
+ai-edge-litert; python_version >= "3.12" or platform_machine != "aarch64"

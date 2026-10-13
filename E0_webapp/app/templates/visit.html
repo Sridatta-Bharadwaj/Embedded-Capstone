@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% from "_macros.html" import pill, pred_tag, trend, meter %}
+{% block title %}Scan {{ v.scan_date }} · {{ v.patient_id }}{% endblock %}
+{% block body %}
+{% set mal = v.prediction == 'malignant' %}
+<div class="crumbs"><a href="{{ url_for('dashboard') }}">Twins</a> / <a href="{{ url_for('patient', pid=v.patient_id) }}">{{ v.patient_id }}</a> / scan {{ idx + 1 }} of {{ n }}</div>
+
+<div class="result-grid">
+  <section class="card viewer">
+    <div class="tabs" role="tablist">
+      <button class="on" data-src="{{ media(v.file_stem, 'outline') }}" role="tab">Outline</button>
+      <button data-src="{{ media(v.file_stem, 'heatmap') }}" role="tab">Heatmap</button>
+      <button data-src="{{ media(v.file_stem, 'original') }}" role="tab">Original</button>
+    </div>
+    <a id="full" href="{{ media(v.file_stem, 'outline') }}" target="_blank"><img id="scanimg" src="{{ media(v.file_stem, 'outline') }}" alt="Ultrasound scan with model attention outline"></a>
+    <p class="legend">
+      <span class="swatch {{ 'red' if mal else 'amber' }}"></span>
+      {% if mal %}<b>Outlined region</b>: the part of the scan that pushed the model most strongly towards <i>malignant</i>.
+      {% else %}<b>Outlined region</b>: the most malignant-looking area in this scan. It stayed below the decision threshold.{% endif %}
+      The ✚ marks the strongest point. This is a Grad-CAM attention map, <b>not a traced tumour boundary</b>.
+    </p>
+  </section>
+
+  <div class="stack">
+    <section class="card verdict {{ v.prediction }}">
+      <div class="eyebrow">Tumour type (E0 model)</div>
+      <h1>{{ 'Malignant' if mal else 'Benign' }}</h1>
+      <p class="type">{{ 'High-grade serous carcinoma' if mal else 'Benign lesion or normal ovary (not high-grade serous carcinoma)' }}</p>
+      <div class="conf">
+        <div class="big">{{ v.confidence|pct(1) }}</div>
+        <div><b>confidence</b><br><span class="muted small">in this result</span></div>
+      </div>
+      <div class="scale">
+        <div class="scale-bar"><span class="pin" style="left: {{ (100 * v.score)|round(1) }}%"></span></div>
+        <div class="scale-lbl"><span>benign</span><span>decision boundary</span><span>malignant</span></div>
+      </div>
+      <details class="small">
+        <summary>How the confidence is computed</summary>
+        <p>The model outputs a raw probability of <b>{{ '%.4f'|format(v.prob) }}</b>. Its decision threshold is <b>{{ '%.4f'|format(v.threshold) }}</b>, chosen on validation data to favour catching cancers.
+        Raw scores are not calibrated, so the app shifts them so the threshold sits at 50%. That gives a malignancy score of <b>{{ v.score|pct(1) }}</b>.
+        Confidence is that score (malignant) or 100% minus it (benign). Treat it as a measure of distance from the boundary, not a clinical probability.</p>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Digital twin update</h2>
+      <dl class="kv">
+        <dt>Patient</dt><dd><a href="{{ url_for('patient', pid=v.patient_id) }}">{{ v.patient_id }}</a>{% if patient.name %} · {{ patient.name }}{% endif %}</dd>
+        <dt>Scan date</dt><dd>{{ v.scan_date }}</dd>
+        <dt>Risk after this scan</dt><dd><div class="riskcell">{{ meter(v.risk_after) }}<span>{{ v.risk_after|pct }}</span></div></dd>
+        {% if prev %}<dt>Risk before</dt><dd>{{ prev.risk_after|pct }} <span class="muted">({{ prev.scan_date }})</span></dd>{% endif %}
+        {% if is_latest %}
+        <dt>Trend</dt><dd>{{ trend(st.trend) }}</dd>
+        <dt>Twin status</dt><dd>{{ pill(st.status) }}</dd>
+        {% if st.reason %}<dt>Why</dt><dd>{{ st.reason }}</dd>{% endif %}
+        {% else %}
+        <dt>Note</dt><dd class="muted">Later scans exist for this patient. See the twin for the current state.</dd>
+        {% endif %}
+      </dl>
+      <div class="row"><a class="btn" href="{{ url_for('patient', pid=v.patient_id) }}">Open twin timeline</a><a class="btn ghost" href="{{ url_for('scan', patient=v.patient_id) }}">Add another scan</a></div>
+    </section>
+
+    <section class="card small muted meta">
+      <div>Image: {{ v.image_name or '–' }}{% if v.notes %} · {{ v.notes }}{% endif %}</div>
+      <div>Model {{ v.model_version }} · inference {{ v.infer_ms }} ms · analysed {{ v.created_at|replace('T', ' ') }}</div>
+      <form method="post" action="{{ url_for('delete_visit', vid=v.id) }}" onsubmit="return confirm('Delete this scan from the twin? This cannot be undone.')"><button class="linkbtn danger">Delete this scan</button></form>
+    </section>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b));
+  document.getElementById('scanimg').src = b.dataset.src; document.getElementById('full').href = b.dataset.src;
+}));
+</script>
+{% endblock %}
